@@ -10,7 +10,7 @@ export const Footer = () => {
           <div className="flex items-center gap-1 text-muted-foreground text-sm">
             <span>Built with</span>
             <Heart className="w-4 h-4 text-destructive fill-destructive" />
-            <span>by Your Name © {currentYear}</span>
+            <span>by Sakthidharan E © {currentYear}</span>
           </div>
 
           <div className="flex items-center gap-4">

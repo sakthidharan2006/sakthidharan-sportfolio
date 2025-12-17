@@ -51,7 +51,7 @@ export const AboutSection = () => {
                 <div className="w-full h-full rounded-2xl bg-card flex items-center justify-center overflow-hidden">
                   <div className="text-center p-8">
                     <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <span className="text-5xl font-display font-bold text-primary-foreground">YN</span>
+                      <span className="text-5xl font-display font-bold text-primary-foreground">SE</span>
                     </div>
                     <p className="text-muted-foreground">Your Photo Here</p>
                   </div>
