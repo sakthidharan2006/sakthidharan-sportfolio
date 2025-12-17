@@ -1,0 +1,116 @@
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { Award, BookOpen, Trophy, Rocket } from "lucide-react";
+
+const experiences = [
+  {
+    icon: Trophy,
+    title: "Hackathon Participant",
+    organization: "Various Tech Events",
+    period: "2023 - Present",
+    description:
+      "Participated in multiple hackathons, collaborating with teams to build innovative solutions under time constraints. Developed problem-solving skills and learned to work efficiently under pressure.",
+    highlights: ["Team collaboration", "Rapid prototyping", "Innovative solutions"],
+  },
+  {
+    icon: Award,
+    title: "Certifications",
+    organization: "Online Learning Platforms",
+    period: "2022 - Present",
+    description:
+      "Completed various certifications in web development, JavaScript, and React. Continuously expanding knowledge through structured online courses and hands-on projects.",
+    highlights: ["JavaScript Mastery", "React Development", "Node.js Backend"],
+  },
+  {
+    icon: BookOpen,
+    title: "Self-Learning Journey",
+    organization: "Personal Development",
+    period: "Ongoing",
+    description:
+      "Dedicated to continuous learning through documentation, tutorials, and building real-world projects. Focus on practical, industry-relevant skills and modern development practices.",
+    highlights: ["Full-Stack Development", "Best Practices", "Modern Technologies"],
+  },
+  {
+    icon: Rocket,
+    title: "Personal Projects",
+    organization: "Independent Development",
+    period: "2022 - Present",
+    description:
+      "Built multiple personal projects to apply learned concepts and solve real-world problems. Each project serves as a learning opportunity and portfolio piece.",
+    highlights: ["End-to-end development", "Problem solving", "Code quality"],
+  },
+];
+
+export const ExperienceSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  return (
+    <section id="experience" className="py-20 md:py-32 bg-secondary/30" ref={ref}>
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-primary font-medium mb-4 block">My Journey</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+            Experience & Learning
+          </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            A timeline of my growth through hands-on experience and continuous learning
+          </p>
+        </motion.div>
+
+        <div className="relative">
+          {/* Timeline Line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-border hidden md:block" />
+
+          <div className="space-y-8 md:space-y-12">
+            {experiences.map((exp, index) => (
+              <motion.div
+                key={exp.title}
+                initial={{ opacity: 0, y: 40 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className={`relative md:flex items-center ${
+                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                }`}
+              >
+                {/* Timeline Dot */}
+                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 hidden md:block" />
+
+                <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
+                  <div className="bg-card rounded-2xl p-6 md:p-8 border border-border/50 card-hover">
+                    <div className="flex items-start gap-4 mb-4">
+                      <div className="p-3 rounded-xl bg-primary/10 shrink-0">
+                        <exp.icon className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-display text-xl font-bold">{exp.title}</h3>
+                        <p className="text-primary text-sm">{exp.organization}</p>
+                        <p className="text-muted-foreground text-sm">{exp.period}</p>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground mb-4">{exp.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {exp.highlights.map((highlight) => (
+                        <span
+                          key={highlight}
+                          className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-xs"
+                        >
+                          {highlight}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
