@@ -32,25 +32,25 @@ export const ContactSection = () => {
     {
       icon: Mail,
       label: "Email",
-      value: "your.email@example.com",
-      href: "mailto:your.email@example.com",
+      value: "sakthidharane16@gmail.com",
+      href: "mailto:sakthidharane16@gmail.com",
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/yourprofile",
-      href: "https://linkedin.com",
+      value: "linkedin.com/in/sakthidharan-e-",
+      href: "https://linkedin.com/in/sakthidharan-e-",
     },
     {
       icon: Github,
       label: "GitHub",
-      value: "github.com/yourusername",
-      href: "https://github.com",
+      value: "github.com/sakthidharan2006",
+      href: "https://github.com/sakthidharan2006",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "Your City, Country",
+      value: "Sathyamangalam, Tamil Nadu",
       href: null,
     },
   ];

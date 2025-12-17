@@ -11,7 +11,7 @@ export const AboutSection = () => {
     {
       icon: GraduationCap,
       title: "Education",
-      description: "Diploma in Computer Technology with strong academic foundation",
+      description: "B.Tech in Information Technology at Bannari Amman Institute of Technology",
     },
     {
       icon: Code,
@@ -68,8 +68,9 @@ export const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              I'm a passionate IT professional and aspiring software developer with a{" "}
-              <span className="text-foreground font-medium">Diploma in Computer Technology</span>. 
+              I'm a passionate IT professional and aspiring software developer pursuing{" "}
+              <span className="text-foreground font-medium">B.Tech in Information Technology</span>{" "}
+              at Bannari Amman Institute of Technology. 
               My journey in tech has equipped me with a comprehensive understanding of software 
               development, hardware systems, and networking fundamentals.
             </p>
