@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, Code, Lightbulb } from "lucide-react";
+import profilePhoto from "@/assets/profile-photo.jpeg";
 
 export const AboutSection = () => {
   const ref = useRef(null);
@@ -48,13 +49,12 @@ export const AboutSection = () => {
           >
             <div className="relative">
               <div className="w-full aspect-square max-w-md mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-1">
-                <div className="w-full h-full rounded-2xl bg-card flex items-center justify-center overflow-hidden">
-                  <div className="text-center p-8">
-                    <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                      <span className="text-5xl font-display font-bold text-primary-foreground">SE</span>
-                    </div>
-                    <p className="text-muted-foreground">Your Photo Here</p>
-                  </div>
+                <div className="w-full h-full rounded-2xl bg-card overflow-hidden">
+                  <img 
+                    src={profilePhoto} 
+                    alt="Sakthidharan E" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
               <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
