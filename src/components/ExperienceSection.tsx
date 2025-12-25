@@ -1,16 +1,16 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Award, BookOpen, Trophy, Rocket } from "lucide-react";
+import { Award, BookOpen, Cloud } from "lucide-react";
 
 const experiences = [
   {
-    icon: Trophy,
-    title: "Hackathon Participant",
-    organization: "Various Tech Events",
-    period: "2023 - Present",
+    icon: Cloud,
+    title: "Microsoft Azure Fundamentals",
+    organization: "Microsoft Certification",
+    period: "2024",
     description:
-      "Participated in multiple hackathons, collaborating with teams to build innovative solutions under time constraints. Developed problem-solving skills and learned to work efficiently under pressure.",
-    highlights: ["Team collaboration", "Rapid prototyping", "Innovative solutions"],
+      "This journey has strengthened my knowledge of cloud computing, Azure architecture, and effective management & governance practices.",
+    highlights: ["Cloud Computing", "Azure Architecture", "Management & Governance"],
   },
   {
     icon: Award,
@@ -29,15 +29,6 @@ const experiences = [
     description:
       "Dedicated to continuous learning through documentation, tutorials, and building real-world projects. Focus on practical, industry-relevant skills and modern development practices.",
     highlights: ["Full-Stack Development", "Best Practices", "Modern Technologies"],
-  },
-  {
-    icon: Rocket,
-    title: "Personal Projects",
-    organization: "Independent Development",
-    period: "2022 - Present",
-    description:
-      "Built multiple personal projects to apply learned concepts and solve real-world problems. Each project serves as a learning opportunity and portfolio piece.",
-    highlights: ["End-to-end development", "Problem solving", "Code quality"],
   },
 ];
 
