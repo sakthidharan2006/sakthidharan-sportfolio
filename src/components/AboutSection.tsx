@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Code, Lightbulb } from "lucide-react";
+import { GraduationCap, Code, Lightbulb, Award, BookOpen } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
 export const AboutSection = () => {
@@ -11,8 +11,18 @@ export const AboutSection = () => {
   const highlights = [
     {
       icon: GraduationCap,
-      title: "Education",
-      description: "B.Tech in Information Technology at Bannari Amman Institute of Technology",
+      title: "B.Tech - Information Technology",
+      description: "Bannari Amman Institute of Technology (Pursuing)",
+    },
+    {
+      icon: Award,
+      title: "Diploma - Computer Technology",
+      description: "Kongu Polytechnic College — 84%",
+    },
+    {
+      icon: BookOpen,
+      title: "SSLC",
+      description: "Nest School",
     },
     {
       icon: Code,
