@@ -29,15 +29,6 @@ const projects = [
     github: "https://github.com",
     featured: false,
   },
-  {
-    title: "Task Management App",
-    description:
-      "A productivity application for managing tasks and projects with drag-and-drop functionality, priority levels, and deadline tracking.",
-    features: ["Drag & drop", "Priority levels", "Deadline tracking", "Categories"],
-    tech: ["React", "Node.js", "MongoDB"],
-    github: "https://github.com",
-    featured: false,
-  },
 ];
 
 export const ProjectsSection = () => {
