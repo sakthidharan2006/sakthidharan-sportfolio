@@ -1,8 +1,17 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Award, BookOpen, Cloud } from "lucide-react";
+import { Award, BookOpen, Cloud, Briefcase } from "lucide-react";
 
 const experiences = [
+  {
+    icon: Briefcase,
+    title: "Internship",
+    organization: "SBA HIGH-TECH Solutions",
+    period: "2023",
+    description:
+      "Gained hands-on experience working on real-world projects and collaborating with industry professionals. Developed practical skills in software development and problem-solving.",
+    highlights: ["Real-world Projects", "Industry Experience", "Professional Development"],
+  },
   {
     icon: Cloud,
     title: "Microsoft Azure Fundamentals",
