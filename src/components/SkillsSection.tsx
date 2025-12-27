@@ -73,25 +73,45 @@ export const SkillsSection = () => {
               </h3>
               <div className="space-y-5">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name}>
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                    transition={{ delay: 0.3 + categoryIndex * 0.1 + skillIndex * 0.05, duration: 0.4 }}
+                    whileHover={{ scale: 1.02 }}
+                    className="group"
+                  >
                     <div className="flex justify-between mb-2">
-                      <span className="font-medium">{skill.name}</span>
-                      <span className="text-muted-foreground text-sm">{skill.level}%</span>
+                      <span className="font-medium group-hover:text-primary transition-colors">{skill.name}</span>
+                      <motion.span
+                        initial={{ opacity: 0 }}
+                        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                        transition={{ delay: 0.5 + categoryIndex * 0.1 + skillIndex * 0.1 }}
+                        className="text-muted-foreground text-sm"
+                      >
+                        {skill.level}%
+                      </motion.span>
                     </div>
                     <div className="h-2 bg-secondary rounded-full overflow-hidden">
                       <motion.div
-                        initial={{ width: 0 }}
-                        animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
+                        initial={{ width: 0, opacity: 0 }}
+                        animate={isInView ? { width: `${skill.level}%`, opacity: 1 } : { width: 0, opacity: 0 }}
                         transition={{
-                          duration: 1,
-                          delay: 0.3 + categoryIndex * 0.1 + skillIndex * 0.1,
-                          ease: "easeOut",
+                          duration: 1.2,
+                          delay: 0.4 + categoryIndex * 0.1 + skillIndex * 0.1,
+                          ease: [0.25, 0.46, 0.45, 0.94],
                         }}
-                        className="h-full rounded-full"
+                        className="h-full rounded-full relative overflow-hidden"
                         style={{ backgroundImage: "var(--gradient-primary)" }}
-                      />
+                      >
+                        <motion.div
+                          animate={{ x: ["-100%", "100%"] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 1 + skillIndex * 0.2 }}
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                        />
+                      </motion.div>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>

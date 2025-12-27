@@ -96,23 +96,27 @@ export const ContactSection = () => {
               {contactInfo.map((item, index) => (
                 <motion.div
                   key={item.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+                  transition={{ duration: 0.5, delay: 0.3 + index * 0.1, type: "spring", stiffness: 100 }}
+                  whileHover={{ x: 5, scale: 1.02 }}
                 >
                   {item.href ? (
                     <a
                       href={item.href}
                       target={item.href.startsWith("http") ? "_blank" : undefined}
                       rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors group"
+                      className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-secondary hover:shadow-lg transition-all group"
                     >
-                      <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <motion.div
+                        whileHover={{ rotate: 10, scale: 1.1 }}
+                        className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                      >
                         <item.icon className="w-5 h-5 text-primary" />
-                      </div>
+                      </motion.div>
                       <div>
                         <p className="text-sm text-muted-foreground">{item.label}</p>
-                        <p className="font-medium">{item.value}</p>
+                        <p className="font-medium group-hover:text-primary transition-colors">{item.value}</p>
                       </div>
                     </a>
                   ) : (

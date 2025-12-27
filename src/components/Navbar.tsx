@@ -49,14 +49,18 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
+            {navItems.map((item, index) => (
+              <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * index, duration: 0.3 }}
+                whileHover={{ y: -2 }}
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium underline-animate"
               >
                 {item.name}
-              </a>
+              </motion.a>
             ))}
             <Button
               variant="ghost"
