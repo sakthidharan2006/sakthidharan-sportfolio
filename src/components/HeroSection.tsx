@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const HeroSection = () => {
@@ -54,6 +54,12 @@ export const HeroSection = () => {
             </Button>
             <Button size="lg" variant="outline" className="px-8 py-6 text-lg rounded-full">
               <a href="#contact">Contact Me</a>
+            </Button>
+            <Button size="lg" variant="secondary" className="px-8 py-6 text-lg rounded-full" asChild>
+              <a href="/resume.pdf" download="Sakthidharan_E_Resume.pdf">
+                <Download className="w-5 h-5 mr-2" />
+                Download Resume
+              </a>
             </Button>
           </motion.div>
 
