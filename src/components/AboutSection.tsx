@@ -8,22 +8,31 @@ export const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const highlights = [
+  const education = [
     {
       icon: GraduationCap,
-      title: "B.Tech - Information Technology",
-      description: "Bannari Amman Institute of Technology (Pursuing)",
+      degree: "B.Tech - Information Technology",
+      institution: "Bannari Amman Institute of Technology",
+      status: "Pursuing",
+      year: "2023 - 2027",
     },
     {
       icon: Award,
-      title: "Diploma - Computer Technology",
-      description: "Kongu Polytechnic College — 84%",
+      degree: "Diploma in Computer Technology",
+      institution: "Kongu Polytechnic College",
+      status: "84%",
+      year: "2020 - 2023",
     },
     {
       icon: BookOpen,
-      title: "SSLC",
-      description: "Nest School",
+      degree: "SSLC",
+      institution: "Nest School",
+      status: "Completed",
+      year: "2020",
     },
+  ];
+
+  const highlights = [
     {
       icon: Code,
       title: "Full-Stack Focus",
@@ -90,20 +99,54 @@ export const AboutSection = () => {
               I approach every challenge with curiosity and determination to deliver impactful solutions.
             </p>
 
-            <div className="grid gap-4">
+            {/* Education Section */}
+            <div className="mb-8">
+              <h3 className="font-display text-xl font-bold mb-4 flex items-center gap-2">
+                <GraduationCap className="w-5 h-5 text-primary" />
+                Education
+              </h3>
+              <div className="grid gap-3">
+                {education.map((item, index) => (
+                  <motion.div
+                    key={item.degree}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                    className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10 hover:border-primary/30 transition-all tech-corner"
+                  >
+                    <div className="p-2 rounded-lg bg-primary/10">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                        <h4 className="font-display font-semibold">{item.degree}</h4>
+                        <span className="text-xs px-2 py-1 bg-accent/10 text-accent rounded-full w-fit">
+                          {item.status}
+                        </span>
+                      </div>
+                      <p className="text-sm text-muted-foreground">{item.institution}</p>
+                      <p className="text-xs text-muted-foreground/70 mt-1">{item.year}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Highlights */}
+            <div className="grid gap-3">
               {highlights.map((item, index) => (
                 <motion.div
                   key={item.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                  transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
                   className="flex items-start gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
                 >
                   <div className="p-2 rounded-lg bg-primary/10">
                     <item.icon className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-display font-semibold mb-1">{item.title}</h3>
+                    <h4 className="font-display font-semibold mb-1">{item.title}</h4>
                     <p className="text-sm text-muted-foreground">{item.description}</p>
                   </div>
                 </motion.div>
