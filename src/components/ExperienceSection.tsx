@@ -23,12 +23,21 @@ const experiences = [
   },
   {
     icon: Award,
-    title: "Certifications",
-    organization: "Online Learning Platforms",
-    period: "2022 - Present",
+    title: "AWS Certifications",
+    organization: "Amazon Web Services",
+    period: "2024",
     description:
-      "Completed various certifications in web development, JavaScript, and React. Continuously expanding knowledge through structured online courses and hands-on projects.",
-    highlights: ["JavaScript Mastery", "React Development", "Node.js Backend"],
+      "Completed AWS Cloud Practitioner Essentials and Introduction to Generative AI - Art of the Possible. Built foundational knowledge in cloud services and AI capabilities.",
+    highlights: ["Cloud Practitioner Essentials", "Generative AI Fundamentals", "AWS Services"],
+  },
+  {
+    icon: Award,
+    title: "Cybersecurity Certification",
+    organization: "Cisco Networking Academy",
+    period: "2024",
+    description:
+      "Completed Introduction to Cybersecurity course, gaining essential knowledge in security fundamentals, threat detection, and network protection strategies.",
+    highlights: ["Network Security", "Threat Detection", "Security Best Practices"],
   },
   {
     icon: BookOpen,
