@@ -132,6 +132,45 @@
   .glass {
     @apply bg-card/80 backdrop-blur-md border border-border/50;
   }
+
+  /* Tech-themed decorations */
+  .tech-grid {
+    background-image: linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  .tech-dots {
+    background-image: radial-gradient(hsl(var(--primary) / 0.15) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .circuit-line {
+    @apply relative;
+  }
+
+  .circuit-line::before {
+    content: '';
+    @apply absolute w-20 h-0.5 bg-gradient-to-r from-primary/50 to-transparent rounded-full;
+  }
+
+  .tech-corner {
+    @apply relative;
+  }
+
+  .tech-corner::before,
+  .tech-corner::after {
+    content: '';
+    @apply absolute w-8 h-8 border-primary/20;
+  }
+
+  .tech-corner::before {
+    @apply top-0 left-0 border-t-2 border-l-2;
+  }
+
+  .tech-corner::after {
+    @apply bottom-0 right-0 border-b-2 border-r-2;
+  }
 }
 
 @layer utilities {

@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink, Github, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
+import truckImage from "@/assets/truck-project.png";
 const projects = [
   {
     title: "Smart Truck Loading Optimization System",
@@ -126,10 +126,26 @@ export const ProjectsSection = () => {
                       )}
                     </div>
                   </div>
-                  <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-8 md:p-12 flex items-center justify-center min-h-[300px] lg:min-h-full">
-                    <div className="w-full max-w-sm aspect-video rounded-xl bg-card/80 backdrop-blur shadow-2xl flex items-center justify-center border border-border/50">
-                      <Truck className="w-16 h-16 text-primary/50" />
+                  <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-8 md:p-12 flex items-center justify-center min-h-[300px] lg:min-h-full relative overflow-hidden">
+                    {/* Tech grid pattern */}
+                    <div className="absolute inset-0 opacity-10">
+                      <div className="absolute inset-0" style={{
+                        backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
+                        backgroundSize: '40px 40px'
+                      }} />
                     </div>
+                    <motion.div
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                      transition={{ duration: 0.5, delay: 0.4 }}
+                      className="relative z-10"
+                    >
+                      <img 
+                        src={truckImage} 
+                        alt="Smart Truck Loading System" 
+                        className="w-full max-w-md rounded-xl shadow-2xl border border-border/50"
+                      />
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
