@@ -131,7 +131,7 @@ export const HeroSection = () => {
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button size="lg" variant="secondary" className="px-8 py-6 text-lg rounded-full" asChild>
-                <a href="/resume.pdf" download="Sakthidharan_E_Resume.pdf">
+                <a href="/Resume_Sakthidharan.pdf" download="Sakthidharan_E_Resume.pdf">
                   <Download className="w-5 h-5 mr-2" />
                   Download Resume
                 </a>
