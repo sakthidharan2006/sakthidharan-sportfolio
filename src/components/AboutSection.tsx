@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Code, Lightbulb, Award, BookOpen } from "lucide-react";
+import { GraduationCap, Award, BookOpen } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
 export const AboutSection = () => {
@@ -32,18 +32,6 @@ export const AboutSection = () => {
     },
   ];
 
-  const highlights = [
-    {
-      icon: Code,
-      title: "Full-Stack Focus",
-      description: "Proficient in software, hardware, and networking fundamentals",
-    },
-    {
-      icon: Lightbulb,
-      title: "Problem Solver",
-      description: "Passionate about tackling complex challenges with elegant solutions",
-    },
-  ];
 
   return (
     <section id="about" className="py-20 md:py-32" ref={ref}>
@@ -132,26 +120,6 @@ export const AboutSection = () => {
               </div>
             </div>
 
-            {/* Highlights */}
-            <div className="grid gap-3">
-              {highlights.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                  transition={{ duration: 0.4, delay: 0.7 + index * 0.1 }}
-                  className="flex items-start gap-4 p-4 rounded-xl bg-secondary/50 hover:bg-secondary transition-colors"
-                >
-                  <div className="p-2 rounded-lg bg-primary/10">
-                    <item.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <h4 className="font-display font-semibold mb-1">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
         </div>
       </div>
