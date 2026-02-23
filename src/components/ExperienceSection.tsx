@@ -40,6 +40,24 @@ const experiences = [
     highlights: ["Network Security", "Threat Detection", "Security Best Practices"],
   },
   {
+    icon: Award,
+    title: "Data Analytics Essentials",
+    organization: "Cisco Networking Academy",
+    period: "2026",
+    description:
+      "Completed Data Analytics Essentials certification through Cisco Networking Academy at Bannari Amman Institute of Technology, building skills in data analysis and visualization.",
+    highlights: ["Data Analysis", "Data Visualization", "Analytics Fundamentals"],
+  },
+  {
+    icon: Award,
+    title: "Introduction to Data Science",
+    organization: "Cisco Networking Academy",
+    period: "2026",
+    description:
+      "Completed Introduction to Data Science certification through Cisco Networking Academy at Bannari Amman Institute of Technology, gaining foundational knowledge in data science concepts and methodologies.",
+    highlights: ["Data Science", "Data Methodologies", "Statistical Analysis"],
+  },
+  {
     icon: BookOpen,
     title: "Self-Learning Journey",
     organization: "Personal Development",
