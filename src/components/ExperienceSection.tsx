@@ -58,6 +58,24 @@ const experiences = [
     highlights: ["Data Science", "Data Methodologies", "Statistical Analysis"],
   },
   {
+    icon: Award,
+    title: "Introduction to Modern AI",
+    organization: "Cisco Networking Academy",
+    period: "2026",
+    description:
+      "Completed Introduction to Modern AI certification through Cisco Networking Academy at Bannari Amman Institute of Technology, exploring modern AI concepts and applications.",
+    highlights: ["Modern AI", "AI Applications", "Machine Learning Basics"],
+  },
+  {
+    icon: Award,
+    title: "Python Essentials 1",
+    organization: "Cisco Networking Academy & Python Institute",
+    period: "2026",
+    description:
+      "Completed Python Essentials 1 certification through Cisco Networking Academy at Bannari Amman Institute of Technology, building foundational Python programming skills.",
+    highlights: ["Python Programming", "Scripting", "Software Development"],
+  },
+  {
     icon: BookOpen,
     title: "Self-Learning Journey",
     organization: "Personal Development",
