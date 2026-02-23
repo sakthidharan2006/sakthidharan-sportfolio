@@ -54,18 +54,32 @@ export const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative">
-              <div className="w-full aspect-square max-w-md mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-1">
+            <div className="relative group">
+              <motion.div
+                className="w-full aspect-square max-w-md mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-1"
+                whileHover={{ scale: 1.03, rotate: 1 }}
+                transition={{ type: "spring", stiffness: 200, damping: 15 }}
+              >
                 <div className="w-full h-full rounded-2xl bg-card overflow-hidden">
-                  <img 
+                  <motion.img 
                     src={profilePhoto} 
                     alt="Sakthidharan E" 
                     className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.08 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
                   />
                 </div>
-              </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
-              <div className="absolute -top-4 -left-4 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
+              </motion.div>
+              <motion.div
+                className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl"
+                animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
+              <motion.div
+                className="absolute -top-4 -left-4 w-32 h-32 bg-primary/20 rounded-full blur-2xl"
+                animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.7, 0.5] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              />
             </div>
           </motion.div>
 
