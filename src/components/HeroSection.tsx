@@ -1,16 +1,17 @@
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail, Download, Sparkles, FileCode, Braces, Atom, Server, Database, GitBranch, Code2, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useRef } from "react";
 
 const floatingTechIcons = [
-  { icon: Atom, label: "React", x: "8%", y: "18%", size: 28, delay: 0, color: "hsl(193 95% 55%)" },
-  { icon: Braces, label: "JS", x: "88%", y: "22%", size: 24, delay: 0.5, color: "hsl(50 90% 50%)" },
-  { icon: FileCode, label: "HTML", x: "5%", y: "55%", size: 22, delay: 1, color: "hsl(12 77% 52%)" },
-  { icon: Code2, label: "CSS", x: "92%", y: "50%", size: 22, delay: 1.5, color: "hsl(205 87% 50%)" },
-  { icon: Server, label: "Node", x: "12%", y: "80%", size: 20, delay: 2, color: "hsl(120 40% 44%)" },
-  { icon: Database, label: "DB", x: "85%", y: "78%", size: 20, delay: 2.5, color: "hsl(120 40% 40%)" },
-  { icon: GitBranch, label: "Git", x: "18%", y: "38%", size: 18, delay: 3, color: "hsl(15 75% 55%)" },
-  { icon: Route, label: "API", x: "82%", y: "38%", size: 18, delay: 3.5, color: "hsl(217 71% 45%)" },
+  { icon: Atom, label: "React", x: "8%", y: "18%", size: 28, delay: 0, color: "hsl(193 95% 55%)", speed: 0.3 },
+  { icon: Braces, label: "JS", x: "88%", y: "22%", size: 24, delay: 0.5, color: "hsl(50 90% 50%)", speed: 0.5 },
+  { icon: FileCode, label: "HTML", x: "5%", y: "55%", size: 22, delay: 1, color: "hsl(12 77% 52%)", speed: 0.2 },
+  { icon: Code2, label: "CSS", x: "92%", y: "50%", size: 22, delay: 1.5, color: "hsl(205 87% 50%)", speed: 0.45 },
+  { icon: Server, label: "Node", x: "12%", y: "80%", size: 20, delay: 2, color: "hsl(120 40% 44%)", speed: 0.35 },
+  { icon: Database, label: "DB", x: "85%", y: "78%", size: 20, delay: 2.5, color: "hsl(120 40% 40%)", speed: 0.55 },
+  { icon: GitBranch, label: "Git", x: "18%", y: "38%", size: 18, delay: 3, color: "hsl(15 75% 55%)", speed: 0.25 },
+  { icon: Route, label: "API", x: "82%", y: "38%", size: 18, delay: 3.5, color: "hsl(217 71% 45%)", speed: 0.4 },
 ];
 
 const containerVariants: Variants = {
@@ -57,6 +58,39 @@ const socialIconVariants: Variants = {
   tap: { scale: 0.9 },
 };
 
+const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: number }) => {
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, -200 * tech.speed]);
+  const opacity = useTransform(scrollY, [0, 600], [1, 0]);
+  const IconComp = tech.icon;
+
+  return (
+    <motion.div
+      className="absolute flex flex-col items-center gap-1"
+      style={{ left: tech.x, top: tech.y, y, opacity }}
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{
+        opacity: [0.25, 0.5, 0.25],
+        scale: 1,
+        rotate: [0, i % 2 === 0 ? 8 : -8, 0],
+      }}
+      transition={{
+        opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+        scale: { duration: 0.6, delay: tech.delay, ease: "backOut" as const },
+        rotate: { duration: 7 + i * 0.5, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+      }}
+    >
+      <div
+        className="p-2.5 rounded-xl backdrop-blur-sm border border-border/30"
+        style={{ backgroundColor: `${tech.color}10` }}
+      >
+        <IconComp style={{ color: tech.color, width: tech.size, height: tech.size }} />
+      </div>
+      <span className="text-[10px] font-medium text-muted-foreground/60">{tech.label}</span>
+    </motion.div>
+  );
+};
+
 export const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
@@ -88,41 +122,11 @@ export const HeroSection = () => {
         />
       </div>
 
-      {/* Floating Tech Icons */}
+      {/* Floating Tech Icons with Parallax */}
       <div className="absolute inset-0 pointer-events-none hidden md:block">
-        {floatingTechIcons.map((tech, i) => {
-          const IconComp = tech.icon;
-          return (
-            <motion.div
-              key={tech.label}
-              className="absolute flex flex-col items-center gap-1"
-              style={{ left: tech.x, top: tech.y }}
-              initial={{ opacity: 0, scale: 0 }}
-              animate={{
-                opacity: [0.25, 0.5, 0.25],
-                scale: 1,
-                y: [0, i % 2 === 0 ? -12 : 12, 0],
-                x: [0, i % 2 === 0 ? 6 : -6, 0],
-                rotate: [0, i % 2 === 0 ? 8 : -8, 0],
-              }}
-              transition={{
-                opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
-                scale: { duration: 0.6, delay: tech.delay, ease: "backOut" as const },
-                y: { duration: 5 + i * 0.5, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
-                x: { duration: 6 + i * 0.5, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
-                rotate: { duration: 7 + i * 0.5, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
-              }}
-            >
-              <div
-                className="p-2.5 rounded-xl backdrop-blur-sm border border-border/30"
-                style={{ backgroundColor: `${tech.color}10` }}
-              >
-                <IconComp style={{ color: tech.color, width: tech.size, height: tech.size }} />
-              </div>
-              <span className="text-[10px] font-medium text-muted-foreground/60">{tech.label}</span>
-            </motion.div>
-          );
-        })}
+        {floatingTechIcons.map((tech, i) => (
+          <ParallaxIcon key={tech.label} tech={tech} i={i} />
+        ))}
       </div>
 
       <div className="section-container">
