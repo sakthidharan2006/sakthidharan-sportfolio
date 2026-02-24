@@ -1,41 +1,58 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import {
+  Code2, FileCode, Braces, Atom,
+  Server, Route, Database, GitBranch,
+  KeyRound, MonitorSmartphone, Send, Wrench,
+} from "lucide-react";
 
 const skillCategories = [
   {
     title: "Frontend",
     skills: [
-      { name: "HTML5", level: 90 },
-      { name: "CSS3", level: 85 },
-      { name: "JavaScript", level: 85 },
-      { name: "React", level: 80 },
+      { name: "HTML5", level: 90, icon: FileCode, color: "hsl(12 77% 52%)" },
+      { name: "CSS3", level: 85, icon: Code2, color: "hsl(205 87% 50%)" },
+      { name: "JavaScript", level: 85, icon: Braces, color: "hsl(50 90% 50%)" },
+      { name: "React", level: 80, icon: Atom, color: "hsl(193 95% 55%)" },
     ],
   },
   {
     title: "Backend",
     skills: [
-      { name: "Node.js", level: 75 },
-      { name: "Express", level: 75 },
-      { name: "REST APIs", level: 80 },
+      { name: "Node.js", level: 75, icon: Server, color: "hsl(120 40% 44%)" },
+      { name: "Express", level: 75, icon: Route, color: "hsl(0 0% 50%)" },
+      { name: "REST APIs", level: 80, icon: Send, color: "hsl(217 71% 45%)" },
     ],
   },
   {
     title: "Database",
     skills: [
-      { name: "MongoDB", level: 75 },
-      { name: "SQL Basics", level: 65 },
+      { name: "MongoDB", level: 75, icon: Database, color: "hsl(120 40% 40%)" },
+      { name: "SQL Basics", level: 65, icon: Database, color: "hsl(210 50% 50%)" },
     ],
   },
   {
     title: "Tools & Others",
     skills: [
-      { name: "Git & GitHub", level: 85 },
-      { name: "JWT Auth", level: 70 },
-      { name: "VS Code", level: 90 },
-      { name: "Postman", level: 80 },
+      { name: "Git & GitHub", level: 85, icon: GitBranch, color: "hsl(15 75% 55%)" },
+      { name: "JWT Auth", level: 70, icon: KeyRound, color: "hsl(280 60% 55%)" },
+      { name: "VS Code", level: 90, icon: MonitorSmartphone, color: "hsl(210 80% 55%)" },
+      { name: "Postman", level: 80, icon: Wrench, color: "hsl(25 90% 55%)" },
     ],
   },
 ];
+
+const iconAnimations = {
+  spin: { rotate: [0, 360], transition: { duration: 8, repeat: Infinity, ease: "linear" as const } },
+  pulse: { scale: [1, 1.15, 1], transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const } },
+  bounce: { y: [0, -4, 0], transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" as const } },
+  wiggle: { rotate: [-8, 8, -8], transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" as const } },
+};
+
+const getAnimation = (index: number) => {
+  const anims = [iconAnimations.spin, iconAnimations.pulse, iconAnimations.bounce, iconAnimations.wiggle];
+  return anims[index % anims.length];
+};
 
 export const SkillsSection = () => {
   const ref = useRef(null);
@@ -72,47 +89,63 @@ export const SkillsSection = () => {
                 {category.title}
               </h3>
               <div className="space-y-5">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                    transition={{ delay: 0.3 + categoryIndex * 0.1 + skillIndex * 0.05, duration: 0.4 }}
-                    whileHover={{ scale: 1.02 }}
-                    className="group"
-                  >
-                    <div className="flex justify-between mb-2">
-                      <span className="font-medium group-hover:text-primary transition-colors">{skill.name}</span>
-                      <motion.span
-                        initial={{ opacity: 0 }}
-                        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-                        transition={{ delay: 0.5 + categoryIndex * 0.1 + skillIndex * 0.1 }}
-                        className="text-muted-foreground text-sm"
-                      >
-                        {skill.level}%
-                      </motion.span>
-                    </div>
-                    <div className="h-2 bg-secondary rounded-full overflow-hidden">
-                      <motion.div
-                        initial={{ width: 0, opacity: 0 }}
-                        animate={isInView ? { width: `${skill.level}%`, opacity: 1 } : { width: 0, opacity: 0 }}
-                        transition={{
-                          duration: 1.2,
-                          delay: 0.4 + categoryIndex * 0.1 + skillIndex * 0.1,
-                          ease: [0.25, 0.46, 0.45, 0.94],
-                        }}
-                        className="h-full rounded-full relative overflow-hidden"
-                        style={{ backgroundImage: "var(--gradient-primary)" }}
-                      >
+                {category.skills.map((skill, skillIndex) => {
+                  const IconComp = skill.icon;
+                  const globalIndex = categoryIndex * 4 + skillIndex;
+                  return (
+                    <motion.div
+                      key={skill.name}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+                      transition={{ delay: 0.3 + categoryIndex * 0.1 + skillIndex * 0.05, duration: 0.4 }}
+                      whileHover={{ scale: 1.02 }}
+                      className="group"
+                    >
+                      <div className="flex items-center justify-between mb-2">
+                        <div className="flex items-center gap-2.5">
+                          <motion.div
+                            animate={isInView ? getAnimation(globalIndex) : {}}
+                            whileHover={{ scale: 1.3, rotate: 15 }}
+                            className="p-1.5 rounded-lg"
+                            style={{ backgroundColor: `${skill.color}15` }}
+                          >
+                            <IconComp className="w-4.5 h-4.5" style={{ color: skill.color }} />
+                          </motion.div>
+                          <span className="font-medium group-hover:text-primary transition-colors">
+                            {skill.name}
+                          </span>
+                        </div>
+                        <motion.span
+                          initial={{ opacity: 0 }}
+                          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+                          transition={{ delay: 0.5 + categoryIndex * 0.1 + skillIndex * 0.1 }}
+                          className="text-muted-foreground text-sm"
+                        >
+                          {skill.level}%
+                        </motion.span>
+                      </div>
+                      <div className="h-2 bg-secondary rounded-full overflow-hidden">
                         <motion.div
-                          animate={{ x: ["-100%", "100%"] }}
-                          transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 1 + skillIndex * 0.2 }}
-                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                        />
-                      </motion.div>
-                    </div>
-                  </motion.div>
-                ))}
+                          initial={{ width: 0, opacity: 0 }}
+                          animate={isInView ? { width: `${skill.level}%`, opacity: 1 } : { width: 0, opacity: 0 }}
+                          transition={{
+                            duration: 1.2,
+                            delay: 0.4 + categoryIndex * 0.1 + skillIndex * 0.1,
+                            ease: [0.25, 0.46, 0.45, 0.94],
+                          }}
+                          className="h-full rounded-full relative overflow-hidden"
+                          style={{ backgroundImage: "var(--gradient-primary)" }}
+                        >
+                          <motion.div
+                            animate={{ x: ["-100%", "100%"] }}
+                            transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 1 + skillIndex * 0.2 }}
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                          />
+                        </motion.div>
+                      </div>
+                    </motion.div>
+                  );
+                })}
               </div>
             </motion.div>
           ))}
