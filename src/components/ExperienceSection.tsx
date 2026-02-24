@@ -76,6 +76,15 @@ const experiences = [
     highlights: ["Python Programming", "Scripting", "Software Development"],
   },
   {
+    icon: Award,
+    title: "Google Gemini Certified Student",
+    organization: "Google for Education",
+    period: "2026",
+    description:
+      "Earned the Gemini Certified Student (University) qualification, demonstrating knowledge, skills, and basic competencies needed to use Google AI.",
+    highlights: ["Google AI", "Gemini", "AI Competencies"],
+  },
+  {
     icon: BookOpen,
     title: "Self-Learning Journey",
     organization: "Personal Development",
