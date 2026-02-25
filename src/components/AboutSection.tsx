@@ -54,21 +54,31 @@ export const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="relative group">
+            <div className="relative group flex items-center justify-center">
+              {/* Rotating gradient ring */}
               <motion.div
-                className="w-72 h-72 md:w-80 md:h-80 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 p-1"
-                whileHover={{ scale: 1.03, rotate: 3 }}
+                className="absolute w-[19rem] h-[19rem] md:w-[21.5rem] md:h-[21.5rem] rounded-full"
+                style={{
+                  background: "conic-gradient(from 0deg, hsl(217 71% 35%), hsl(200 65% 48%), hsl(245 58% 50%), hsl(217 71% 35%))",
+                  padding: "3px",
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              >
+                <div className="w-full h-full rounded-full bg-background" />
+              </motion.div>
+              <motion.div
+                className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden z-10"
+                whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
               >
-                <div className="w-full h-full rounded-full bg-card overflow-hidden">
-                  <motion.img 
-                    src={profilePhoto} 
-                    alt="Sakthidharan E" 
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.08 }}
-                    transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                  />
-                </div>
+                <motion.img 
+                  src={profilePhoto} 
+                  alt="Sakthidharan E" 
+                  className="w-full h-full object-cover rounded-full"
+                  whileHover={{ scale: 1.08 }}
+                  transition={{ type: "spring", stiffness: 200, damping: 15 }}
+                />
               </motion.div>
               <motion.div
                 className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl"
