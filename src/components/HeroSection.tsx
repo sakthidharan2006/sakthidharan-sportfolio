@@ -72,12 +72,12 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
       animate={{
         opacity: [0.25, 0.5, 0.25],
         scale: 1,
-        rotate: [0, i % 2 === 0 ? 8 : -8, 0],
+        rotate: i % 2 === 0 ? [0, 360] : [0, -360],
       }}
       transition={{
         opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         scale: { duration: 0.6, delay: tech.delay, ease: "backOut" as const },
-        rotate: { duration: 7 + i * 0.5, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+        rotate: { duration: 6 + i * 1.5, repeat: Infinity, ease: "linear" as const, delay: tech.delay },
       }}
     >
       <div
