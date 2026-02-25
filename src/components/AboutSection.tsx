@@ -56,11 +56,11 @@ export const AboutSection = () => {
           >
             <div className="relative group">
               <motion.div
-                className="w-full aspect-square max-w-md mx-auto rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 p-1"
-                whileHover={{ scale: 1.03, rotate: 1 }}
+                className="w-72 h-72 md:w-80 md:h-80 mx-auto rounded-full bg-gradient-to-br from-primary/20 to-accent/20 p-1"
+                whileHover={{ scale: 1.03, rotate: 3 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
               >
-                <div className="w-full h-full rounded-2xl bg-card overflow-hidden">
+                <div className="w-full h-full rounded-full bg-card overflow-hidden">
                   <motion.img 
                     src={profilePhoto} 
                     alt="Sakthidharan E" 
