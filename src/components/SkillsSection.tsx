@@ -6,6 +6,17 @@ import {
   KeyRound, MonitorSmartphone, Send, Wrench,
 } from "lucide-react";
 
+const iconAnimConfigs = [
+  { animate: { rotate: [0, 360] }, transition: { duration: 6, repeat: Infinity, ease: "linear" as const } },
+  { animate: { scale: [1, 1.25, 1] }, transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const } },
+  { animate: { y: [0, -6, 0] }, transition: { duration: 1.2, repeat: Infinity, ease: "easeInOut" as const } },
+  { animate: { rotate: [-12, 12, -12] }, transition: { duration: 0.8, repeat: Infinity, ease: "easeInOut" as const } },
+  { animate: { rotate: [0, 360] }, transition: { duration: 4, repeat: Infinity, ease: "linear" as const } },
+  { animate: { x: [0, -3, 4, -2, 0] }, transition: { duration: 0.25, repeat: Infinity, repeatDelay: 3 } },
+];
+
+const getAnimation = (index: number) => iconAnimConfigs[index % iconAnimConfigs.length];
+
 const skillCategories = [
   {
     title: "Frontend",
@@ -79,6 +90,8 @@ export const SkillsSection = () => {
               <div className="space-y-5">
                 {category.skills.map((skill, skillIndex) => {
                   const IconComp = skill.icon;
+                  const globalIndex = categoryIndex * 4 + skillIndex;
+                  const anim = getAnimation(globalIndex);
                   return (
                     <motion.div
                       key={skill.name}
@@ -89,11 +102,23 @@ export const SkillsSection = () => {
                     >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2.5">
-                          <div
-                            className="p-1.5 rounded-lg"
-                            style={{ backgroundColor: `${skill.color}12` }}
-                          >
-                            <IconComp className="w-4 h-4" style={{ color: skill.color }} />
+                          <div className="relative">
+                            {/* Animated ring behind icon */}
+                            <motion.div
+                              className="absolute -inset-1 rounded-lg"
+                              style={{ borderColor: `${skill.color}25`, borderWidth: 1 }}
+                              animate={{ scale: [1, 1.4], opacity: [0.5, 0] }}
+                              transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: skillIndex * 0.5 }}
+                            />
+                            <motion.div
+                              className="relative p-1.5 rounded-lg"
+                              style={{ backgroundColor: `${skill.color}12` }}
+                              animate={isInView ? anim.animate : {}}
+                              transition={anim.transition}
+                              whileHover={{ scale: 1.3, rotate: 15, transition: { type: "spring", stiffness: 300 } }}
+                            >
+                              <IconComp className="w-4 h-4" style={{ color: skill.color }} />
+                            </motion.div>
                           </div>
                           <span className="text-sm font-medium group-hover:text-primary transition-colors">
                             {skill.name}
@@ -120,10 +145,18 @@ export const SkillsSection = () => {
                           className="h-full rounded-full relative overflow-hidden"
                           style={{ backgroundImage: "var(--gradient-primary)" }}
                         >
+                          {/* Shimmer */}
                           <motion.div
                             animate={{ x: ["-100%", "100%"] }}
                             transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 1 + skillIndex * 0.2 }}
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent"
+                          />
+                          {/* Glow dot at end */}
+                          <motion.div
+                            className="absolute right-0 top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full"
+                            style={{ backgroundColor: skill.color, boxShadow: `0 0 8px ${skill.color}` }}
+                            animate={{ opacity: [0.5, 1, 0.5], scale: [0.8, 1.2, 0.8] }}
+                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut", delay: skillIndex * 0.3 }}
                           />
                         </motion.div>
                       </div>

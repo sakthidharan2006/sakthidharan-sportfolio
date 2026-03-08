@@ -3,14 +3,14 @@ import { ArrowDown, Github, Linkedin, Mail, Download, Zap, FileCode, Braces, Ato
 import { Button } from "@/components/ui/button";
 
 const floatingTechIcons = [
-  { icon: Atom, label: "React", x: "8%", y: "18%", size: 28, delay: 0, color: "hsl(193 95% 55%)", speed: 0.3 },
-  { icon: Braces, label: "JS", x: "88%", y: "22%", size: 24, delay: 0.5, color: "hsl(50 90% 50%)", speed: 0.5 },
-  { icon: FileCode, label: "HTML", x: "5%", y: "55%", size: 22, delay: 1, color: "hsl(12 77% 52%)", speed: 0.2 },
-  { icon: Code2, label: "CSS", x: "92%", y: "50%", size: 22, delay: 1.5, color: "hsl(205 87% 50%)", speed: 0.45 },
-  { icon: Server, label: "Node", x: "12%", y: "80%", size: 20, delay: 2, color: "hsl(120 40% 44%)", speed: 0.35 },
-  { icon: Database, label: "DB", x: "85%", y: "78%", size: 20, delay: 2.5, color: "hsl(120 40% 40%)", speed: 0.55 },
-  { icon: GitBranch, label: "Git", x: "18%", y: "38%", size: 18, delay: 3, color: "hsl(15 75% 55%)", speed: 0.25 },
-  { icon: Route, label: "API", x: "82%", y: "38%", size: 18, delay: 3.5, color: "hsl(190 90% 45%)", speed: 0.4 },
+  { icon: Atom, label: "React", x: "8%", y: "18%", size: 28, delay: 0, color: "hsl(193 95% 55%)", speed: 0.3, anim: "orbit" },
+  { icon: Braces, label: "JS", x: "88%", y: "22%", size: 24, delay: 0.5, color: "hsl(50 90% 50%)", speed: 0.5, anim: "glitch" },
+  { icon: FileCode, label: "HTML", x: "5%", y: "55%", size: 22, delay: 1, color: "hsl(12 77% 52%)", speed: 0.2, anim: "scan" },
+  { icon: Code2, label: "CSS", x: "92%", y: "50%", size: 22, delay: 1.5, color: "hsl(205 87% 50%)", speed: 0.45, anim: "morph" },
+  { icon: Server, label: "Node", x: "12%", y: "80%", size: 20, delay: 2, color: "hsl(120 40% 44%)", speed: 0.35, anim: "pulse-ring" },
+  { icon: Database, label: "DB", x: "85%", y: "78%", size: 20, delay: 2.5, color: "hsl(120 40% 40%)", speed: 0.55, anim: "glitch" },
+  { icon: GitBranch, label: "Git", x: "18%", y: "38%", size: 18, delay: 3, color: "hsl(15 75% 55%)", speed: 0.25, anim: "scan" },
+  { icon: Route, label: "API", x: "82%", y: "38%", size: 18, delay: 3.5, color: "hsl(190 90% 45%)", speed: 0.4, anim: "orbit" },
 ];
 
 const containerVariants: Variants = {
@@ -48,25 +48,123 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
   const IconComp = tech.icon;
 
+  // Different animation styles per icon
+  const getIconAnimation = () => {
+    switch (tech.anim) {
+      case "orbit":
+        return {
+          animate: { rotate: [0, 360] },
+          transition: { duration: 12, repeat: Infinity, ease: "linear" as const, delay: tech.delay },
+        };
+      case "glitch":
+        return {
+          animate: { x: [0, -2, 3, -1, 0], skewX: [0, -2, 1, -1, 0] },
+          transition: { duration: 0.3, repeat: Infinity, repeatDelay: 4, delay: tech.delay },
+        };
+      case "scan":
+        return {
+          animate: { opacity: [0.3, 0.8, 0.3] },
+          transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+        };
+      case "morph":
+        return {
+          animate: { borderRadius: ["12px", "50%", "12px"], rotate: [0, 90, 0] },
+          transition: { duration: 4, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+        };
+      case "pulse-ring":
+        return {
+          animate: { scale: [1, 1.15, 1] },
+          transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+        };
+      default:
+        return {
+          animate: { scale: [1, 1.1, 1] },
+          transition: { duration: 3, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+        };
+    }
+  };
+
+  const iconAnim = getIconAnimation();
+
   return (
     <motion.div
       className="absolute flex flex-col items-center gap-1"
       style={{ left: tech.x, top: tech.y, y, opacity }}
       initial={{ opacity: 0, scale: 0 }}
-      animate={{
-        opacity: [0.25, 0.5, 0.25],
-        scale: [1, 1.1, 1],
-      }}
+      animate={{ opacity: [0.2, 0.55, 0.2], scale: [1, 1.08, 1] }}
       transition={{
         opacity: { duration: 4, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         scale: { duration: 3 + i * 0.4, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
       }}
     >
-      <div
-        className="p-2.5 rounded-lg backdrop-blur-sm border border-border/20"
-        style={{ backgroundColor: `${tech.color}08` }}
-      >
-        <IconComp style={{ color: tech.color, width: tech.size, height: tech.size }} />
+      <div className="relative">
+        {/* Orbital ring for orbit-type icons */}
+        {tech.anim === "orbit" && (
+          <motion.div
+            className="absolute -inset-3 rounded-full border border-dashed"
+            style={{ borderColor: `${tech.color}30` }}
+            animate={{ rotate: [0, 360] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+          >
+            <motion.div
+              className="absolute -top-1 left-1/2 w-2 h-2 rounded-full"
+              style={{ backgroundColor: tech.color, boxShadow: `0 0 8px ${tech.color}` }}
+              animate={{ scale: [0.8, 1.2, 0.8] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            />
+          </motion.div>
+        )}
+
+        {/* Pulse ring for pulse-ring type */}
+        {tech.anim === "pulse-ring" && (
+          <>
+            <motion.div
+              className="absolute -inset-2 rounded-lg"
+              style={{ borderColor: `${tech.color}40`, borderWidth: 1 }}
+              animate={{ scale: [1, 1.6], opacity: [0.6, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: tech.delay }}
+            />
+            <motion.div
+              className="absolute -inset-2 rounded-lg"
+              style={{ borderColor: `${tech.color}40`, borderWidth: 1 }}
+              animate={{ scale: [1, 1.6], opacity: [0.6, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: tech.delay + 1 }}
+            />
+          </>
+        )}
+
+        {/* Scan line for scan-type icons */}
+        {tech.anim === "scan" && (
+          <motion.div
+            className="absolute inset-0 overflow-hidden rounded-lg pointer-events-none"
+          >
+            <motion.div
+              className="absolute left-0 right-0 h-px"
+              style={{ backgroundColor: tech.color, boxShadow: `0 0 6px ${tech.color}` }}
+              animate={{ top: ["-10%", "110%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: tech.delay }}
+            />
+          </motion.div>
+        )}
+
+        <motion.div
+          className="p-2.5 rounded-lg backdrop-blur-sm border border-border/20 relative overflow-hidden"
+          style={{ backgroundColor: `${tech.color}08` }}
+          animate={iconAnim.animate}
+          transition={iconAnim.transition}
+        >
+          <IconComp style={{ color: tech.color, width: tech.size, height: tech.size }} />
+
+          {/* Glitch overlay */}
+          {tech.anim === "glitch" && (
+            <motion.div
+              className="absolute inset-0 mix-blend-screen pointer-events-none"
+              style={{ backgroundColor: `${tech.color}15` }}
+              animate={{ opacity: [0, 0.3, 0, 0.2, 0] }}
+              transition={{ duration: 0.15, repeat: Infinity, repeatDelay: 5, delay: tech.delay + 1 }}
+            />
+          )}
+        </motion.div>
       </div>
       <span className="text-[9px] font-mono font-medium text-muted-foreground/50 uppercase tracking-wider">{tech.label}</span>
     </motion.div>
@@ -109,7 +207,12 @@ export const HeroSection = () => {
               whileHover={{ scale: 1.05 }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-lg text-xs font-mono font-medium uppercase tracking-wider mb-6 cursor-default border border-primary/20"
             >
-              <Zap className="w-3.5 h-3.5" />
+              <motion.div
+                animate={{ rotate: [0, 180, 360], scale: [1, 1.2, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Zap className="w-3.5 h-3.5" />
+              </motion.div>
               Available for Opportunities
             </motion.span>
           </motion.div>
@@ -176,9 +279,14 @@ export const HeroSection = () => {
                 variants={socialIconVariants}
                 whileHover="hover"
                 whileTap="tap"
-                className="text-muted-foreground hover:text-primary transition-colors duration-200 p-3 rounded-xl hover:bg-primary/5 border border-transparent hover:border-primary/20"
+                className="relative text-muted-foreground hover:text-primary transition-colors duration-200 p-3 rounded-xl hover:bg-primary/5 border border-transparent hover:border-primary/20 group"
               >
-                <social.icon className="w-5 h-5" />
+                <social.icon className="w-5 h-5 relative z-10" />
+                {/* Hover glow ring */}
+                <motion.div
+                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"
+                  style={{ boxShadow: "0 0 15px hsl(190 90% 42% / 0.15)" }}
+                />
               </motion.a>
             ))}
           </motion.div>
