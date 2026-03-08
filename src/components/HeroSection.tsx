@@ -173,7 +173,7 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
             className="absolute -right-1.5 top-1 bottom-1 w-0.5 rounded-full"
             style={{ backgroundColor: tech.color }}
             animate={{ opacity: [1, 0, 1] }}
-            transition={{ duration: 0.8, repeat: Infinity, ease: "steps(2)" }}
+            transition={{ duration: 0.8, repeat: Infinity }}
           />
         )}
 
