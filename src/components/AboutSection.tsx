@@ -32,7 +32,6 @@ export const AboutSection = () => {
     },
   ];
 
-
   return (
     <section id="about" className="py-20 md:py-32" ref={ref}>
       <div className="section-container">
@@ -42,8 +41,8 @@ export const AboutSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-medium mb-4 block">Get to Know Me</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// about</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
             About Me
           </h2>
         </motion.div>
@@ -55,27 +54,27 @@ export const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative group flex items-center justify-center">
-              {/* Rotating gradient ring */}
+              {/* Gradient ring */}
               <motion.div
-                className="absolute w-[19rem] h-[19rem] md:w-[21.5rem] md:h-[21.5rem] rounded-full"
+                className="absolute w-[19rem] h-[19rem] md:w-[21.5rem] md:h-[21.5rem] rounded-2xl"
                 style={{
-                  background: "conic-gradient(from 0deg, hsl(217 71% 35%), hsl(200 65% 48%), hsl(245 58% 50%), hsl(217 71% 35%))",
-                  padding: "3px",
+                  background: "conic-gradient(from 0deg, hsl(190 90% 42%), hsl(210 85% 50%), hsl(250 70% 55%), hsl(190 90% 42%))",
+                  padding: "2px",
                 }}
                 animate={{ rotate: 360 }}
-                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
               >
-                <div className="w-full h-full rounded-full bg-background" />
+                <div className="w-full h-full rounded-2xl bg-background" />
               </motion.div>
               <motion.div
-                className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden z-10"
+                className="relative w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden z-10"
                 whileHover={{ scale: 1.03 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
               >
-                <motion.img 
-                  src={profilePhoto} 
-                  alt="Sakthidharan E" 
-                  className="w-full h-full object-cover rounded-full"
+                <motion.img
+                  src={profilePhoto}
+                  alt="Sakthidharan E"
+                  className="w-full h-full object-cover rounded-2xl"
                   whileHover={{ scale: 1.08 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
                 />
@@ -98,23 +97,23 @@ export const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+            <p className="text-muted-foreground mb-6 leading-relaxed">
               I'm a passionate IT professional and aspiring software developer pursuing{" "}
               <span className="text-foreground font-medium">B.Tech in Information Technology</span>{" "}
-              at Bannari Amman Institute of Technology. 
-              My journey in tech has equipped me with a comprehensive understanding of software 
+              at Bannari Amman Institute of Technology.
+              My journey in tech has equipped me with a comprehensive understanding of software
               development, hardware systems, and networking fundamentals.
             </p>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              I thrive on solving complex problems and continuously expanding my skill set. 
-              Whether it's building full-stack web applications or optimizing system performance, 
+            <p className="text-muted-foreground mb-8 leading-relaxed">
+              I thrive on solving complex problems and continuously expanding my skill set.
+              Whether it's building full-stack web applications or optimizing system performance,
               I approach every challenge with curiosity and determination to deliver impactful solutions.
             </p>
 
-            {/* Education Section */}
+            {/* Education */}
             <div className="mb-8">
-              <h3 className="font-display text-xl font-bold mb-4 flex items-center gap-2">
-                <GraduationCap className="w-5 h-5 text-primary" />
+              <h3 className="font-display text-lg font-bold mb-4 flex items-center gap-2">
+                <GraduationCap className="w-4 h-4 text-primary" />
                 Education
               </h3>
               <div className="grid gap-3">
@@ -124,26 +123,25 @@ export const AboutSection = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                    className="flex items-start gap-4 p-4 rounded-xl bg-gradient-to-r from-primary/5 to-accent/5 border border-primary/10 hover:border-primary/30 transition-all tech-corner"
+                    className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all"
                   >
                     <div className="p-2 rounded-lg bg-primary/10">
-                      <item.icon className="w-5 h-5 text-primary" />
+                      <item.icon className="w-4 h-4 text-primary" />
                     </div>
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                        <h4 className="font-display font-semibold">{item.degree}</h4>
-                        <span className="text-xs px-2 py-1 bg-accent/10 text-accent rounded-full w-fit">
+                        <h4 className="font-display font-semibold text-sm">{item.degree}</h4>
+                        <span className="text-[10px] font-mono px-2 py-0.5 bg-primary/10 text-primary rounded w-fit uppercase tracking-wider">
                           {item.status}
                         </span>
                       </div>
                       <p className="text-sm text-muted-foreground">{item.institution}</p>
-                      <p className="text-xs text-muted-foreground/70 mt-1">{item.year}</p>
+                      <p className="text-xs text-muted-foreground/60 font-mono mt-1">{item.year}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
             </div>
-
           </motion.div>
         </div>
       </div>
