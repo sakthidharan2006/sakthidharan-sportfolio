@@ -17,7 +17,7 @@ const projects = [
     tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     icon: Truck,
     github: "https://github.com",
-    live: "https://demo.com",
+    live: "https://truckpluse.lovable.app",
     featured: true,
   },
   {
