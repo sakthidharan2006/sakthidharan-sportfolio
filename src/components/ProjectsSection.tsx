@@ -160,8 +160,8 @@ export const ProjectsSection = () => {
                       className="relative z-10"
                     >
                       <img
-                        src={truckImage}
-                        alt="TruckPulse Fleet Manager"
+                        src={project.image}
+                        alt={project.title}
                         className="w-full max-w-md rounded-xl shadow-2xl border border-border/50"
                       />
                     </motion.div>
