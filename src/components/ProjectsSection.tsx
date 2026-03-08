@@ -5,16 +5,16 @@ import { Button } from "@/components/ui/button";
 import truckImage from "@/assets/truck-project.png";
 const projects = [
   {
-    title: "Smart Truck Loading Optimization System",
+    title: "TruckPulse — Pro Fleet Manager",
     description:
-      "A full-stack MERN application that optimizes cargo loading for logistics companies. Features intelligent space utilization algorithms, real-time visualization, and comprehensive reporting.",
+      "A full-stack fleet management application for logistics companies. Features role-based dashboards for fleet owners and drivers, real-time vehicle tracking, and demo login for instant access.",
     features: [
-      "3D cargo visualization",
-      "Optimization algorithms",
-      "User authentication",
-      "Report generation",
+      "Role-based access control",
+      "Fleet owner dashboard",
+      "Driver management",
+      "Quick demo login",
     ],
-    tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
+    tech: ["React", "Tailwind CSS", "Supabase", "TypeScript"],
     icon: Truck,
     github: "https://github.com",
     live: "https://truckpluse.lovable.app",
