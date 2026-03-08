@@ -123,6 +123,7 @@
 
   .card-hover {
     @apply transition-all duration-300;
+    box-shadow: 0 1px 3px hsl(220 30% 20% / 0.06);
   }
 
   .card-hover:hover {
