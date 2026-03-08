@@ -6,19 +6,16 @@ import {
   KeyRound, MonitorSmartphone, Send, Wrench,
 } from "lucide-react";
 
-const iconAnimations = {
-  spin: { rotate: [0, 360], transition: { duration: 6, repeat: Infinity, ease: "linear" as const } },
-  pulse: { scale: [1, 1.25, 1], transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const } },
-  bounce: { y: [0, -6, 0], transition: { duration: 1.2, repeat: Infinity, ease: "easeInOut" as const } },
-  wiggle: { rotate: [-12, 12, -12], transition: { duration: 0.8, repeat: Infinity, ease: "easeInOut" as const } },
-  orbit: { rotate: [0, 360], transition: { duration: 4, repeat: Infinity, ease: "linear" as const } },
-  glitch: { x: [0, -3, 4, -2, 0], skewX: [0, -3, 2, -1, 0], transition: { duration: 0.25, repeat: Infinity, repeatDelay: 3 } },
-};
+const iconAnimConfigs = [
+  { animate: { rotate: [0, 360] }, transition: { duration: 6, repeat: Infinity, ease: "linear" as const } },
+  { animate: { scale: [1, 1.25, 1] }, transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const } },
+  { animate: { y: [0, -6, 0] }, transition: { duration: 1.2, repeat: Infinity, ease: "easeInOut" as const } },
+  { animate: { rotate: [-12, 12, -12] }, transition: { duration: 0.8, repeat: Infinity, ease: "easeInOut" as const } },
+  { animate: { rotate: [0, 360] }, transition: { duration: 4, repeat: Infinity, ease: "linear" as const } },
+  { animate: { x: [0, -3, 4, -2, 0] }, transition: { duration: 0.25, repeat: Infinity, repeatDelay: 3 } },
+];
 
-const getAnimation = (index: number) => {
-  const keys = Object.keys(iconAnimations) as (keyof typeof iconAnimations)[];
-  return iconAnimations[keys[index % keys.length]];
-};
+const getAnimation = (index: number) => iconAnimConfigs[index % iconAnimConfigs.length];
 
 const skillCategories = [
   {
