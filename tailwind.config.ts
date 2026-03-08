@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['DM Sans', 'system-ui', 'sans-serif'],
-        display: ['Space Grotesk', 'system-ui', 'sans-serif'],
+        sans: ['Lora', 'Georgia', 'serif'],
+        display: ['Playfair Display', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
