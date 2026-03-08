@@ -192,12 +192,6 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
           transition={iconAnim.transition}
         >
           <IconComp style={{ color: tech.color, width: tech.size, height: tech.size }} />
-              className="absolute inset-0 mix-blend-screen pointer-events-none"
-              style={{ backgroundColor: `${tech.color}15` }}
-              animate={{ opacity: [0, 0.3, 0, 0.2, 0] }}
-              transition={{ duration: 0.15, repeat: Infinity, repeatDelay: 5, delay: tech.delay + 1 }}
-            />
-          )}
         </motion.div>
       </div>
       <span className="text-[9px] font-mono font-medium text-muted-foreground/50 uppercase tracking-wider">{tech.label}</span>
