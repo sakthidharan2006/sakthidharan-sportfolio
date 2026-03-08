@@ -1,8 +1,9 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Truck } from "lucide-react";
+import { ExternalLink, Github, Truck, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import truckImage from "@/assets/truck-project.png";
+import webwheelsImage from "@/assets/webwheels-project.png";
 
 const projects = [
   {
@@ -19,6 +20,24 @@ const projects = [
     icon: Truck,
     github: "https://github.com",
     live: "https://truckpluse.lovable.app",
+    image: truckImage,
+    featured: true,
+  },
+  {
+    title: "WebWheels — Web-enabled Tracking",
+    description:
+      "A comprehensive web-based fleet tracking system with role-based demo logins for Admin, Fleet Owner, and Drivers. Features dark-themed UI with real-time vehicle management and instant dashboard access.",
+    features: [
+      "Multi-role demo login",
+      "Real-time tracking",
+      "Dark themed UI",
+      "Driver & vehicle management",
+    ],
+    tech: ["React", "Tailwind CSS", "Supabase", "TypeScript"],
+    icon: Globe,
+    github: "https://github.com",
+    live: "https://webwheels.lovable.app",
+    image: webwheelsImage,
     featured: true,
   },
   {
@@ -141,8 +160,8 @@ export const ProjectsSection = () => {
                       className="relative z-10"
                     >
                       <img
-                        src={truckImage}
-                        alt="TruckPulse Fleet Manager"
+                        src={project.image}
+                        alt={project.title}
                         className="w-full max-w-md rounded-xl shadow-2xl border border-border/50"
                       />
                     </motion.div>
