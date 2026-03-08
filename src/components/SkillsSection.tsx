@@ -116,7 +116,7 @@ export const SkillsSection = () => {
                             <motion.div
                               className="relative p-1.5 rounded-lg"
                               style={{ backgroundColor: `${skill.color}12` }}
-                              animate={isInView ? anim.rotate ? { rotate: anim.rotate } : anim.scale ? { scale: anim.scale } : anim.y ? { y: anim.y } : anim.x ? { x: anim.x, skewX: (anim as any).skewX } : {}}
+                              animate={isInView ? { ...anim, transition: undefined } : {}}
                               transition={anim.transition}
                               whileHover={{ scale: 1.3, rotate: 15, transition: { type: "spring", stiffness: 300 } }}
                             >
