@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { ExternalLink, Github, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import truckImage from "@/assets/truck-project.png";
+
 const projects = [
   {
     title: "TruckPulse — Pro Fleet Manager",
@@ -44,11 +45,11 @@ export const ProjectsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-medium mb-4 block">My Work</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// projects</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
             Featured Projects
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm">
             A collection of projects that showcase my skills in full-stack development
           </p>
         </motion.div>
@@ -56,7 +57,7 @@ export const ProjectsSection = () => {
         {/* Featured Project */}
         {projects
           .filter((p) => p.featured)
-          .map((project, index) => (
+          .map((project) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
@@ -67,31 +68,31 @@ export const ProjectsSection = () => {
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 200 }}
-                className="bg-card rounded-3xl overflow-hidden border border-border/50 hover:border-primary/30 transition-colors"
+                className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 transition-colors"
               >
                 <div className="grid lg:grid-cols-2">
                   <div className="p-8 md:p-12 flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-4">
                       {project.icon && (
-                        <div className="p-3 rounded-xl bg-primary/10">
-                          <project.icon className="w-6 h-6 text-primary" />
+                        <div className="p-2.5 rounded-xl bg-primary/10">
+                          <project.icon className="w-5 h-5 text-primary" />
                         </div>
                       )}
-                      <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">
+                      <span className="px-3 py-1 bg-primary/10 text-primary rounded-lg text-[10px] font-mono font-medium uppercase tracking-wider">
                         Featured
                       </span>
                     </div>
-                    <h3 className="font-display text-2xl md:text-3xl font-bold mb-4">
+                    <h3 className="font-display text-2xl md:text-3xl font-bold mb-4 tracking-tight">
                       {project.title}
                     </h3>
-                    <p className="text-muted-foreground mb-6">{project.description}</p>
-                    
+                    <p className="text-muted-foreground mb-6 text-sm">{project.description}</p>
+
                     <div className="mb-6">
-                      <h4 className="font-semibold mb-3">Key Features:</h4>
+                      <h4 className="font-semibold mb-3 text-sm">Key Features:</h4>
                       <ul className="grid grid-cols-2 gap-2">
                         {project.features.map((feature) => (
-                          <li key={feature} className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          <li key={feature} className="flex items-center gap-2 text-xs text-muted-foreground">
+                            <div className="w-1 h-1 rounded-full bg-primary" />
                             {feature}
                           </li>
                         ))}
@@ -102,33 +103,32 @@ export const ProjectsSection = () => {
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-secondary text-secondary-foreground rounded-full text-sm"
+                          className="px-3 py-1 bg-secondary text-secondary-foreground rounded-lg text-xs font-mono"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
 
-                    <div className="flex gap-4">
-                      <Button variant="outline" className="rounded-full" asChild>
+                    <div className="flex gap-3">
+                      <Button variant="outline" className="rounded-xl text-xs" asChild>
                         <a href={project.github} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4 mr-2" />
+                          <Github className="w-3.5 h-3.5 mr-2" />
                           Code
                         </a>
                       </Button>
                       {project.live && (
-                        <Button className="btn-gradient rounded-full" asChild>
+                        <Button className="btn-gradient rounded-xl text-xs" asChild>
                           <a href={project.live} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4 mr-2" />
+                            <ExternalLink className="w-3.5 h-3.5 mr-2" />
                             Live Demo
                           </a>
                         </Button>
                       )}
                     </div>
                   </div>
-                  <div className="bg-gradient-to-br from-primary/10 to-accent/10 p-8 md:p-12 flex items-center justify-center min-h-[300px] lg:min-h-full relative overflow-hidden">
-                    {/* Tech grid pattern */}
-                    <div className="absolute inset-0 opacity-10">
+                  <div className="bg-gradient-to-br from-primary/5 to-accent/5 p-8 md:p-12 flex items-center justify-center min-h-[300px] lg:min-h-full relative overflow-hidden">
+                    <div className="absolute inset-0 opacity-5">
                       <div className="absolute inset-0" style={{
                         backgroundImage: `linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)`,
                         backgroundSize: '40px 40px'
@@ -140,9 +140,9 @@ export const ProjectsSection = () => {
                       transition={{ duration: 0.5, delay: 0.4 }}
                       className="relative z-10"
                     >
-                      <img 
-                        src={truckImage} 
-                        alt="Smart Truck Loading System" 
+                      <img
+                        src={truckImage}
+                        alt="TruckPulse Fleet Manager"
                         className="w-full max-w-md rounded-xl shadow-2xl border border-border/50"
                       />
                     </motion.div>
@@ -162,16 +162,16 @@ export const ProjectsSection = () => {
                 initial={{ opacity: 0, y: 40 }}
                 animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
-                className="bg-card rounded-2xl p-6 md:p-8 border border-border/50 card-hover"
+                className="bg-card rounded-xl p-6 md:p-8 border border-border/50 card-hover"
               >
-                <h3 className="font-display text-xl font-bold mb-3">{project.title}</h3>
+                <h3 className="font-display text-lg font-bold mb-3 tracking-tight">{project.title}</h3>
                 <p className="text-muted-foreground text-sm mb-4">{project.description}</p>
-                
+
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs"
+                      className="px-2 py-1 bg-secondary text-secondary-foreground rounded-lg text-xs font-mono"
                     >
                       {tech}
                     </span>
@@ -179,8 +179,8 @@ export const ProjectsSection = () => {
                 </div>
 
                 <Button variant="ghost" size="sm" className="p-0 h-auto" asChild>
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-primary/80">
-                    <Github className="w-4 h-4" />
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-primary hover:text-primary/80 text-xs">
+                    <Github className="w-3.5 h-3.5" />
                     View on GitHub
                   </a>
                 </Button>

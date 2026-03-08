@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Moon, Sun } from "lucide-react";
+import { Menu, X, Moon, Sun, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -43,12 +43,13 @@ export const Navbar = () => {
     >
       <div className="section-container">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="font-display font-bold text-xl md:text-2xl text-gradient">
-            Portfolio
+          <a href="#" className="flex items-center gap-2 font-display font-bold text-xl md:text-2xl text-gradient">
+            <Terminal className="w-5 h-5 text-primary" />
+            <span className="font-mono text-sm md:text-base tracking-tight">{"<SD />"}</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
@@ -56,8 +57,7 @@ export const Navbar = () => {
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * index, duration: 0.3 }}
-                whileHover={{ y: -2 }}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium underline-animate"
+                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-primary/5 rounded-lg transition-all duration-200 font-medium"
               >
                 {item.name}
               </motion.a>
@@ -66,19 +66,19 @@ export const Navbar = () => {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="ml-2"
+              className="ml-2 rounded-lg"
             >
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
             <Button variant="ghost" size="icon" onClick={toggleTheme}>
-              {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
@@ -92,13 +92,13 @@ export const Navbar = () => {
           exit={{ opacity: 0, y: -20 }}
           className="md:hidden glass border-t border-border"
         >
-          <div className="section-container py-4 flex flex-col gap-4">
+          <div className="section-container py-4 flex flex-col gap-1">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="text-muted-foreground hover:text-foreground transition-colors py-2"
+                className="px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-primary/5 rounded-lg transition-all text-sm font-medium"
               >
                 {item.name}
               </a>

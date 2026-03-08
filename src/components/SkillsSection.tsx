@@ -21,7 +21,7 @@ const skillCategories = [
     skills: [
       { name: "Node.js", level: 75, icon: Server, color: "hsl(120 40% 44%)" },
       { name: "Express", level: 75, icon: Route, color: "hsl(0 0% 50%)" },
-      { name: "REST APIs", level: 80, icon: Send, color: "hsl(217 71% 45%)" },
+      { name: "REST APIs", level: 80, icon: Send, color: "hsl(190 90% 45%)" },
     ],
   },
   {
@@ -42,18 +42,6 @@ const skillCategories = [
   },
 ];
 
-const iconAnimations = {
-  spin: { rotate: [0, 360], transition: { duration: 8, repeat: Infinity, ease: "linear" as const } },
-  pulse: { scale: [1, 1.15, 1], transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const } },
-  bounce: { y: [0, -4, 0], transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" as const } },
-  wiggle: { rotate: [-8, 8, -8], transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" as const } },
-};
-
-const getAnimation = (index: number) => {
-  const anims = [iconAnimations.spin, iconAnimations.pulse, iconAnimations.bounce, iconAnimations.wiggle];
-  return anims[index % anims.length];
-};
-
 export const SkillsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -67,51 +55,47 @@ export const SkillsSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-medium mb-4 block">What I Work With</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// skills</span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
             Skills & Technologies
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-sm">
             A comprehensive toolkit built through hands-on projects and continuous learning
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-6">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
               transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="bg-card rounded-2xl p-6 md:p-8 card-hover border border-border/50"
+              className="bg-card rounded-xl p-6 md:p-8 card-hover border border-border/50"
             >
-              <h3 className="font-display text-xl font-semibold mb-6 text-gradient">
+              <h3 className="font-display text-lg font-semibold mb-6 text-gradient">
                 {category.title}
               </h3>
               <div className="space-y-5">
                 {category.skills.map((skill, skillIndex) => {
                   const IconComp = skill.icon;
-                  const globalIndex = categoryIndex * 4 + skillIndex;
                   return (
                     <motion.div
                       key={skill.name}
                       initial={{ opacity: 0, x: -20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                       transition={{ delay: 0.3 + categoryIndex * 0.1 + skillIndex * 0.05, duration: 0.4 }}
-                      whileHover={{ scale: 1.02 }}
                       className="group"
                     >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center gap-2.5">
-                          <motion.div
-                            animate={isInView ? getAnimation(globalIndex) : {}}
-                            whileHover={{ scale: 1.3, rotate: 15 }}
+                          <div
                             className="p-1.5 rounded-lg"
-                            style={{ backgroundColor: `${skill.color}15` }}
+                            style={{ backgroundColor: `${skill.color}12` }}
                           >
-                            <IconComp className="w-4.5 h-4.5" style={{ color: skill.color }} />
-                          </motion.div>
-                          <span className="font-medium group-hover:text-primary transition-colors">
+                            <IconComp className="w-4 h-4" style={{ color: skill.color }} />
+                          </div>
+                          <span className="text-sm font-medium group-hover:text-primary transition-colors">
                             {skill.name}
                           </span>
                         </div>
@@ -119,12 +103,12 @@ export const SkillsSection = () => {
                           initial={{ opacity: 0 }}
                           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                           transition={{ delay: 0.5 + categoryIndex * 0.1 + skillIndex * 0.1 }}
-                          className="text-muted-foreground text-sm"
+                          className="text-muted-foreground text-xs font-mono"
                         >
                           {skill.level}%
                         </motion.span>
                       </div>
-                      <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                      <div className="h-1.5 bg-secondary rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0, opacity: 0 }}
                           animate={isInView ? { width: `${skill.level}%`, opacity: 1 } : { width: 0, opacity: 0 }}
