@@ -148,9 +148,22 @@ export const ExperienceSection = () => {
                 <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
                   <div className="bg-card rounded-xl p-6 border border-border/50 card-hover">
                     <div className="flex items-start gap-4 mb-3">
-                      <div className="p-2.5 rounded-xl bg-primary/10 shrink-0">
+                      <motion.div
+                        className="p-2.5 rounded-xl bg-primary/10 shrink-0"
+                        animate={{
+                          rotate: index % 3 === 0 ? [0, 360] : index % 3 === 1 ? [-8, 8, -8] : [0, 0],
+                          scale: index % 3 === 2 ? [1, 1.15, 1] : [1, 1, 1],
+                        }}
+                        transition={{
+                          duration: index % 3 === 0 ? 6 : index % 3 === 1 ? 2 : 2.5,
+                          repeat: Infinity,
+                          ease: index % 3 === 0 ? "linear" : "easeInOut",
+                          delay: index * 0.3,
+                        }}
+                        whileHover={{ scale: 1.3, rotate: 15 }}
+                      >
                         <exp.icon className="w-5 h-5 text-primary" />
-                      </div>
+                      </motion.div>
                       <div>
                         <h3 className="font-display text-base font-bold tracking-tight">{exp.title}</h3>
                         <p className="text-primary text-xs font-medium">{exp.organization}</p>

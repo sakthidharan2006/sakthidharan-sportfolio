@@ -125,9 +125,23 @@ export const AboutSection = () => {
                     transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
                     className="flex items-start gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all"
                   >
-                    <div className="p-2 rounded-lg bg-primary/10">
+                    <motion.div
+                      className="p-2 rounded-lg bg-primary/10"
+                      animate={
+                        index === 0 ? { rotate: [0, 360] } :
+                        index === 1 ? { y: [0, -4, 0] } :
+                        { scale: [1, 1.2, 1] }
+                      }
+                      transition={{
+                        duration: index === 0 ? 6 : index === 1 ? 1.5 : 2,
+                        repeat: Infinity,
+                        ease: index === 0 ? "linear" : "easeInOut",
+                        delay: index * 0.5,
+                      }}
+                      whileHover={{ scale: 1.3, rotate: 10 }}
+                    >
                       <item.icon className="w-4 h-4 text-primary" />
-                    </div>
+                    </motion.div>
                     <div className="flex-1">
                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
                         <h4 className="font-display font-semibold text-sm">{item.degree}</h4>

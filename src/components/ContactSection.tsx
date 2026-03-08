@@ -115,9 +115,25 @@ export const ContactSection = () => {
                       rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all group"
                     >
-                      <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <motion.div
+                        className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                        animate={
+                          index % 5 === 0 ? { rotate: [0, 360] } :
+                          index % 5 === 1 ? { y: [0, -3, 0] } :
+                          index % 5 === 2 ? { scale: [1, 1.15, 1] } :
+                          index % 5 === 3 ? { rotate: [-10, 10, -10] } :
+                          { x: [0, 2, -2, 0] }
+                        }
+                        transition={{
+                          duration: index % 5 === 0 ? 5 : index % 5 === 1 ? 1.5 : index % 5 === 2 ? 2 : index % 5 === 3 ? 1.8 : 1.2,
+                          repeat: Infinity,
+                          ease: index % 5 === 0 ? "linear" : "easeInOut",
+                          delay: index * 0.4,
+                        }}
+                        whileHover={{ scale: 1.25, rotate: 15 }}
+                      >
                         <item.icon className="w-4 h-4 text-primary" />
-                      </div>
+                      </motion.div>
                       <div>
                         <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{item.label}</p>
                         <p className="text-sm font-medium group-hover:text-primary transition-colors">{item.value}</p>
@@ -125,9 +141,14 @@ export const ContactSection = () => {
                     </a>
                   ) : (
                     <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50">
-                      <div className="p-2 rounded-lg bg-primary/10">
+                      <motion.div
+                        className="p-2 rounded-lg bg-primary/10"
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                        whileHover={{ scale: 1.25 }}
+                      >
                         <item.icon className="w-4 h-4 text-primary" />
-                      </div>
+                      </motion.div>
                       <div>
                         <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{item.label}</p>
                         <p className="text-sm font-medium">{item.value}</p>

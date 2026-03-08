@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 
 const floatingTechIcons = [
   { icon: Atom, label: "React", x: "8%", y: "18%", size: 28, delay: 0, color: "hsl(193 95% 55%)", speed: 0.3, anim: "orbit" },
-  { icon: Braces, label: "JS", x: "88%", y: "22%", size: 24, delay: 0.5, color: "hsl(50 90% 50%)", speed: 0.5, anim: "glitch" },
-  { icon: FileCode, label: "HTML", x: "5%", y: "55%", size: 22, delay: 1, color: "hsl(12 77% 52%)", speed: 0.2, anim: "scan" },
+  { icon: Braces, label: "JS", x: "88%", y: "22%", size: 24, delay: 0.5, color: "hsl(50 90% 50%)", speed: 0.5, anim: "typewriter" },
+  { icon: FileCode, label: "HTML", x: "5%", y: "55%", size: 22, delay: 1, color: "hsl(12 77% 52%)", speed: 0.2, anim: "heartbeat" },
   { icon: Code2, label: "CSS", x: "92%", y: "50%", size: 22, delay: 1.5, color: "hsl(205 87% 50%)", speed: 0.45, anim: "morph" },
-  { icon: Server, label: "Node", x: "12%", y: "80%", size: 20, delay: 2, color: "hsl(120 40% 44%)", speed: 0.35, anim: "pulse-ring" },
-  { icon: Database, label: "DB", x: "85%", y: "78%", size: 20, delay: 2.5, color: "hsl(120 40% 40%)", speed: 0.55, anim: "glitch" },
-  { icon: GitBranch, label: "Git", x: "18%", y: "38%", size: 18, delay: 3, color: "hsl(15 75% 55%)", speed: 0.25, anim: "scan" },
-  { icon: Route, label: "API", x: "82%", y: "38%", size: 18, delay: 3.5, color: "hsl(190 90% 45%)", speed: 0.4, anim: "orbit" },
+  { icon: Server, label: "Node", x: "12%", y: "80%", size: 20, delay: 2, color: "hsl(120 40% 44%)", speed: 0.35, anim: "radar" },
+  { icon: Database, label: "DB", x: "85%", y: "78%", size: 20, delay: 2.5, color: "hsl(120 40% 40%)", speed: 0.55, anim: "stack" },
+  { icon: GitBranch, label: "Git", x: "18%", y: "38%", size: 18, delay: 3, color: "hsl(15 75% 55%)", speed: 0.25, anim: "pendulum" },
+  { icon: Route, label: "API", x: "82%", y: "38%", size: 18, delay: 3.5, color: "hsl(190 90% 45%)", speed: 0.4, anim: "sonar" },
 ];
 
 const containerVariants: Variants = {
@@ -48,33 +48,47 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
   const IconComp = tech.icon;
 
-  // Different animation styles per icon
   const getIconAnimation = () => {
     switch (tech.anim) {
       case "orbit":
         return {
           animate: { rotate: [0, 360] },
-          transition: { duration: 12, repeat: Infinity, ease: "linear" as const, delay: tech.delay },
+          transition: { duration: 10, repeat: Infinity, ease: "linear" as const, delay: tech.delay },
         };
-      case "glitch":
+      case "typewriter":
         return {
-          animate: { x: [0, -2, 3, -1, 0], skewX: [0, -2, 1, -1, 0] },
-          transition: { duration: 0.3, repeat: Infinity, repeatDelay: 4, delay: tech.delay },
+          animate: { opacity: [1, 0.2, 1], scaleY: [1, 0.85, 1] },
+          transition: { duration: 0.6, repeat: Infinity, repeatDelay: 2.5, delay: tech.delay },
         };
-      case "scan":
+      case "heartbeat":
         return {
-          animate: { opacity: [0.3, 0.8, 0.3] },
-          transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+          animate: { scale: [1, 1.25, 1, 1.15, 1] },
+          transition: { duration: 1.2, repeat: Infinity, repeatDelay: 2, ease: "easeInOut" as const, delay: tech.delay },
         };
       case "morph":
         return {
-          animate: { borderRadius: ["12px", "50%", "12px"], rotate: [0, 90, 0] },
-          transition: { duration: 4, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+          animate: { borderRadius: ["12px", "50%", "20%", "50%", "12px"], rotate: [0, 45, 0, -45, 0] },
+          transition: { duration: 6, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
-      case "pulse-ring":
+      case "radar":
         return {
-          animate: { scale: [1, 1.15, 1] },
-          transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+          animate: { rotate: [0, 360] },
+          transition: { duration: 3, repeat: Infinity, ease: "linear" as const, delay: tech.delay },
+        };
+      case "stack":
+        return {
+          animate: { y: [0, -4, 0, 4, 0], rotateX: [0, 15, 0, -15, 0] },
+          transition: { duration: 3, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+        };
+      case "pendulum":
+        return {
+          animate: { rotate: [-20, 20, -20] },
+          transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
+        };
+      case "sonar":
+        return {
+          animate: { scale: [1, 1.1, 1] },
+          transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
       default:
         return {
@@ -98,53 +112,77 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
       }}
     >
       <div className="relative">
-        {/* Orbital ring for orbit-type icons */}
+        {/* Orbital ring — dashed circle with orbiting dot */}
         {tech.anim === "orbit" && (
           <motion.div
-            className="absolute -inset-3 rounded-full border border-dashed"
-            style={{ borderColor: `${tech.color}30` }}
+            className="absolute -inset-4 rounded-full border border-dashed"
+            style={{ borderColor: `${tech.color}25` }}
             animate={{ rotate: [0, 360] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
           >
             <motion.div
-              className="absolute -top-1 left-1/2 w-2 h-2 rounded-full"
-              style={{ backgroundColor: tech.color, boxShadow: `0 0 8px ${tech.color}` }}
-              animate={{ scale: [0.8, 1.2, 0.8] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -top-1 left-1/2 w-1.5 h-1.5 rounded-full"
+              style={{ backgroundColor: tech.color, boxShadow: `0 0 6px ${tech.color}` }}
             />
           </motion.div>
         )}
 
-        {/* Pulse ring for pulse-ring type */}
-        {tech.anim === "pulse-ring" && (
+        {/* Radar sweep */}
+        {tech.anim === "radar" && (
+          <motion.div
+            className="absolute -inset-3 rounded-full overflow-hidden"
+            style={{ border: `1px solid ${tech.color}15` }}
+          >
+            <motion.div
+              className="absolute top-1/2 left-1/2 w-1/2 h-px origin-left"
+              style={{ backgroundColor: tech.color, boxShadow: `0 0 8px ${tech.color}` }}
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: tech.delay }}
+            />
+          </motion.div>
+        )}
+
+        {/* Sonar rings expanding outward */}
+        {tech.anim === "sonar" && (
           <>
-            <motion.div
-              className="absolute -inset-2 rounded-lg"
-              style={{ borderColor: `${tech.color}40`, borderWidth: 1 }}
-              animate={{ scale: [1, 1.6], opacity: [0.6, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: tech.delay }}
-            />
-            <motion.div
-              className="absolute -inset-2 rounded-lg"
-              style={{ borderColor: `${tech.color}40`, borderWidth: 1 }}
-              animate={{ scale: [1, 1.6], opacity: [0.6, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeOut", delay: tech.delay + 1 }}
-            />
+            {[0, 0.75, 1.5].map((d) => (
+              <motion.div
+                key={d}
+                className="absolute -inset-1 rounded-full"
+                style={{ border: `1px solid ${tech.color}30` }}
+                animate={{ scale: [1, 2.2], opacity: [0.5, 0] }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut", delay: tech.delay + d }}
+              />
+            ))}
           </>
         )}
 
-        {/* Scan line for scan-type icons */}
-        {tech.anim === "scan" && (
+        {/* Heartbeat glow pulse */}
+        {tech.anim === "heartbeat" && (
           <motion.div
-            className="absolute inset-0 overflow-hidden rounded-lg pointer-events-none"
-          >
-            <motion.div
-              className="absolute left-0 right-0 h-px"
-              style={{ backgroundColor: tech.color, boxShadow: `0 0 6px ${tech.color}` }}
-              animate={{ top: ["-10%", "110%"] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: tech.delay }}
-            />
-          </motion.div>
+            className="absolute -inset-2 rounded-lg"
+            style={{ backgroundColor: `${tech.color}10` }}
+            animate={{ scale: [1, 1.5, 1, 1.3, 1], opacity: [0.3, 0.6, 0.3, 0.5, 0.3] }}
+            transition={{ duration: 1.2, repeat: Infinity, repeatDelay: 2, ease: "easeInOut", delay: tech.delay }}
+          />
+        )}
+
+        {/* Typewriter cursor blink */}
+        {tech.anim === "typewriter" && (
+          <motion.div
+            className="absolute -right-1.5 top-1 bottom-1 w-0.5 rounded-full"
+            style={{ backgroundColor: tech.color }}
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 0.8, repeat: Infinity }}
+          />
+        )}
+
+        {/* Pendulum pivot point */}
+        {tech.anim === "pendulum" && (
+          <motion.div
+            className="absolute -top-3 left-1/2 -translate-x-1/2 w-1 h-3"
+            style={{ background: `linear-gradient(to bottom, ${tech.color}40, transparent)` }}
+          />
         )}
 
         <motion.div
@@ -154,16 +192,6 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
           transition={iconAnim.transition}
         >
           <IconComp style={{ color: tech.color, width: tech.size, height: tech.size }} />
-
-          {/* Glitch overlay */}
-          {tech.anim === "glitch" && (
-            <motion.div
-              className="absolute inset-0 mix-blend-screen pointer-events-none"
-              style={{ backgroundColor: `${tech.color}15` }}
-              animate={{ opacity: [0, 0.3, 0, 0.2, 0] }}
-              transition={{ duration: 0.15, repeat: Infinity, repeatDelay: 5, delay: tech.delay + 1 }}
-            />
-          )}
         </motion.div>
       </div>
       <span className="text-[9px] font-mono font-medium text-muted-foreground/50 uppercase tracking-wider">{tech.label}</span>
