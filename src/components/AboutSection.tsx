@@ -54,39 +54,62 @@ export const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative group flex items-center justify-center">
-              {/* Gradient ring */}
+              {/* Rotating gradient ring */}
               <motion.div
-                className="absolute w-[19rem] h-[19rem] md:w-[21.5rem] md:h-[21.5rem] rounded-2xl"
+                className="absolute w-72 h-72 md:w-80 md:h-80 rounded-full"
                 style={{
-                  background: "conic-gradient(from 0deg, hsl(190 90% 42%), hsl(210 85% 50%), hsl(250 70% 55%), hsl(190 90% 42%))",
-                  padding: "2px",
+                  background: "conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(212 80% 48%), hsl(var(--primary)))",
+                  padding: "3px",
                 }}
                 animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
               >
-                <div className="w-full h-full rounded-2xl bg-background" />
+                <div className="w-full h-full rounded-full bg-background" />
               </motion.div>
+
+              {/* Secondary slower counter-rotating ring */}
               <motion.div
-                className="relative w-72 h-72 md:w-80 md:h-80 rounded-2xl overflow-hidden z-10"
-                whileHover={{ scale: 1.03 }}
+                className="absolute w-[19.5rem] h-[19.5rem] md:w-[22rem] md:h-[22rem] rounded-full border-2 border-dashed"
+                style={{ borderColor: "hsl(var(--primary) / 0.15)" }}
+                animate={{ rotate: -360 }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
+              />
+
+              {/* Orbiting dot */}
+              <motion.div
+                className="absolute w-[20rem] h-[20rem] md:w-[22.5rem] md:h-[22.5rem] rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              >
+                <div
+                  className="absolute -top-1 left-1/2 w-2.5 h-2.5 rounded-full"
+                  style={{ backgroundColor: "hsl(var(--primary))", boxShadow: "0 0 10px hsl(var(--primary) / 0.6)" }}
+                />
+              </motion.div>
+
+              <motion.div
+                className="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden z-10"
+                whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
               >
                 <motion.img
                   src={profilePhoto}
                   alt="Sakthidharan E"
-                  className="w-full h-full object-cover rounded-2xl"
-                  whileHover={{ scale: 1.08 }}
+                  className="w-full h-full object-cover rounded-full"
+                  whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
                 />
               </motion.div>
+
+              {/* Glow effects */}
               <motion.div
-                className="absolute -bottom-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl"
-                animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0.8, 0.5] }}
+                className="absolute -bottom-6 -right-6 w-28 h-28 bg-accent/15 rounded-full blur-2xl"
+                animate={{ scale: [1, 1.3, 1], opacity: [0.4, 0.7, 0.4] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
               <motion.div
-                className="absolute -top-4 -left-4 w-32 h-32 bg-primary/20 rounded-full blur-2xl"
-                animate={{ scale: [1, 1.3, 1], opacity: [0.5, 0.7, 0.5] }}
+                className="absolute -top-6 -left-6 w-36 h-36 bg-primary/15 rounded-full blur-2xl"
+                animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0.6, 0.4] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
               />
             </div>
