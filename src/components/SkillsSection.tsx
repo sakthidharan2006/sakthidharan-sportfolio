@@ -113,7 +113,7 @@ export const SkillsSection = () => {
                             <motion.div
                               className="relative p-1.5 rounded-lg"
                               style={{ backgroundColor: `${skill.color}12` }}
-                              animate={isInView ? { ...anim, transition: undefined } : {}}
+                              animate={isInView ? anim.animate : {}}
                               transition={anim.transition}
                               whileHover={{ scale: 1.3, rotate: 15, transition: { type: "spring", stiffness: 300 } }}
                             >
