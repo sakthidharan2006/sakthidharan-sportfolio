@@ -141,9 +141,14 @@ export const ContactSection = () => {
                     </a>
                   ) : (
                     <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50">
-                      <div className="p-2 rounded-lg bg-primary/10">
+                      <motion.div
+                        className="p-2 rounded-lg bg-primary/10"
+                        animate={{ scale: [1, 1.1, 1] }}
+                        transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                        whileHover={{ scale: 1.25 }}
+                      >
                         <item.icon className="w-4 h-4 text-primary" />
-                      </div>
+                      </motion.div>
                       <div>
                         <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{item.label}</p>
                         <p className="text-sm font-medium">{item.value}</p>
