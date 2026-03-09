@@ -7,23 +7,6 @@ import webwheelsImage from "@/assets/webwheels-project.png";
 
 const projects = [
   {
-    title: "TruckPulse — Pro Fleet Manager",
-    description:
-      "A full-stack fleet management application for logistics companies. Features role-based dashboards for fleet owners and drivers, real-time vehicle tracking, and demo login for instant access.",
-    features: [
-      "Role-based access control",
-      "Fleet owner dashboard",
-      "Driver management",
-      "Quick demo login",
-    ],
-    tech: ["React", "Tailwind CSS", "Supabase", "TypeScript"],
-    icon: Truck,
-    github: "https://github.com",
-    live: "https://truckpluse.lovable.app",
-    image: truckImage,
-    featured: true,
-  },
-  {
     title: "WebWheels — Web-enabled Tracking",
     description:
       "A comprehensive web-based fleet tracking system with role-based demo logins for Admin, Fleet Owner, and Drivers. Features dark-themed UI with real-time vehicle management and instant dashboard access.",
@@ -37,7 +20,7 @@ const projects = [
     icon: Globe,
     github: "https://github.com",
     live: "https://webwheels.lovable.app",
-    image: webwheelsImage,
+    image: truckImage,
     featured: true,
   },
   {
