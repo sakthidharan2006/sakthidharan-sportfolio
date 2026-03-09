@@ -1,9 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Truck, Globe } from "lucide-react";
+import { ExternalLink, Github, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import truckImage from "@/assets/truck-project.png";
-import webwheelsImage from "@/assets/webwheels-project.png";
 
 const projects = [
   {
