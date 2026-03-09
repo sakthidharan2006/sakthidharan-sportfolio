@@ -1,28 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Truck, Globe } from "lucide-react";
+import { ExternalLink, Github, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import truckImage from "@/assets/truck-project.png";
-import webwheelsImage from "@/assets/webwheels-project.png";
 
 const projects = [
-  {
-    title: "TruckPulse — Pro Fleet Manager",
-    description:
-      "A full-stack fleet management application for logistics companies. Features role-based dashboards for fleet owners and drivers, real-time vehicle tracking, and demo login for instant access.",
-    features: [
-      "Role-based access control",
-      "Fleet owner dashboard",
-      "Driver management",
-      "Quick demo login",
-    ],
-    tech: ["React", "Tailwind CSS", "Supabase", "TypeScript"],
-    icon: Truck,
-    github: "https://github.com",
-    live: "https://truckpluse.lovable.app",
-    image: truckImage,
-    featured: true,
-  },
   {
     title: "WebWheels — Web-enabled Tracking",
     description:
@@ -37,7 +19,7 @@ const projects = [
     icon: Globe,
     github: "https://github.com",
     live: "https://webwheels.lovable.app",
-    image: webwheelsImage,
+    image: truckImage,
     featured: true,
   },
   {
