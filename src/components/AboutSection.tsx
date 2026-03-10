@@ -135,93 +135,122 @@ export const AboutSection = () => {
 
             {/* Education */}
             <div className="mb-8">
-              <h3 className="font-display text-lg font-bold mb-6 flex items-center gap-3">
+              <h3 className="font-display text-lg font-bold mb-8 flex items-center gap-3">
                 <motion.div
                   className="relative flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10"
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  animate={{ y: [0, -3, 0] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 >
                   <GraduationCap className="w-4 h-4 text-primary" />
-                  <motion.div
-                    className="absolute inset-0 rounded-lg border border-primary/20"
-                    animate={{ scale: [1, 1.2, 1], opacity: [0.5, 0, 0.5] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  />
                 </motion.div>
                 <span>Education</span>
               </h3>
 
-              {/* Timeline */}
-              <div className="relative">
-                {/* Vertical timeline line */}
-                <motion.div
-                  className="absolute left-[19px] top-2 bottom-2 w-px bg-gradient-to-b from-primary/40 via-accent/30 to-primary/10"
-                  initial={{ scaleY: 0 }}
-                  animate={isInView ? { scaleY: 1 } : { scaleY: 0 }}
-                  transition={{ duration: 0.8, delay: 0.4 }}
-                  style={{ transformOrigin: "top" }}
-                />
-
-                <div className="space-y-4">
-                  {education.map((item, index) => (
+              {/* Floating cards */}
+              <div className="relative space-y-5">
+                {education.map((item, index) => (
+                  <motion.div
+                    key={item.degree}
+                    initial={{ opacity: 0, y: 30, rotate: index % 2 === 0 ? -1 : 1 }}
+                    animate={isInView ? {
+                      opacity: 1,
+                      y: 0,
+                      rotate: index % 2 === 0 ? -0.5 : 0.5,
+                    } : { opacity: 0, y: 30 }}
+                    transition={{ duration: 0.6, delay: 0.4 + index * 0.15, type: "spring", stiffness: 100 }}
+                    whileHover={{
+                      y: -8,
+                      rotate: 0,
+                      scale: 1.02,
+                      transition: { type: "spring", stiffness: 300, damping: 20 },
+                    }}
+                    className="group cursor-default"
+                  >
                     <motion.div
-                      key={item.degree}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-                      transition={{ duration: 0.5, delay: 0.5 + index * 0.15 }}
-                      className="relative group"
+                      className="relative p-5 rounded-2xl bg-card/90 backdrop-blur-md border border-border/40 overflow-hidden"
+                      style={{
+                        boxShadow: "0 8px 30px -12px hsl(var(--primary) / 0.1), 0 4px 12px -4px hsl(0 0% 0% / 0.05)",
+                      }}
+                      whileHover={{
+                        boxShadow: "0 20px 50px -15px hsl(var(--primary) / 0.2), 0 8px 20px -6px hsl(0 0% 0% / 0.08)",
+                      }}
                     >
-                      <div className="flex items-start gap-5">
-                        {/* Timeline node */}
-                        <div className="relative z-10 flex-shrink-0">
-                          <motion.div
-                            className="w-10 h-10 rounded-xl bg-card border-2 border-primary/30 flex items-center justify-center group-hover:border-primary/60 group-hover:shadow-[0_0_15px_hsl(var(--primary)/0.2)] transition-all duration-300"
-                            whileHover={{ scale: 1.15, rotate: 5 }}
-                            animate={
-                              index === 0 ? { borderColor: ["hsl(var(--primary) / 0.3)", "hsl(var(--accent) / 0.5)", "hsl(var(--primary) / 0.3)"] } : {}
-                            }
-                            transition={index === 0 ? { duration: 3, repeat: Infinity } : { type: "spring" }}
-                          >
-                            <item.icon className="w-4 h-4 text-primary" />
-                          </motion.div>
-                        </div>
+                      {/* Floating accent orb */}
+                      <motion.div
+                        className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          background: index === 0
+                            ? "radial-gradient(circle, hsl(var(--primary) / 0.15), transparent 70%)"
+                            : index === 1
+                            ? "radial-gradient(circle, hsl(var(--accent) / 0.15), transparent 70%)"
+                            : "radial-gradient(circle, hsl(212 80% 48% / 0.15), transparent 70%)",
+                        }}
+                        animate={{ scale: [1, 1.3, 1] }}
+                        transition={{ duration: 3, repeat: Infinity }}
+                      />
 
-                        {/* Content card */}
+                      {/* Top row: icon + status */}
+                      <div className="flex items-center justify-between mb-3 relative z-10">
                         <motion.div
-                          className="flex-1 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border/50 group-hover:border-primary/25 group-hover:bg-card transition-all duration-300 relative overflow-hidden"
-                          whileHover={{ x: 4 }}
+                          className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                            index === 0 ? "bg-primary/10" : index === 1 ? "bg-accent/10" : "bg-secondary"
+                          }`}
+                          animate={{
+                            y: [0, -4, 0],
+                          }}
+                          transition={{
+                            duration: 2.5 + index * 0.5,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: index * 0.3,
+                          }}
                         >
-                          {/* Subtle gradient overlay on hover */}
-                          <div className="absolute inset-0 bg-gradient-to-r from-primary/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-                          <div className="relative z-10">
-                            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-1.5">
-                              <h4 className="font-display font-semibold text-sm group-hover:text-primary transition-colors duration-300">
-                                {item.degree}
-                              </h4>
-                              <motion.span
-                                className={`text-[10px] font-mono px-2.5 py-1 rounded-full w-fit uppercase tracking-wider font-medium ${
-                                  item.status === "Pursuing"
-                                    ? "bg-primary/15 text-primary border border-primary/20"
-                                    : "bg-accent/10 text-accent border border-accent/20"
-                                }`}
-                                animate={item.status === "Pursuing" ? { opacity: [1, 0.7, 1] } : {}}
-                                transition={{ duration: 2, repeat: Infinity }}
-                              >
-                                {item.status}
-                              </motion.span>
-                            </div>
-                            <p className="text-sm text-muted-foreground mb-1">{item.institution}</p>
-                            <p className="text-xs text-muted-foreground/50 font-mono flex items-center gap-1.5">
-                              <span className="w-1 h-1 rounded-full bg-primary/40" />
-                              {item.year}
-                            </p>
-                          </div>
+                          <item.icon className={`w-4 h-4 ${
+                            index === 0 ? "text-primary" : index === 1 ? "text-accent" : "text-muted-foreground"
+                          }`} />
                         </motion.div>
+
+                        <motion.span
+                          className={`text-[10px] font-mono px-3 py-1 rounded-full uppercase tracking-wider font-medium backdrop-blur-sm ${
+                            item.status === "Pursuing"
+                              ? "bg-primary/10 text-primary border border-primary/20"
+                              : item.status === "84%"
+                              ? "bg-accent/10 text-accent border border-accent/20"
+                              : "bg-muted text-muted-foreground border border-border/50"
+                          }`}
+                          animate={item.status === "Pursuing" ? {
+                            boxShadow: [
+                              "0 0 0 0 hsl(var(--primary) / 0)",
+                              "0 0 0 4px hsl(var(--primary) / 0.1)",
+                              "0 0 0 0 hsl(var(--primary) / 0)",
+                            ],
+                          } : {}}
+                          transition={{ duration: 2, repeat: Infinity }}
+                        >
+                          {item.status}
+                        </motion.span>
+                      </div>
+
+                      {/* Content */}
+                      <div className="relative z-10">
+                        <h4 className="font-display font-semibold text-sm mb-1 group-hover:text-primary transition-colors duration-300">
+                          {item.degree}
+                        </h4>
+                        <p className="text-sm text-muted-foreground mb-2">{item.institution}</p>
+                        <div className="flex items-center gap-2">
+                          <motion.div
+                            className={`w-1.5 h-1.5 rounded-full ${
+                              index === 0 ? "bg-primary" : index === 1 ? "bg-accent" : "bg-muted-foreground/40"
+                            }`}
+                            animate={{ scale: [1, 1.5, 1] }}
+                            transition={{ duration: 2, repeat: Infinity, delay: index * 0.4 }}
+                          />
+                          <p className="text-xs text-muted-foreground/60 font-mono">{item.year}</p>
+                        </div>
                       </div>
                     </motion.div>
-                  ))}
-                </div>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </motion.div>
