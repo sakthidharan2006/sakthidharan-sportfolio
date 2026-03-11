@@ -4,7 +4,7 @@ import { motion, useSpring } from "framer-motion";
 export const CursorGlow = () => {
   const [visible, setVisible] = useState(false);
 
-  const springConfig = { damping: 25, stiffness: 200, mass: 0.5 };
+  const springConfig = { damping: 30, stiffness: 250, mass: 0.4 };
   const x = useSpring(0, springConfig);
   const y = useSpring(0, springConfig);
 
@@ -31,7 +31,7 @@ export const CursorGlow = () => {
 
   return (
     <motion.div
-      className="pointer-events-none fixed inset-0 z-50"
+      className="pointer-events-none fixed inset-0 z-50 mix-blend-soft-light"
       animate={{ opacity: visible ? 1 : 0 }}
       transition={{ duration: 0.3 }}
     >
@@ -40,10 +40,10 @@ export const CursorGlow = () => {
         style={{
           x,
           y,
-          width: 500,
-          height: 500,
+          width: 300,
+          height: 300,
           background:
-            "radial-gradient(circle, hsl(var(--primary) / 0.08) 0%, hsl(var(--primary) / 0.03) 30%, transparent 70%)",
+            "radial-gradient(circle, hsl(var(--primary) / 0.04) 0%, hsl(var(--primary) / 0.015) 40%, transparent 70%)",
         }}
       />
       <motion.div
@@ -51,10 +51,10 @@ export const CursorGlow = () => {
         style={{
           x,
           y,
-          width: 40,
-          height: 40,
+          width: 20,
+          height: 20,
           background:
-            "radial-gradient(circle, hsl(var(--primary) / 0.25) 0%, transparent 70%)",
+            "radial-gradient(circle, hsl(var(--primary) / 0.12) 0%, transparent 70%)",
         }}
       />
     </motion.div>
