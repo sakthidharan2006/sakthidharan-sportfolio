@@ -52,8 +52,8 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
     switch (tech.anim) {
       case "orbit":
         return {
-          animate: { rotate: [0, 360] },
-          transition: { duration: 10, repeat: Infinity, ease: "linear" as const, delay: tech.delay },
+          animate: { scale: [1, 1.1, 1] },
+          transition: { duration: 3, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
       case "typewriter":
         return {
@@ -67,22 +67,22 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
         };
       case "morph":
         return {
-          animate: { borderRadius: ["12px", "50%", "20%", "50%", "12px"], rotate: [0, 45, 0, -45, 0] },
+          animate: { borderRadius: ["12px", "50%", "20%", "50%", "12px"] },
           transition: { duration: 6, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
       case "radar":
         return {
-          animate: { rotate: [0, 360] },
-          transition: { duration: 3, repeat: Infinity, ease: "linear" as const, delay: tech.delay },
+          animate: { scale: [1, 1.15, 1], opacity: [1, 0.7, 1] },
+          transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
       case "stack":
         return {
-          animate: { y: [0, -4, 0, 4, 0], rotateX: [0, 15, 0, -15, 0] },
+          animate: { y: [0, -4, 0, 4, 0] },
           transition: { duration: 3, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
       case "pendulum":
         return {
-          animate: { rotate: [-20, 20, -20] },
+          animate: { x: [-8, 8, -8] },
           transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
       case "sonar":
@@ -113,18 +113,18 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
     >
       <div className="relative">
         {/* Orbital ring — dashed circle with orbiting dot */}
-        {tech.anim === "orbit" && (
-          <motion.div
-            className="absolute -inset-4 rounded-full border border-dashed"
-            style={{ borderColor: `${tech.color}25` }}
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          >
+          {tech.anim === "orbit" && (
             <motion.div
-              className="absolute -top-1 left-1/2 w-1.5 h-1.5 rounded-full"
-              style={{ backgroundColor: tech.color, boxShadow: `0 0 6px ${tech.color}` }}
-            />
-          </motion.div>
+              className="absolute -inset-4 rounded-full border border-dashed"
+              style={{ borderColor: `${tech.color}25` }}
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <motion.div
+                className="absolute -top-1 left-1/2 w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: tech.color, boxShadow: `0 0 6px ${tech.color}` }}
+              />
+            </motion.div>
         )}
 
         {/* Radar sweep */}
@@ -136,8 +136,8 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
             <motion.div
               className="absolute top-1/2 left-1/2 w-1/2 h-px origin-left"
               style={{ backgroundColor: tech.color, boxShadow: `0 0 8px ${tech.color}` }}
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: tech.delay }}
+              animate={{ scaleX: [0, 1, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: tech.delay }}
             />
           </motion.div>
         )}

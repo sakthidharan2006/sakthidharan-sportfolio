@@ -47,7 +47,7 @@ export const ProjectsSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// projects</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight heading-glow">
             Featured Projects
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm">

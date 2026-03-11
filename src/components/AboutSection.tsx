@@ -42,7 +42,7 @@ export const AboutSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// about</span>
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight heading-glow">
             About Me
           </h2>
         </motion.div>
@@ -61,8 +61,6 @@ export const AboutSection = () => {
                   background: "conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(212 80% 48%), hsl(var(--primary)))",
                   padding: "3px",
                 }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
               >
                 <div className="w-full h-full rounded-full bg-background" />
               </motion.div>
@@ -71,15 +69,13 @@ export const AboutSection = () => {
               <motion.div
                 className="absolute w-[19.5rem] h-[19.5rem] md:w-[22rem] md:h-[22rem] rounded-full border-2 border-dashed"
                 style={{ borderColor: "hsl(var(--primary) / 0.15)" }}
-                animate={{ rotate: -360 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
               />
 
               {/* Orbiting dot */}
               <motion.div
                 className="absolute w-[20rem] h-[20rem] md:w-[22.5rem] md:h-[22.5rem] rounded-full"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                animate={{ scale: [1, 1.03, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
                 <div
                   className="absolute -top-1 left-1/2 w-2.5 h-2.5 rounded-full"
