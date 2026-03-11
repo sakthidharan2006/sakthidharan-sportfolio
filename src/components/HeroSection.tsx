@@ -67,13 +67,13 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
         };
       case "morph":
         return {
-          animate: { borderRadius: ["12px", "50%", "20%", "50%", "12px"], rotate: [0, 45, 0, -45, 0] },
+          animate: { borderRadius: ["12px", "50%", "20%", "50%", "12px"] },
           transition: { duration: 6, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
       case "radar":
         return {
-          animate: { rotate: [0, 360] },
-          transition: { duration: 3, repeat: Infinity, ease: "linear" as const, delay: tech.delay },
+          animate: { scale: [1, 1.15, 1], opacity: [1, 0.7, 1] },
+          transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
       case "stack":
         return {
