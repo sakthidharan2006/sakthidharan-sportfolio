@@ -82,7 +82,7 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
         };
       case "pendulum":
         return {
-          animate: { rotate: [-20, 20, -20] },
+          animate: { x: [-8, 8, -8] },
           transition: { duration: 2.5, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
       case "sonar":
