@@ -9,10 +9,12 @@ import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { PageLoader } from "@/components/PageLoader";
 import { SectionDivider } from "@/components/SectionDivider";
+import { CursorGlow } from "@/components/CursorGlow";
 
 const Index = () => {
   return (
     <>
+      <CursorGlow />
       <PageLoader />
       <div className="min-h-screen bg-background tech-grid relative">
         {/* Decorative gradient blobs */}
