@@ -113,18 +113,18 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
     >
       <div className="relative">
         {/* Orbital ring — dashed circle with orbiting dot */}
-        {tech.anim === "orbit" && (
-          <motion.div
-            className="absolute -inset-4 rounded-full border border-dashed"
-            style={{ borderColor: `${tech.color}25` }}
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-          >
+          {tech.anim === "orbit" && (
             <motion.div
-              className="absolute -top-1 left-1/2 w-1.5 h-1.5 rounded-full"
-              style={{ backgroundColor: tech.color, boxShadow: `0 0 6px ${tech.color}` }}
-            />
-          </motion.div>
+              className="absolute -inset-4 rounded-full border border-dashed"
+              style={{ borderColor: `${tech.color}25` }}
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <motion.div
+                className="absolute -top-1 left-1/2 w-1.5 h-1.5 rounded-full"
+                style={{ backgroundColor: tech.color, boxShadow: `0 0 6px ${tech.color}` }}
+              />
+            </motion.div>
         )}
 
         {/* Radar sweep */}
