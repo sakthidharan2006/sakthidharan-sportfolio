@@ -61,8 +61,6 @@ export const AboutSection = () => {
                   background: "conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(212 80% 48%), hsl(var(--primary)))",
                   padding: "3px",
                 }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
               >
                 <div className="w-full h-full rounded-full bg-background" />
               </motion.div>
