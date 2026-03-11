@@ -69,8 +69,6 @@ export const AboutSection = () => {
               <motion.div
                 className="absolute w-[19.5rem] h-[19.5rem] md:w-[22rem] md:h-[22rem] rounded-full border-2 border-dashed"
                 style={{ borderColor: "hsl(var(--primary) / 0.15)" }}
-                animate={{ rotate: -360 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
               />
 
               {/* Orbiting dot */}
