@@ -52,8 +52,8 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
     switch (tech.anim) {
       case "orbit":
         return {
-          animate: { rotate: [0, 360] },
-          transition: { duration: 10, repeat: Infinity, ease: "linear" as const, delay: tech.delay },
+          animate: { scale: [1, 1.1, 1] },
+          transition: { duration: 3, repeat: Infinity, ease: "easeInOut" as const, delay: tech.delay },
         };
       case "typewriter":
         return {
