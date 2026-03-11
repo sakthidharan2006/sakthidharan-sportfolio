@@ -37,8 +37,8 @@ export const PageLoader = () => {
           >
             <motion.div
               className="w-14 h-14 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center"
-              animate={{ rotate: [0, 90, 180, 270, 360] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              animate={{ scale: [1, 1.15, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             >
               <Terminal className="w-6 h-6 text-primary" />
             </motion.div>

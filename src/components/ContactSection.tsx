@@ -118,19 +118,19 @@ export const ContactSection = () => {
                       <motion.div
                         className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
                         animate={
-                          index % 5 === 0 ? { rotate: [0, 360] } :
+                          index % 5 === 0 ? { y: [0, -4, 0] } :
                           index % 5 === 1 ? { y: [0, -3, 0] } :
                           index % 5 === 2 ? { scale: [1, 1.15, 1] } :
-                          index % 5 === 3 ? { rotate: [-10, 10, -10] } :
+                          index % 5 === 3 ? { x: [-3, 3, -3] } :
                           { x: [0, 2, -2, 0] }
                         }
                         transition={{
-                          duration: index % 5 === 0 ? 5 : index % 5 === 1 ? 1.5 : index % 5 === 2 ? 2 : index % 5 === 3 ? 1.8 : 1.2,
+                          duration: index % 5 === 0 ? 2 : index % 5 === 1 ? 1.5 : index % 5 === 2 ? 2 : index % 5 === 3 ? 1.8 : 1.2,
                           repeat: Infinity,
-                          ease: index % 5 === 0 ? "linear" : "easeInOut",
+                          ease: "easeInOut",
                           delay: index * 0.4,
                         }}
-                        whileHover={{ scale: 1.25, rotate: 15 }}
+                        whileHover={{ scale: 1.25 }}
                       >
                         <item.icon className="w-4 h-4 text-primary" />
                       </motion.div>

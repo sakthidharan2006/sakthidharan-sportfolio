@@ -236,8 +236,8 @@ export const HeroSection = () => {
               className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-lg text-xs font-mono font-medium uppercase tracking-wider mb-6 cursor-default border border-primary/20"
             >
               <motion.div
-                animate={{ rotate: [0, 180, 360], scale: [1, 1.2, 1] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
               >
                 <Zap className="w-3.5 h-3.5" />
               </motion.div>
