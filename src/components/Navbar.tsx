@@ -106,7 +106,7 @@ export const Navbar = () => {
             ))}
 
             <motion.div
-              whileHover={{ rotate: 180 }}
+              whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}
             >
               <Button
