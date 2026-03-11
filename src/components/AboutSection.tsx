@@ -74,8 +74,8 @@ export const AboutSection = () => {
               {/* Orbiting dot */}
               <motion.div
                 className="absolute w-[20rem] h-[20rem] md:w-[22.5rem] md:h-[22.5rem] rounded-full"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                animate={{ scale: [1, 1.03, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
                 <div
                   className="absolute -top-1 left-1/2 w-2.5 h-2.5 rounded-full"

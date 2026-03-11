@@ -34,8 +34,8 @@ export const Footer = () => {
         >
           <div className="flex items-center gap-2 text-muted-foreground text-xs font-mono">
             <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+              animate={{ scale: [1, 1.15, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
               <Code2 className="w-3.5 h-3.5 text-primary" />
             </motion.div>

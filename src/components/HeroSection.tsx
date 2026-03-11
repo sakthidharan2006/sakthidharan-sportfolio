@@ -136,8 +136,8 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
             <motion.div
               className="absolute top-1/2 left-1/2 w-1/2 h-px origin-left"
               style={{ backgroundColor: tech.color, boxShadow: `0 0 8px ${tech.color}` }}
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: tech.delay }}
+              animate={{ scaleX: [0, 1, 0] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: tech.delay }}
             />
           </motion.div>
         )}

@@ -71,8 +71,8 @@ export const Navbar = () => {
             whileTap={{ scale: 0.95 }}
           >
             <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              animate={{ scale: [1, 1.1, 1] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
               <Terminal className="w-5 h-5 text-primary" />
             </motion.div>
