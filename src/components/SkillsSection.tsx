@@ -7,18 +7,18 @@ import {
 } from "lucide-react";
 
 const iconAnimConfigs = [
-  { animate: { rotate: [0, 360] }, transition: { duration: 5, repeat: Infinity, ease: "linear" as const } },
+  { animate: { scale: [1, 1.2, 1] }, transition: { duration: 3, repeat: Infinity, ease: "easeInOut" as const } },
   { animate: { scale: [1, 1.3, 1, 1.15, 1] }, transition: { duration: 1.4, repeat: Infinity, repeatDelay: 2 } },
   { animate: { y: [0, -5, 0], x: [0, 2, 0] }, transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut" as const } },
-  { animate: { rotate: [-15, 15, -15] }, transition: { duration: 1.8, repeat: Infinity, ease: "easeInOut" as const } },
+  { animate: { y: [0, -4, 0] }, transition: { duration: 1.8, repeat: Infinity, ease: "easeInOut" as const } },
   { animate: { scaleX: [1, 1.2, 1], scaleY: [1, 0.85, 1] }, transition: { duration: 2, repeat: Infinity, ease: "easeInOut" as const } },
-  { animate: { rotateY: [0, 180, 360] }, transition: { duration: 3, repeat: Infinity, ease: "easeInOut" as const } },
+  { animate: { scale: [1, 1.15, 1] }, transition: { duration: 3, repeat: Infinity, ease: "easeInOut" as const } },
   { animate: { y: [0, -8, 2, -4, 0] }, transition: { duration: 2, repeat: Infinity, ease: "easeOut" as const } },
   { animate: { opacity: [1, 0.3, 1], scale: [1, 0.9, 1] }, transition: { duration: 0.5, repeat: Infinity, repeatDelay: 3 } },
-  { animate: { rotate: [0, 10, -10, 5, 0] }, transition: { duration: 0.6, repeat: Infinity, repeatDelay: 2.5 } },
+  { animate: { scale: [1, 1.1, 0.95, 1] }, transition: { duration: 0.6, repeat: Infinity, repeatDelay: 2.5 } },
   { animate: { x: [0, -3, 3, -1, 0] }, transition: { duration: 0.4, repeat: Infinity, repeatDelay: 4 } },
   { animate: { scale: [1, 1.2, 1] }, transition: { duration: 1.8, repeat: Infinity, ease: "easeInOut" as const } },
-  { animate: { rotate: [0, -360] }, transition: { duration: 8, repeat: Infinity, ease: "linear" as const } },
+  { animate: { y: [0, -6, 0] }, transition: { duration: 4, repeat: Infinity, ease: "easeInOut" as const } },
 ];
 
 const getAnimation = (index: number) => iconAnimConfigs[index % iconAnimConfigs.length];
