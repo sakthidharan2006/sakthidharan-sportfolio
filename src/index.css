@@ -141,9 +141,12 @@
 
   .tech-grid {
     background-image: 
-      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
+      linear-gradient(hsl(var(--primary) / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.04) 1px, transparent 1px),
+      radial-gradient(circle 2px at center, hsl(var(--primary) / 0.12) 1px, transparent 1px),
+      radial-gradient(circle 1px at center, hsl(var(--primary) / 0.06) 0.5px, transparent 0.5px);
+    background-size: 60px 60px, 60px 60px, 60px 60px, 30px 30px;
+    background-position: 0 0, 0 0, 30px 30px, 15px 15px;
   }
 
   .tech-dots {
