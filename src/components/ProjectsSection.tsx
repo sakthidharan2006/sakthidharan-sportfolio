@@ -2,6 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { ExternalLink, Github, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { TiltCard } from "@/components/TiltCard";
+import truckImage from "@/assets/truck-project.png";
 import truckImage from "@/assets/truck-project.png";
 
 const projects = [
