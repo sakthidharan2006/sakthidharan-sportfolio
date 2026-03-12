@@ -16,7 +16,7 @@ export const TypingAnimation = () => {
 
   useEffect(() => {
     const currentRole = roles[roleIndex];
-    let timeout: NodeJS.Timeout;
+    let timeout: ReturnType<typeof setTimeout>;
 
     if (!isDeleting && displayText === currentRole) {
       // Pause before deleting
