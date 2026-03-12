@@ -1,6 +1,8 @@
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail, Download, Zap, FileCode, Braces, Atom, Server, Database, GitBranch, Code2, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { TypingAnimation } from "@/components/TypingAnimation";
+import { Button } from "@/components/ui/button";
 
 const floatingTechIcons = [
   { icon: Atom, label: "React", x: "8%", y: "18%", size: 28, delay: 0, color: "hsl(193 95% 55%)", speed: 0.3, anim: "orbit" },
