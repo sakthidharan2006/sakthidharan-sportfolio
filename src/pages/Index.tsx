@@ -26,29 +26,29 @@ const Index = () => {
           
           {/* Vertical circuit traces with data-flow animation */}
           <div className="absolute top-0 left-[10%] w-px h-full"
-            style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, hsl(var(--primary) / 0.12) 50%, transparent 70%, transparent 100%)', backgroundSize: '1px 200%', animation: 'data-flow-vertical 8s linear infinite' }} />
+            style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, hsl(var(--primary) / 0.3) 50%, transparent 70%, transparent 100%)', backgroundSize: '1px 200%', animation: 'data-flow-vertical 8s linear infinite' }} />
           <div className="absolute top-0 left-[25%] w-px h-full"
-            style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, hsl(var(--primary) / 0.08) 50%, transparent 70%, transparent 100%)', backgroundSize: '1px 200%', animation: 'data-flow-vertical 12s linear infinite 2s' }} />
+            style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, hsl(var(--primary) / 0.2) 50%, transparent 70%, transparent 100%)', backgroundSize: '1px 200%', animation: 'data-flow-vertical 12s linear infinite 2s' }} />
           <div className="absolute top-0 right-[15%] w-px h-full"
-            style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, hsl(var(--primary) / 0.1) 50%, transparent 70%, transparent 100%)', backgroundSize: '1px 200%', animation: 'data-flow-vertical 10s linear infinite 4s' }} />
+            style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, hsl(var(--primary) / 0.25) 50%, transparent 70%, transparent 100%)', backgroundSize: '1px 200%', animation: 'data-flow-vertical 10s linear infinite 4s' }} />
           <div className="absolute top-0 right-[30%] w-px h-full"
-            style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, hsl(var(--accent) / 0.08) 50%, transparent 70%, transparent 100%)', backgroundSize: '1px 200%', animation: 'data-flow-vertical 14s linear infinite 6s' }} />
+            style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 30%, hsl(var(--accent) / 0.2) 50%, transparent 70%, transparent 100%)', backgroundSize: '1px 200%', animation: 'data-flow-vertical 14s linear infinite 6s' }} />
           
           {/* Horizontal circuit traces with data-flow animation */}
           <div className="absolute top-[20%] left-0 w-full h-px"
-            style={{ background: 'linear-gradient(to right, transparent 0%, transparent 30%, hsl(var(--primary) / 0.1) 50%, transparent 70%, transparent 100%)', backgroundSize: '200% 1px', animation: 'data-flow-horizontal 10s linear infinite' }} />
+            style={{ background: 'linear-gradient(to right, transparent 0%, transparent 30%, hsl(var(--primary) / 0.25) 50%, transparent 70%, transparent 100%)', backgroundSize: '200% 1px', animation: 'data-flow-horizontal 10s linear infinite' }} />
           <div className="absolute top-[45%] left-0 w-full h-px"
-            style={{ background: 'linear-gradient(to right, transparent 0%, transparent 30%, hsl(var(--accent) / 0.08) 50%, transparent 70%, transparent 100%)', backgroundSize: '200% 1px', animation: 'data-flow-horizontal 14s linear infinite 3s' }} />
+            style={{ background: 'linear-gradient(to right, transparent 0%, transparent 30%, hsl(var(--accent) / 0.2) 50%, transparent 70%, transparent 100%)', backgroundSize: '200% 1px', animation: 'data-flow-horizontal 14s linear infinite 3s' }} />
           <div className="absolute top-[70%] left-0 w-full h-px"
-            style={{ background: 'linear-gradient(to right, transparent 0%, transparent 30%, hsl(var(--primary) / 0.08) 50%, transparent 70%, transparent 100%)', backgroundSize: '200% 1px', animation: 'data-flow-horizontal 12s linear infinite 5s' }} />
+            style={{ background: 'linear-gradient(to right, transparent 0%, transparent 30%, hsl(var(--primary) / 0.2) 50%, transparent 70%, transparent 100%)', backgroundSize: '200% 1px', animation: 'data-flow-horizontal 12s linear infinite 5s' }} />
           <div className="absolute top-[90%] left-0 w-full h-px"
-            style={{ background: 'linear-gradient(to right, transparent 0%, transparent 30%, hsl(var(--primary) / 0.1) 50%, transparent 70%, transparent 100%)', backgroundSize: '200% 1px', animation: 'data-flow-horizontal 11s linear infinite 7s' }} />
+            style={{ background: 'linear-gradient(to right, transparent 0%, transparent 30%, hsl(var(--primary) / 0.25) 50%, transparent 70%, transparent 100%)', backgroundSize: '200% 1px', animation: 'data-flow-horizontal 11s linear infinite 7s' }} />
           
           {/* Circuit junction nodes with pulse */}
-          <div className="absolute top-[20%] left-[10%] w-2 h-2 rounded-full bg-primary/20" style={{ animation: 'node-pulse 4s ease-in-out infinite' }} />
-          <div className="absolute top-[45%] right-[15%] w-2 h-2 rounded-full bg-primary/20" style={{ animation: 'node-pulse 4s ease-in-out infinite 1s' }} />
-          <div className="absolute top-[70%] left-[25%] w-1.5 h-1.5 rounded-full bg-accent/20" style={{ animation: 'node-pulse 4s ease-in-out infinite 2s' }} />
-          <div className="absolute top-[90%] right-[30%] w-2 h-2 rounded-full bg-primary/20" style={{ animation: 'node-pulse 4s ease-in-out infinite 3s' }} />
+          <div className="absolute top-[20%] left-[10%] w-2.5 h-2.5 rounded-full bg-primary/30" style={{ animation: 'node-pulse 4s ease-in-out infinite' }} />
+          <div className="absolute top-[45%] right-[15%] w-2.5 h-2.5 rounded-full bg-primary/30" style={{ animation: 'node-pulse 4s ease-in-out infinite 1s' }} />
+          <div className="absolute top-[70%] left-[25%] w-2 h-2 rounded-full bg-accent/30" style={{ animation: 'node-pulse 4s ease-in-out infinite 2s' }} />
+          <div className="absolute top-[90%] right-[30%] w-2.5 h-2.5 rounded-full bg-primary/30" style={{ animation: 'node-pulse 4s ease-in-out infinite 3s' }} />
           
           {/* Corner brackets — tech frame accents */}
           <div className="absolute top-8 left-8 w-12 h-12 border-t border-l border-primary/10 rounded-tl-sm" />
