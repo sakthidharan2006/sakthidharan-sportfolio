@@ -154,7 +154,7 @@ export const ProjectsSection = () => {
                   </div>
                 </div>
               </motion.div>
-            </motion.div>
+              </TiltCard>
           ))}
 
         {/* Other Projects */}

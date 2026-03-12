@@ -261,11 +261,18 @@ export const HeroSection = () => {
             </motion.span>
           </motion.h1>
 
+          <motion.div
+            variants={itemVariants}
+            className="text-base sm:text-lg md:text-xl text-muted-foreground mb-2 max-w-2xl mx-auto"
+          >
+            <TypingAnimation />
+          </motion.div>
+
           <motion.p
             variants={itemVariants}
-            className="text-base sm:text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base text-muted-foreground/70 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            Aspiring Software Developer crafting modern web experiences with clean code and creative solutions
+            Crafting modern web experiences with clean code and creative solutions
           </motion.p>
 
           <motion.div
