@@ -68,10 +68,12 @@ export const ProjectsSection = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-12"
             >
+              <TiltCard>
               <motion.div
                 whileHover={{ y: -5 }}
                 transition={{ type: "spring", stiffness: 200 }}
                 className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 transition-colors"
+              >
               >
                 <div className="grid lg:grid-cols-2">
                   <div className="p-8 md:p-12 flex flex-col justify-center">
