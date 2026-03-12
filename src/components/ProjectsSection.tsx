@@ -74,7 +74,6 @@ export const ProjectsSection = () => {
                 transition={{ type: "spring", stiffness: 200 }}
                 className="bg-card rounded-2xl overflow-hidden border border-border/50 hover:border-primary/30 transition-colors"
               >
-              >
                 <div className="grid lg:grid-cols-2">
                   <div className="p-8 md:p-12 flex flex-col justify-center">
                     <div className="flex items-center gap-3 mb-4">
