@@ -210,6 +210,7 @@ export const ContactSection = () => {
                 </Button>
               </div>
             </form>
+            </TiltCard>
           </motion.div>
         </div>
       </div>

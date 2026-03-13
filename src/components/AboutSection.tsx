@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, Award, BookOpen } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpeg";
+import { TiltCard } from "@/components/TiltCard";
 
 export const AboutSection = () => {
   const ref = useRef(null);
