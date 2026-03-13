@@ -166,6 +166,7 @@ export const ContactSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
+            <TiltCard>
             <form onSubmit={handleSubmit} className="bg-card rounded-xl p-6 md:p-8 border border-border/50">
               <h3 className="font-display text-lg font-bold mb-6 tracking-tight">Send a Message</h3>
 
