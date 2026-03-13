@@ -1,5 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { TiltCard } from "@/components/TiltCard";
+import { AnimatedSection } from "@/components/AnimatedSection";
 import {
   Code2, FileCode, Braces, Atom,
   Server, Route, Database, GitBranch,
@@ -83,13 +85,13 @@ export const SkillsSection = () => {
 
         <div className="grid md:grid-cols-2 gap-6">
           {skillCategories.map((category, categoryIndex) => (
-            <motion.div
+            <AnimatedSection
               key={category.title}
-              initial={{ opacity: 0, y: 40 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
-              transition={{ duration: 0.5, delay: categoryIndex * 0.1 }}
-              className="bg-card rounded-xl p-6 md:p-8 card-hover border border-border/50"
+              direction={categoryIndex % 2 === 0 ? "left" : "right"}
+              delay={categoryIndex * 0.1}
             >
+              <TiltCard className="h-full">
+                <div className="bg-card rounded-xl p-6 md:p-8 card-hover border border-border/50 h-full">
               <h3 className="font-display text-lg font-semibold mb-6 text-gradient">
                 {category.title}
               </h3>
@@ -170,7 +172,9 @@ export const SkillsSection = () => {
                   );
                 })}
               </div>
-            </motion.div>
+                </div>
+              </TiltCard>
+            </AnimatedSection>
           ))}
         </div>
       </div>

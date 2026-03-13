@@ -3,6 +3,7 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap, Award, BookOpen } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpeg";
+import { TiltCard } from "@/components/TiltCard";
 
 export const AboutSection = () => {
   const ref = useRef(null);
@@ -145,107 +146,93 @@ export const AboutSection = () => {
               {/* Floating cards */}
               <div className="relative space-y-5">
                 {education.map((item, index) => (
-                  <motion.div
-                    key={item.degree}
-                    initial={{ opacity: 0, y: 30, rotate: index % 2 === 0 ? -1 : 1 }}
-                    animate={isInView ? {
-                      opacity: 1,
-                      y: 0,
-                      rotate: index % 2 === 0 ? -0.5 : 0.5,
-                    } : { opacity: 0, y: 30 }}
-                    transition={{ duration: 0.6, delay: 0.4 + index * 0.15, type: "spring", stiffness: 100 }}
-                    whileHover={{
-                      y: -8,
-                      rotate: 0,
-                      scale: 1.02,
-                      transition: { type: "spring", stiffness: 300, damping: 20 },
-                    }}
-                    className="group cursor-default"
-                  >
+                  <TiltCard key={item.degree}>
                     <motion.div
-                      className="relative p-5 rounded-2xl bg-card/90 backdrop-blur-md border border-border/40 overflow-hidden"
-                      style={{
-                        boxShadow: "0 8px 30px -12px hsl(var(--primary) / 0.1), 0 4px 12px -4px hsl(0 0% 0% / 0.05)",
-                      }}
-                      whileHover={{
-                        boxShadow: "0 20px 50px -15px hsl(var(--primary) / 0.2), 0 8px 20px -6px hsl(0 0% 0% / 0.08)",
-                      }}
+                      initial={{ opacity: 0, y: 30 }}
+                      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                      transition={{ duration: 0.6, delay: 0.4 + index * 0.15, type: "spring", stiffness: 100 }}
+                      className="group cursor-default"
                     >
-                      {/* Floating accent orb */}
-                      <motion.div
-                        className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                      <div
+                        className="relative p-5 rounded-2xl bg-card/90 backdrop-blur-md border border-border/40 overflow-hidden"
                         style={{
-                          background: index === 0
-                            ? "radial-gradient(circle, hsl(var(--primary) / 0.15), transparent 70%)"
-                            : index === 1
-                            ? "radial-gradient(circle, hsl(var(--accent) / 0.15), transparent 70%)"
-                            : "radial-gradient(circle, hsl(212 80% 48% / 0.15), transparent 70%)",
+                          boxShadow: "0 8px 30px -12px hsl(var(--primary) / 0.1), 0 4px 12px -4px hsl(0 0% 0% / 0.05)",
                         }}
-                        animate={{ scale: [1, 1.3, 1] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                      />
-
-                      {/* Top row: icon + status */}
-                      <div className="flex items-center justify-between mb-3 relative z-10">
+                      >
+                        {/* Floating accent orb */}
                         <motion.div
-                          className={`w-10 h-10 rounded-xl flex items-center justify-center ${
-                            index === 0 ? "bg-primary/10" : index === 1 ? "bg-accent/10" : "bg-secondary"
-                          }`}
-                          animate={{
-                            y: [0, -4, 0],
+                          className="absolute -top-4 -right-4 w-20 h-20 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                          style={{
+                            background: index === 0
+                              ? "radial-gradient(circle, hsl(var(--primary) / 0.15), transparent 70%)"
+                              : index === 1
+                              ? "radial-gradient(circle, hsl(var(--accent) / 0.15), transparent 70%)"
+                              : "radial-gradient(circle, hsl(212 80% 48% / 0.15), transparent 70%)",
                           }}
-                          transition={{
-                            duration: 2.5 + index * 0.5,
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: index * 0.3,
-                          }}
-                        >
-                          <item.icon className={`w-4 h-4 ${
-                            index === 0 ? "text-primary" : index === 1 ? "text-accent" : "text-muted-foreground"
-                          }`} />
-                        </motion.div>
+                          animate={{ scale: [1, 1.3, 1] }}
+                          transition={{ duration: 3, repeat: Infinity }}
+                        />
 
-                        <motion.span
-                          className={`text-[10px] font-mono px-3 py-1 rounded-full uppercase tracking-wider font-medium backdrop-blur-sm ${
-                            item.status === "Pursuing"
-                              ? "bg-primary/10 text-primary border border-primary/20"
-                              : item.status === "84%"
-                              ? "bg-accent/10 text-accent border border-accent/20"
-                              : "bg-muted text-muted-foreground border border-border/50"
-                          }`}
-                          animate={item.status === "Pursuing" ? {
-                            boxShadow: [
-                              "0 0 0 0 hsl(var(--primary) / 0)",
-                              "0 0 0 4px hsl(var(--primary) / 0.1)",
-                              "0 0 0 0 hsl(var(--primary) / 0)",
-                            ],
-                          } : {}}
-                          transition={{ duration: 2, repeat: Infinity }}
-                        >
-                          {item.status}
-                        </motion.span>
-                      </div>
-
-                      {/* Content */}
-                      <div className="relative z-10">
-                        <h4 className="font-display font-semibold text-sm mb-1 group-hover:text-primary transition-colors duration-300">
-                          {item.degree}
-                        </h4>
-                        <p className="text-sm text-muted-foreground mb-2">{item.institution}</p>
-                        <div className="flex items-center gap-2">
+                        {/* Top row: icon + status */}
+                        <div className="flex items-center justify-between mb-3 relative z-10">
                           <motion.div
-                            className={`w-1.5 h-1.5 rounded-full ${
-                              index === 0 ? "bg-primary" : index === 1 ? "bg-accent" : "bg-muted-foreground/40"
+                            className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+                              index === 0 ? "bg-primary/10" : index === 1 ? "bg-accent/10" : "bg-secondary"
                             }`}
-                            animate={{ scale: [1, 1.5, 1] }}
-                            transition={{ duration: 2, repeat: Infinity, delay: index * 0.4 }}
-                          />
-                          <p className="text-xs text-muted-foreground/60 font-mono">{item.year}</p>
+                            animate={{ y: [0, -4, 0] }}
+                            transition={{
+                              duration: 2.5 + index * 0.5,
+                              repeat: Infinity,
+                              ease: "easeInOut",
+                              delay: index * 0.3,
+                            }}
+                          >
+                            <item.icon className={`w-4 h-4 ${
+                              index === 0 ? "text-primary" : index === 1 ? "text-accent" : "text-muted-foreground"
+                            }`} />
+                          </motion.div>
+
+                          <motion.span
+                            className={`text-[10px] font-mono px-3 py-1 rounded-full uppercase tracking-wider font-medium backdrop-blur-sm ${
+                              item.status === "Pursuing"
+                                ? "bg-primary/10 text-primary border border-primary/20"
+                                : item.status === "84%"
+                                ? "bg-accent/10 text-accent border border-accent/20"
+                                : "bg-muted text-muted-foreground border border-border/50"
+                            }`}
+                            animate={item.status === "Pursuing" ? {
+                              boxShadow: [
+                                "0 0 0 0 hsl(var(--primary) / 0)",
+                                "0 0 0 4px hsl(var(--primary) / 0.1)",
+                                "0 0 0 0 hsl(var(--primary) / 0)",
+                              ],
+                            } : {}}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          >
+                            {item.status}
+                          </motion.span>
+                        </div>
+
+                        {/* Content */}
+                        <div className="relative z-10">
+                          <h4 className="font-display font-semibold text-sm mb-1 group-hover:text-primary transition-colors duration-300">
+                            {item.degree}
+                          </h4>
+                          <p className="text-sm text-muted-foreground mb-2">{item.institution}</p>
+                          <div className="flex items-center gap-2">
+                            <motion.div
+                              className={`w-1.5 h-1.5 rounded-full ${
+                                index === 0 ? "bg-primary" : index === 1 ? "bg-accent" : "bg-muted-foreground/40"
+                              }`}
+                              animate={{ scale: [1, 1.5, 1] }}
+                              transition={{ duration: 2, repeat: Infinity, delay: index * 0.4 }}
+                            />
+                            <p className="text-xs text-muted-foreground/60 font-mono">{item.year}</p>
+                          </div>
                         </div>
                       </div>
                     </motion.div>
-                  </motion.div>
+                  </TiltCard>
                 ))}
               </div>
             </div>

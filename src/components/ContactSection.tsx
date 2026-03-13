@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Mail, Linkedin, Github, Send, MapPin, Phone, CheckCircle2, AlertCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { TiltCard } from "@/components/TiltCard";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
@@ -165,6 +166,7 @@ export const ContactSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
+            <TiltCard>
             <form onSubmit={handleSubmit} className="bg-card rounded-xl p-6 md:p-8 border border-border/50">
               <h3 className="font-display text-lg font-bold mb-6 tracking-tight">Send a Message</h3>
 
@@ -208,6 +210,7 @@ export const ContactSection = () => {
                 </Button>
               </div>
             </form>
+            </TiltCard>
           </motion.div>
         </div>
       </div>

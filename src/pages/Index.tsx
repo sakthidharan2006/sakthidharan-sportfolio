@@ -10,6 +10,7 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { PageLoader } from "@/components/PageLoader";
 import { SectionDivider } from "@/components/SectionDivider";
 import { CursorGlow } from "@/components/CursorGlow";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const Index = () => {
   return (
@@ -68,15 +69,25 @@ const Index = () => {
         <main>
           <HeroSection />
           <SectionDivider />
-          <AboutSection />
+          <AnimatedSection direction="up">
+            <AboutSection />
+          </AnimatedSection>
           <SectionDivider />
-          <SkillsSection />
+          <AnimatedSection direction="left">
+            <SkillsSection />
+          </AnimatedSection>
           <SectionDivider />
-          <ProjectsSection />
+          <AnimatedSection direction="scale">
+            <ProjectsSection />
+          </AnimatedSection>
           <SectionDivider />
-          <ExperienceSection />
+          <AnimatedSection direction="right">
+            <ExperienceSection />
+          </AnimatedSection>
           <SectionDivider />
-          <ContactSection />
+          <AnimatedSection direction="up">
+            <ContactSection />
+          </AnimatedSection>
         </main>
         <Footer />
         <ScrollToTop />
