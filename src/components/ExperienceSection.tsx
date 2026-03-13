@@ -148,7 +148,7 @@ export const ExperienceSection = () => {
                 />
 
                 <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
-                  <div className="bg-card rounded-xl p-6 border border-border/50 card-hover">
+                  <TiltCard>
                     <div className="flex items-start gap-4 mb-3">
                       <motion.div
                         className="p-2.5 rounded-xl bg-primary/10 shrink-0"
