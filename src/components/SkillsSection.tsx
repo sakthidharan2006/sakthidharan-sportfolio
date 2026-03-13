@@ -172,7 +172,9 @@ export const SkillsSection = () => {
                   );
                 })}
               </div>
-            </motion.div>
+                </div>
+              </TiltCard>
+            </AnimatedSection>
           ))}
         </div>
       </div>
