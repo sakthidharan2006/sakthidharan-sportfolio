@@ -1,6 +1,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Award, BookOpen, Cloud, Briefcase } from "lucide-react";
+import { TiltCard } from "@/components/TiltCard";
+import { AnimatedSection } from "@/components/AnimatedSection";
 
 const experiences = [
   {
