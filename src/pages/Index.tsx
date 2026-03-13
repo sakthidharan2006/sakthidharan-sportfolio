@@ -69,15 +69,25 @@ const Index = () => {
         <main>
           <HeroSection />
           <SectionDivider />
-          <AboutSection />
+          <AnimatedSection direction="up">
+            <AboutSection />
+          </AnimatedSection>
           <SectionDivider />
-          <SkillsSection />
+          <AnimatedSection direction="left">
+            <SkillsSection />
+          </AnimatedSection>
           <SectionDivider />
-          <ProjectsSection />
+          <AnimatedSection direction="scale">
+            <ProjectsSection />
+          </AnimatedSection>
           <SectionDivider />
-          <ExperienceSection />
+          <AnimatedSection direction="right">
+            <ExperienceSection />
+          </AnimatedSection>
           <SectionDivider />
-          <ContactSection />
+          <AnimatedSection direction="up">
+            <ContactSection />
+          </AnimatedSection>
         </main>
         <Footer />
         <ScrollToTop />
