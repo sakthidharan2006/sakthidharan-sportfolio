@@ -149,76 +149,44 @@ export const ExperienceSection = () => {
 
                 <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
                   <TiltCard>
-                    <div className="flex items-start gap-4 mb-3">
-                      <motion.div
-                        className="p-2.5 rounded-xl bg-primary/10 shrink-0"
-                        animate={{
-                          y: index % 3 === 0 ? [0, -4, 0] : index % 3 === 1 ? [0, -3, 0] : [0, 0],
-                          scale: index % 3 === 2 ? [1, 1.15, 1] : [1, 1, 1],
-                        }}
-                        transition={{
-                          duration: index % 3 === 0 ? 2 : index % 3 === 1 ? 1.8 : 2.5,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: index * 0.3,
-                        }}
-                        whileHover={{ scale: 1.3 }}
-                      >
-                        <exp.icon className="w-5 h-5 text-primary" />
-                      </motion.div>
-                      <div>
-                        <h3 className="font-display text-base font-bold tracking-tight">{exp.title}</h3>
-                        <p className="text-primary text-xs font-medium">{exp.organization}</p>
-                        <p className="text-muted-foreground text-xs font-mono">{exp.period}</p>
-                      </div>
-                    </div>
-                    <p className="text-muted-foreground text-sm mb-4">{exp.description}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {exp.highlights.map((highlight) => (
-                        <span
-                          key={highlight}
-                          className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-lg text-[10px] font-mono"
-                        >
-                          {highlight}
-                        </span>
-                      ))}
                     <div className="bg-card rounded-xl p-6 border border-border/50 card-hover">
-                    <div className="flex items-start gap-4 mb-3">
-                      <motion.div
-                        className="p-2.5 rounded-xl bg-primary/10 shrink-0"
-                        animate={{
-                          y: index % 3 === 0 ? [0, -4, 0] : index % 3 === 1 ? [0, -3, 0] : [0, 0],
-                          scale: index % 3 === 2 ? [1, 1.15, 1] : [1, 1, 1],
-                        }}
-                        transition={{
-                          duration: index % 3 === 0 ? 2 : index % 3 === 1 ? 1.8 : 2.5,
-                          repeat: Infinity,
-                          ease: "easeInOut",
-                          delay: index * 0.3,
-                        }}
-                        whileHover={{ scale: 1.3 }}
-                      >
-                        <exp.icon className="w-5 h-5 text-primary" />
-                      </motion.div>
-                      <div>
-                        <h3 className="font-display text-base font-bold tracking-tight">{exp.title}</h3>
-                        <p className="text-primary text-xs font-medium">{exp.organization}</p>
-                        <p className="text-muted-foreground text-xs font-mono">{exp.period}</p>
-                      </div>
-                    </div>
-                    <p className="text-muted-foreground text-sm mb-4">{exp.description}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {exp.highlights.map((highlight) => (
-                        <span
-                          key={highlight}
-                          className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-lg text-[10px] font-mono"
+                      <div className="flex items-start gap-4 mb-3">
+                        <motion.div
+                          className="p-2.5 rounded-xl bg-primary/10 shrink-0"
+                          animate={{
+                            y: index % 3 === 0 ? [0, -4, 0] : index % 3 === 1 ? [0, -3, 0] : [0, 0],
+                            scale: index % 3 === 2 ? [1, 1.15, 1] : [1, 1, 1],
+                          }}
+                          transition={{
+                            duration: index % 3 === 0 ? 2 : index % 3 === 1 ? 1.8 : 2.5,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: index * 0.3,
+                          }}
+                          whileHover={{ scale: 1.3 }}
                         >
-                          {highlight}
-                        </span>
-                      ))}
-                    </div>
+                          <exp.icon className="w-5 h-5 text-primary" />
+                        </motion.div>
+                        <div>
+                          <h3 className="font-display text-base font-bold tracking-tight">{exp.title}</h3>
+                          <p className="text-primary text-xs font-medium">{exp.organization}</p>
+                          <p className="text-muted-foreground text-xs font-mono">{exp.period}</p>
+                        </div>
+                      </div>
+                      <p className="text-muted-foreground text-sm mb-4">{exp.description}</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {exp.highlights.map((highlight) => (
+                          <span
+                            key={highlight}
+                            className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-lg text-[10px] font-mono"
+                          >
+                            {highlight}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </TiltCard>
+                </div>
               </motion.div>
             ))}
           </div>
