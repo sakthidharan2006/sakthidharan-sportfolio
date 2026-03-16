@@ -92,7 +92,7 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Outfit', system-ui, sans-serif;
+    font-family: 'Source Sans 3', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
