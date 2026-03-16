@@ -83,6 +83,10 @@ const Index = () => {
           </AnimatedSection>
           <SectionDivider />
           <AnimatedSection direction="right">
+            <InteractiveTimeline />
+          </AnimatedSection>
+          <SectionDivider />
+          <AnimatedSection direction="left">
             <ExperienceSection />
           </AnimatedSection>
           <SectionDivider />
