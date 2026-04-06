@@ -79,6 +79,15 @@ const experiences = [
   },
   {
     icon: Award,
+    title: "TN-IMPACT 2026 Industrial Hackathon",
+    organization: "TANCAM · Dassault Systèmes · TIDCO",
+    period: "2026",
+    description:
+      "Participated in Special Expert Sessions conducted by Tamil Nadu Centre of Excellence for Advanced Manufacturing (TANCAM) as part of TN-IMPACT 2026 Industrial Hackathon at KIT, Tamil Nadu.",
+    highlights: ["Industrial Hackathon", "Advanced Manufacturing", "Expert Sessions"],
+  },
+  {
+    icon: Award,
     title: "EmbeddedX Participation",
     organization: "Google Developer Groups On Campus · CVR College of Engineering",
     period: "2026",

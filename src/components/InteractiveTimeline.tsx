@@ -62,6 +62,20 @@ const milestones = [
   {
     year: "2026",
     icon: Award,
+    title: "TN-IMPACT 2026 · TANCAM Hackathon",
+    subtitle: "TANCAM · Dassault Systèmes · TIDCO",
+    description:
+      "Participated in Special Expert Sessions by TANCAM as part of TN-IMPACT 2026 Industrial Hackathon at KIT, Tamil Nadu.",
+    details: [
+      "Advanced Manufacturing Sessions",
+      "Industrial Hackathon",
+      "Expert-led Workshops",
+    ],
+    color: "accent",
+  },
+  {
+    year: "2026",
+    icon: Award,
     title: "AI & Python Certifications",
     subtitle: "Cisco & Google",
     description:
