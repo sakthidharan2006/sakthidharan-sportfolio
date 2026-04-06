@@ -74,6 +74,20 @@ const milestones = [
     color: "primary",
   },
   {
+    year: "2026",
+    icon: Award,
+    title: "EmbeddedX · GDG On Campus",
+    subtitle: "Google Developer Groups · CVR College of Engineering",
+    description:
+      "Participated in EmbeddedX event organized by Google Developer Groups On Campus, exploring embedded systems and developer collaboration.",
+    details: [
+      "Embedded Systems",
+      "GDG On Campus Event",
+      "Developer Community Engagement",
+    ],
+    color: "primary",
+  },
+  {
     year: "Ongoing",
     icon: BookOpen,
     title: "Self-Learning Journey",
