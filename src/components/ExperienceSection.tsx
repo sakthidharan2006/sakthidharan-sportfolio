@@ -79,6 +79,15 @@ const experiences = [
   },
   {
     icon: Award,
+    title: "EmbeddedX Participation",
+    organization: "Google Developer Groups On Campus · CVR College of Engineering",
+    period: "2026",
+    description:
+      "Participated in EmbeddedX event organized by Google Developer Groups On Campus at CVR College of Engineering, gaining exposure to embedded systems and developer community.",
+    highlights: ["Embedded Systems", "GDG On Campus", "Developer Community"],
+  },
+  {
+    icon: Award,
     title: "Google Gemini Certified Student",
     organization: "Google for Education",
     period: "2026",
