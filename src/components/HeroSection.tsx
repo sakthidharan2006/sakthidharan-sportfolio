@@ -3,6 +3,13 @@ import { ArrowDown, Github, Linkedin, Mail, Download, Zap, FileCode, Braces, Ato
 import { Button } from "@/components/ui/button";
 import { TypingAnimation } from "@/components/TypingAnimation";
 
+// Custom LeetCode Icon Component
+const LeetCodeIcon = ({ className }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.102 17.93l-2.62 2.62c-.546.546-1.25.82-1.953.82-.703 0-1.407-.274-1.953-.82l-4.172-4.172c-1.094-1.094-1.094-2.867 0-3.96l2.62-2.62 1.406 1.407-2.62 2.62c-.273.273-.273.703 0 .976l4.172 4.172c.273.273.703.273.976 0l2.62-2.62 1.407 1.406zM22.547 9.516l-2.62 2.62-1.406-1.406 2.62-2.62c.273-.273.273-.703 0-.976l-4.172-4.172c-.273-.273-.703-.273-.976 0l-2.62 2.62-1.407-1.406 2.62-2.62c1.094-1.094 2.867-1.094 3.96 0l4.172 4.172c1.094 1.094 1.094 2.867 0 3.96zM8.5 14.672l5.172-5.172 1.406 1.406-5.172 5.172-1.406-1.406z"/>
+  </svg>
+);
+
 const floatingTechIcons = [
   { icon: Atom, label: "React", x: "8%", y: "18%", size: 28, delay: 0, color: "hsl(193 95% 55%)", speed: 0.3, anim: "orbit" },
   { icon: Braces, label: "JS", x: "88%", y: "22%", size: 24, delay: 0.5, color: "hsl(50 90% 50%)", speed: 0.5, anim: "typewriter" },
@@ -302,11 +309,12 @@ export const HeroSection = () => {
             variants={itemVariants}
             className="flex items-center justify-center gap-4"
           >
-            {[
-              { href: "https://github.com/sakthidharan2006", icon: Github },
-              { href: "https://linkedin.com/in/sakthidharan-e-", icon: Linkedin },
-              { href: "mailto:sakthidharane16@gmail.com", icon: Mail },
-            ].map((social, index) => (
+          {[
+            { href: "https://github.com/sakthidharan2006", icon: Github, label: "GitHub" },
+            { href: "https://linkedin.com/in/sakthidharan-e-", icon: Linkedin, label: "LinkedIn" },
+            { href: "mailto:sakthidharane16@gmail.com", icon: Mail, label: "Email" },
+            { href: "https://leetcode.com/u/sakthidharan2006/", icon: LeetCodeIcon, label: "LeetCode" },
+          ].map((social, index) => (
               <motion.a
                 key={index}
                 href={social.href}
