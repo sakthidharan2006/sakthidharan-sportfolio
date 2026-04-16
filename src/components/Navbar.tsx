@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Moon, Sun, Terminal } from "lucide-react";
+import { Menu, X, Moon, Sun, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
@@ -74,7 +74,7 @@ export const Navbar = () => {
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <Terminal className="w-5 h-5 text-primary" />
+              <Code2 className="w-5 h-5 text-primary" />
             </motion.div>
             <span className="font-mono text-sm md:text-base tracking-tight">{"<SD />"}</span>
           </motion.a>
