@@ -55,18 +55,18 @@ export const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative group flex items-center justify-center">
-              {/* Rotating gradient ring */}
+              {/* Rotating gradient ring - outer glow */}
               <motion.div
-                className="absolute w-72 h-72 md:w-80 md:h-80 rounded-full"
+                className="absolute w-[21rem] h-[21rem] md:w-[23rem] md:h-[23rem] rounded-full"
                 style={{
                   background: "conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(212 80% 48%), hsl(var(--primary)))",
-                  padding: "3px",
                 }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-              >
-                <div className="w-full h-full rounded-full bg-background" />
-              </motion.div>
+              />
+
+              {/* Inner mask to create ring effect */}
+              <div className="absolute w-[20.5rem] h-[20.5rem] md:w-[22.5rem] md:h-[22.5rem] rounded-full bg-background" />
 
               {/* Secondary slower counter-rotating ring */}
               <motion.div
