@@ -118,16 +118,16 @@ export const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              I'm a passionate IT professional and aspiring software developer pursuing{" "}
-              <span className="text-foreground font-medium">B.Tech in Information Technology</span>{" "}
-              at Bannari Amman Institute of Technology.
-              My journey in tech has equipped me with a comprehensive understanding of software
-              development, hardware systems, and networking fundamentals.
+              I'm an IT student at Bannari Amman Institute of Technology, passionate about becoming a software developer and building real-world solutions. Through my coursework and personal learning, I've developed a good understanding of programming, web development, and core concepts like data structures, networking, and system design.
+            </p>
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              I enjoy working on full-stack applications and experimenting with technologies like Java, Python, and JavaScript. I've also explored working with databases and building simple APIs, which helped me understand how systems work end-to-end.
+            </p>
+            <p className="text-muted-foreground mb-6 leading-relaxed">
+              What I like most about tech is problem solving — figuring out how to approach a challenge, break it down, and improve it step by step. I'm always trying to learn something new, whether it's improving my coding skills, understanding how scalable systems work, or exploring areas like cloud and modern development tools.
             </p>
             <p className="text-muted-foreground mb-8 leading-relaxed">
-              I thrive on solving complex problems and continuously expanding my skill set.
-              Whether it's building full-stack web applications or optimizing system performance,
-              I approach every challenge with curiosity and determination to deliver impactful solutions.
+              I'm looking forward to growing as a developer, working on meaningful projects, and continuously improving my skills along the way.
             </p>
 
             {/* Education */}
