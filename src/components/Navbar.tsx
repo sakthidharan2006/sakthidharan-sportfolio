@@ -74,7 +74,7 @@ export const Navbar = () => {
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
-              <Terminal className="w-5 h-5 text-primary" />
+              <Code2 className="w-5 h-5 text-primary" />
             </motion.div>
             <span className="font-mono text-sm md:text-base tracking-tight">{"<SD />"}</span>
           </motion.a>
