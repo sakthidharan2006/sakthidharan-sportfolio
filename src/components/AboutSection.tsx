@@ -55,8 +55,34 @@ export const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative group flex items-center justify-center">
+              {/* Rotating conic gradient ring */}
               <motion.div
-                className="relative w-52 h-52 md:w-60 md:h-60 rounded-full overflow-hidden z-10"
+                className="absolute w-56 h-56 md:w-64 md:h-64 rounded-full"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(212 80% 55%), hsl(var(--primary)))",
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              />
+
+              {/* Soft outer glow */}
+              <motion.div
+                className="absolute w-60 h-60 md:w-72 md:h-72 rounded-full blur-2xl"
+                style={{
+                  background:
+                    "conic-gradient(from 0deg, hsl(var(--primary) / 0.6), hsl(var(--accent) / 0.6), hsl(212 80% 55% / 0.6), hsl(var(--primary) / 0.6))",
+                  opacity: 0.55,
+                }}
+                animate={{ rotate: -360 }}
+                transition={{ duration: 14, repeat: Infinity, ease: "linear" }}
+              />
+
+              {/* Inner mask to keep ring thin */}
+              <div className="absolute w-[13.5rem] h-[13.5rem] md:w-[15.5rem] md:h-[15.5rem] rounded-full bg-background z-[1]" />
+
+              <motion.div
+                className="relative w-52 h-52 md:w-60 md:h-60 rounded-full overflow-hidden z-10 ring-1 ring-border/40"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
               >
