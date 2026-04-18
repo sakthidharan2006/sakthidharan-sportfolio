@@ -55,36 +55,49 @@ export const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative group flex items-center justify-center">
-              {/* Rotating gradient ring - outer glow */}
+              {/* Outer dotted ring - rotating */}
               <motion.div
-                className="absolute w-[21rem] h-[21rem] md:w-[23rem] md:h-[23rem] rounded-full"
-                style={{
-                  background: "conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(212 80% 48%), hsl(var(--primary)))",
-                }}
+                className="absolute w-[22rem] h-[22rem] md:w-[24rem] md:h-[24rem] rounded-full border-[3px] border-dotted"
+                style={{ borderColor: "hsl(var(--primary) / 0.5)" }}
                 animate={{ rotate: 360 }}
-                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
               />
 
-              {/* Inner mask to create ring effect */}
-              <div className="absolute w-[20.5rem] h-[20.5rem] md:w-[22.5rem] md:h-[22.5rem] rounded-full bg-background" />
-
-              {/* Secondary slower counter-rotating ring */}
+              {/* Middle gradient glow ring */}
               <motion.div
-                className="absolute w-[19.5rem] h-[19.5rem] md:w-[22rem] md:h-[22rem] rounded-full border-2 border-dashed"
-                style={{ borderColor: "hsl(var(--primary) / 0.15)" }}
+                className="absolute w-[20.5rem] h-[20.5rem] md:w-[22.5rem] md:h-[22.5rem] rounded-full"
+                style={{
+                  background: "conic-gradient(from 0deg, hsl(var(--primary)), transparent 30%, hsl(var(--accent)) 60%, transparent 90%, hsl(var(--primary)))",
+                  filter: "blur(8px)",
+                  opacity: 0.7,
+                }}
                 animate={{ rotate: -360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
               />
 
-              {/* Orbiting dot */}
+              {/* Solid inner ring border */}
+              <div
+                className="absolute w-[19rem] h-[19rem] md:w-[21rem] md:h-[21rem] rounded-full border-2"
+                style={{ borderColor: "hsl(var(--primary) / 0.4)" }}
+              />
+
+              {/* Orbiting dots */}
               <motion.div
-                className="absolute w-[20rem] h-[20rem] md:w-[22.5rem] md:h-[22.5rem] rounded-full"
-                animate={{ scale: [1, 1.03, 1] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute w-[22rem] h-[22rem] md:w-[24rem] md:h-[24rem] rounded-full"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
               >
                 <div
-                  className="absolute -top-1 left-1/2 w-2.5 h-2.5 rounded-full"
-                  style={{ backgroundColor: "hsl(var(--primary))", boxShadow: "0 0 10px hsl(var(--primary) / 0.6)" }}
+                  className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full"
+                  style={{ backgroundColor: "hsl(var(--primary))", boxShadow: "0 0 14px hsl(var(--primary))" }}
+                />
+                <div
+                  className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-2 h-2 rounded-full"
+                  style={{ backgroundColor: "hsl(var(--accent))", boxShadow: "0 0 10px hsl(var(--accent))" }}
+                />
+                <div
+                  className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full"
+                  style={{ backgroundColor: "hsl(212 80% 55%)", boxShadow: "0 0 12px hsl(212 80% 55%)" }}
                 />
               </motion.div>
 
