@@ -55,52 +55,6 @@ export const AboutSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <div className="relative group flex items-center justify-center">
-              {/* Outer dotted ring - rotating */}
-              <motion.div
-                className="absolute w-[18rem] h-[18rem] md:w-[20rem] md:h-[20rem] rounded-full border-[3px] border-dotted"
-                style={{ borderColor: "hsl(var(--primary) / 0.5)" }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              />
-
-              {/* Middle gradient glow ring */}
-              <motion.div
-                className="absolute w-[16.5rem] h-[16.5rem] md:w-[18.5rem] md:h-[18.5rem] rounded-full"
-                style={{
-                  background: "conic-gradient(from 0deg, hsl(var(--primary)), transparent 30%, hsl(var(--accent)) 60%, transparent 90%, hsl(var(--primary)))",
-                  filter: "blur(8px)",
-                  opacity: 0.7,
-                }}
-                animate={{ rotate: -360 }}
-                transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-              />
-
-              {/* Solid inner ring border */}
-              <div
-                className="absolute w-[15.5rem] h-[15.5rem] md:w-[17.5rem] md:h-[17.5rem] rounded-full border-2"
-                style={{ borderColor: "hsl(var(--primary) / 0.4)" }}
-              />
-
-              {/* Orbiting dots */}
-              <motion.div
-                className="absolute w-[18rem] h-[18rem] md:w-[20rem] md:h-[20rem] rounded-full"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              >
-                <div
-                  className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full"
-                  style={{ backgroundColor: "hsl(var(--primary))", boxShadow: "0 0 14px hsl(var(--primary))" }}
-                />
-                <div
-                  className="absolute top-1/2 -right-1.5 -translate-y-1/2 w-2 h-2 rounded-full"
-                  style={{ backgroundColor: "hsl(var(--accent))", boxShadow: "0 0 10px hsl(var(--accent))" }}
-                />
-                <div
-                  className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full"
-                  style={{ backgroundColor: "hsl(212 80% 55%)", boxShadow: "0 0 12px hsl(212 80% 55%)" }}
-                />
-              </motion.div>
-
               <motion.div
                 className="relative w-52 h-52 md:w-60 md:h-60 rounded-full overflow-hidden z-10"
                 whileHover={{ scale: 1.05 }}
