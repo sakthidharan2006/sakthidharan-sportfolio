@@ -57,7 +57,7 @@ export const AboutSection = () => {
             <div className="relative group flex items-center justify-center">
               {/* Outer dotted ring - rotating */}
               <motion.div
-                className="absolute w-[22rem] h-[22rem] md:w-[24rem] md:h-[24rem] rounded-full border-[3px] border-dotted"
+                className="absolute w-[18rem] h-[18rem] md:w-[20rem] md:h-[20rem] rounded-full border-[3px] border-dotted"
                 style={{ borderColor: "hsl(var(--primary) / 0.5)" }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
@@ -65,7 +65,7 @@ export const AboutSection = () => {
 
               {/* Middle gradient glow ring */}
               <motion.div
-                className="absolute w-[20.5rem] h-[20.5rem] md:w-[22.5rem] md:h-[22.5rem] rounded-full"
+                className="absolute w-[16.5rem] h-[16.5rem] md:w-[18.5rem] md:h-[18.5rem] rounded-full"
                 style={{
                   background: "conic-gradient(from 0deg, hsl(var(--primary)), transparent 30%, hsl(var(--accent)) 60%, transparent 90%, hsl(var(--primary)))",
                   filter: "blur(8px)",
@@ -77,13 +77,13 @@ export const AboutSection = () => {
 
               {/* Solid inner ring border */}
               <div
-                className="absolute w-[19rem] h-[19rem] md:w-[21rem] md:h-[21rem] rounded-full border-2"
+                className="absolute w-[15.5rem] h-[15.5rem] md:w-[17.5rem] md:h-[17.5rem] rounded-full border-2"
                 style={{ borderColor: "hsl(var(--primary) / 0.4)" }}
               />
 
               {/* Orbiting dots */}
               <motion.div
-                className="absolute w-[22rem] h-[22rem] md:w-[24rem] md:h-[24rem] rounded-full"
+                className="absolute w-[18rem] h-[18rem] md:w-[20rem] md:h-[20rem] rounded-full"
                 animate={{ rotate: 360 }}
                 transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
               >
@@ -102,7 +102,7 @@ export const AboutSection = () => {
               </motion.div>
 
               <motion.div
-                className="relative w-64 h-64 md:w-72 md:h-72 rounded-full overflow-hidden z-10"
+                className="relative w-52 h-52 md:w-60 md:h-60 rounded-full overflow-hidden z-10"
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 200, damping: 15 }}
               >
