@@ -19,7 +19,7 @@ const projects = [
     tech: ["React", "Tailwind CSS", "Supabase", "TypeScript"],
     icon: Globe,
     github: "https://github.com",
-    live: "https://smarfleetai.vercel.app/auth",
+    live: "https://smarfleetai.vercel.app/",
     image: truckImage,
     featured: true,
   },
