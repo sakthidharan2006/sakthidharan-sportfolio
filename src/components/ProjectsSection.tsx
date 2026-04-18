@@ -23,15 +23,6 @@ const projects = [
     image: truckImage,
     featured: true,
   },
-  {
-    title: "Portfolio Website",
-    description:
-      "A modern, responsive portfolio website built with React and Tailwind CSS. Features smooth animations, dark mode support, and a clean design.",
-    features: ["Responsive design", "Dark mode", "Smooth animations", "Contact form"],
-    tech: ["React", "Tailwind CSS", "Framer Motion"],
-    github: "https://github.com",
-    featured: false,
-  },
 ];
 
 export const ProjectsSection = () => {
