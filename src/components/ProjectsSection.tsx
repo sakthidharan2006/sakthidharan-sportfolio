@@ -7,7 +7,7 @@ import truckImage from "@/assets/truck-project.png";
 
 const projects = [
   {
-    title: "WebWheels — Web-enabled Tracking",
+    title: "SmartFleet AI – Intelligence-Enabled Tracking & Logistics",
     description:
       "A comprehensive web-based fleet tracking system with role-based demo logins for Admin, Fleet Owner, and Drivers. Features dark-themed UI with real-time vehicle management and instant dashboard access.",
     features: [
@@ -19,7 +19,7 @@ const projects = [
     tech: ["React", "Tailwind CSS", "Supabase", "TypeScript"],
     icon: Globe,
     github: "https://github.com",
-    live: "https://webwheels.lovable.app",
+    live: "https://smarfleetai.vercel.app/auth",
     image: truckImage,
     featured: true,
   },
