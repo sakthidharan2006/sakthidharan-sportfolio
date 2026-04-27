@@ -105,6 +105,15 @@ const experiences = [
     highlights: ["Google AI", "Gemini", "AI Competencies"],
   },
   {
+    icon: Award,
+    title: "NSS Volunteer Certification",
+    organization: "Government of India · Ministry of Youth Affairs & Sports",
+    period: "2021 - 2023",
+    description:
+      "Certified NSS Volunteer under the National Service Scheme by Government of India. Served as NSS Volunteer at 320 - Kongu Polytechnic College and attended NSS Special Camp from 21/03/2023 to 27/03/2023, contributing to social service initiatives.",
+    highlights: ["National Service Scheme", "Social Service", "NSS Special Camp"],
+  },
+  {
     icon: BookOpen,
     title: "Self-Learning Journey",
     organization: "Personal Development",
