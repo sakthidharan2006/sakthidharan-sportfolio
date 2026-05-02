@@ -1,5 +1,5 @@
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, Download, Zap, FileCode, Braces, Atom, Server, Database, GitBranch, Code2, Route, MapPin } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Download, Zap, FileCode, Braces, Atom, Server, Database, GitBranch, Code2, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TypingAnimation } from "@/components/TypingAnimation";
 
@@ -240,13 +240,6 @@ export const HeroSection = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <motion.div variants={itemVariants} className="mb-6 flex flex-col items-center gap-3">
-            <motion.span
-              whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 text-accent rounded-md text-[11px] font-mono font-medium uppercase tracking-wider cursor-default border border-accent/20"
-            >
-              <MapPin className="w-3.5 h-3.5" />
-              Sathyamangalam, Tamil Nadu
-            </motion.span>
             <motion.span
               whileHover={{ scale: 1.05 }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-lg text-xs font-mono font-medium uppercase tracking-wider cursor-default border border-primary/20"
