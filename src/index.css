@@ -152,15 +152,15 @@
     @apply bg-card/70 backdrop-blur-xl border border-border/60;
   }
 
-  /* Botanical diagnostic grid background */
+  /* Obsidian twilight grid background — soft violet hairlines + glass dots */
   .tech-grid {
     background-image:
-      linear-gradient(hsl(var(--accent) / 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--accent) / 0.06) 1px, transparent 1px),
-      radial-gradient(circle 2px at center, hsl(var(--primary) / 0.18) 1px, transparent 1px),
-      radial-gradient(circle 1px at center, hsl(var(--accent) / 0.10) 0.5px, transparent 0.5px);
-    background-size: 60px 60px, 60px 60px, 60px 60px, 30px 30px;
-    background-position: 0 0, 0 0, 30px 30px, 15px 15px;
+      linear-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.05) 1px, transparent 1px),
+      radial-gradient(circle 2px at center, hsl(var(--accent) / 0.18) 1px, transparent 1px),
+      radial-gradient(circle 1px at center, hsl(var(--primary) / 0.12) 0.5px, transparent 0.5px);
+    background-size: 64px 64px, 64px 64px, 64px 64px, 32px 32px;
+    background-position: 0 0, 0 0, 32px 32px, 16px 16px;
   }
 
   .tech-dots {
