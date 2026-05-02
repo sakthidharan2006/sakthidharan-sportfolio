@@ -1,5 +1,5 @@
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, Download, Zap, FileCode, Braces, Atom, Server, Database, GitBranch, Code2, Route, MapPin } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Download, Zap, FileCode, Braces, Atom, Server, Database, GitBranch, Code2, Route } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TypingAnimation } from "@/components/TypingAnimation";
 
