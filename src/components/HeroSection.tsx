@@ -240,35 +240,6 @@ export const HeroSection = () => {
           className="max-w-4xl mx-auto text-center"
         >
           <motion.div variants={itemVariants} className="mb-6 flex flex-col items-center gap-3">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 200, damping: 15 }}
-              className="relative"
-            >
-              {/* Glowing gradient ring */}
-              <div
-                className="absolute inset-0 rounded-full p-[2px]"
-                style={{
-                  background:
-                    "conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)))",
-                }}
-              />
-              <div
-                className="absolute -inset-2 rounded-full blur-xl opacity-60"
-                style={{
-                  background:
-                    "conic-gradient(from 0deg, hsl(var(--primary) / 0.6), hsl(var(--accent) / 0.6), hsl(var(--primary) / 0.6))",
-                }}
-              />
-              <div className="relative w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-1 ring-border/40 bg-background">
-                <img
-                  src={profilePhoto}
-                  alt="Sakthidharan E"
-                  className="w-full h-full object-cover object-top scale-110"
-                  loading="eager"
-                />
-              </div>
-            </motion.div>
             <motion.span
               whileHover={{ scale: 1.05 }}
               className="inline-flex items-center gap-2 px-3 py-1.5 bg-accent/10 text-accent rounded-md text-[11px] font-mono font-medium uppercase tracking-wider cursor-default border border-accent/20"
