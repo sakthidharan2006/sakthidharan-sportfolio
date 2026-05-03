@@ -13,10 +13,12 @@ import { SectionDivider } from "@/components/SectionDivider";
 import { CursorGlow } from "@/components/CursorGlow";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { AIChatbot } from "@/components/AIChatbot";
+import { SmoothScroll } from "@/components/SmoothScroll";
 
 const Index = () => {
   return (
     <>
+      <SmoothScroll />
       <CursorGlow />
       <PageLoader />
       <div className="min-h-screen bg-background tech-grid relative">
