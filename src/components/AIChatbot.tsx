@@ -31,26 +31,22 @@ export const AIChatbot = () => {
     if (!text || isLoading) return;
     setInput("");
     const userMsg: Msg = { role: "user", content: text };
-    setMessages((p) => [...p, userMsg]);
+    const history = [...messages, userMsg];
+    setMessages(history);
     setIsLoading(true);
 
     let assistantSoFar = "";
+    let assistantStarted = false;
     const upsertAssistant = (chunk: string) => {
       assistantSoFar += chunk;
       setMessages((prev) => {
-        const last = prev[prev.length - 1];
-        if (last?.role === "assistant" && last.content !== messages[messages.length - 1]?.content) {
-          // already streaming; replace last
+        if (!assistantStarted) {
+          assistantStarted = true;
+          return [...prev, { role: "assistant", content: assistantSoFar }];
         }
-        if (last?.role === "assistant" && prev.length > messages.length + 1 - 1) {
-          // ensure we replace only the streaming one (added after user)
-        }
-        if (last?.role === "assistant" && prev.length >= 2 && prev[prev.length - 2]?.role === "user") {
-          return prev.map((m, i) =>
-            i === prev.length - 1 ? { ...m, content: assistantSoFar } : m,
-          );
-        }
-        return [...prev, { role: "assistant", content: assistantSoFar }];
+        return prev.map((m, i) =>
+          i === prev.length - 1 ? { ...m, content: assistantSoFar } : m,
+        );
       });
     };
 
@@ -61,7 +57,9 @@ export const AIChatbot = () => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
         },
-        body: JSON.stringify({ messages: [...messages, userMsg].filter((m) => m.role !== "assistant" || messages.indexOf(m) > 0).map(({ role, content }) => ({ role, content })) }),
+        body: JSON.stringify({
+          messages: history.map(({ role, content }) => ({ role, content })),
+        }),
       });
 
       if (resp.status === 429) {
