@@ -211,7 +211,7 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
 
 export const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section className="min-h-[100svh] flex items-center justify-center relative overflow-hidden pt-24 pb-16 sm:pt-20 sm:pb-20">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <motion.div
@@ -233,38 +233,38 @@ export const HeroSection = () => {
         ))}
       </div>
 
-      <div className="section-container relative">
+      <div className="section-container relative w-full">
         {/* Decorative gradient frame */}
         <motion.div
           aria-hidden
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.4 }}
-          className="absolute inset-x-4 top-10 bottom-10 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.04] border border-border/30 backdrop-blur-[2px]"
+          className="absolute inset-x-2 sm:inset-x-4 top-4 sm:top-10 bottom-4 sm:bottom-10 -z-10 rounded-2xl sm:rounded-[2rem] bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.04] border border-border/30 backdrop-blur-[2px]"
         />
 
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-4xl mx-auto text-center px-4 py-10 sm:py-14"
+          className="max-w-4xl mx-auto text-center px-4 sm:px-6 py-6 sm:py-12"
         >
           {/* Top meta row: clock + status pill */}
-          <motion.div variants={itemVariants} className="mb-8 flex flex-col items-center gap-3">
+          <motion.div variants={itemVariants} className="mb-6 sm:mb-8 flex flex-col items-center gap-3">
             <LiveClock />
             <motion.span
               whileHover={{ scale: 1.04, y: -1 }}
-              className="group inline-flex items-center gap-2 pl-2 pr-4 py-1.5 rounded-full text-[11px] font-mono font-medium uppercase tracking-[0.18em] cursor-default border border-primary/25 bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 backdrop-blur-md shadow-[0_4px_20px_-8px_hsl(var(--primary)/0.4)]"
+              className="group inline-flex items-center gap-2 pl-1.5 pr-3 sm:pr-4 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-mono font-medium uppercase tracking-[0.14em] sm:tracking-[0.18em] cursor-default border border-primary/25 bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 backdrop-blur-md shadow-[0_4px_20px_-8px_hsl(var(--primary)/0.4)] max-w-[92vw]"
             >
-              <span className="relative flex w-5 h-5 items-center justify-center rounded-full bg-primary/20">
+              <span className="relative flex w-4 h-4 sm:w-5 sm:h-5 items-center justify-center rounded-full bg-primary/20 shrink-0">
                 <motion.span
                   className="absolute inset-0 rounded-full bg-primary/40"
                   animate={{ scale: [1, 1.6], opacity: [0.6, 0] }}
                   transition={{ duration: 1.8, repeat: Infinity }}
                 />
-                <Zap className="w-3 h-3 text-primary relative z-10" />
+                <Zap className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-primary relative z-10" />
               </span>
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent whitespace-nowrap">
                 Available for Opportunities
               </span>
             </motion.span>
@@ -273,17 +273,17 @@ export const HeroSection = () => {
           {/* Eyebrow */}
           <motion.div
             variants={itemVariants}
-            className="mb-5 flex items-center justify-center gap-3 text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground/60"
+            className="mb-4 sm:mb-5 flex items-center justify-center gap-2 sm:gap-3 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.25em] sm:tracking-[0.3em] text-muted-foreground/60"
           >
-            <span className="h-px w-8 bg-gradient-to-r from-transparent to-primary/50" />
+            <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-primary/50" />
             <span>Portfolio · v2026</span>
-            <span className="h-px w-8 bg-gradient-to-l from-transparent to-accent/50" />
+            <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-accent/50" />
           </motion.div>
 
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.05] tracking-tight"
+            className="font-display text-[2rem] xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-5 sm:mb-6 leading-[1.08] tracking-tight"
           >
             <span className="block text-foreground/90">Hi, I'm</span>
             <motion.span
@@ -306,14 +306,14 @@ export const HeroSection = () => {
           {/* Typing role */}
           <motion.div
             variants={itemVariants}
-            className="text-base sm:text-lg md:text-xl text-foreground/80 mb-3 max-w-2xl mx-auto font-medium"
+            className="text-sm sm:text-lg md:text-xl text-foreground/80 mb-2 sm:mb-3 max-w-2xl mx-auto font-medium px-2"
           >
             <TypingAnimation />
           </motion.div>
 
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base text-muted-foreground/75 mb-10 max-w-xl mx-auto leading-relaxed"
+            className="text-xs sm:text-base text-muted-foreground/75 mb-7 sm:mb-10 max-w-xl mx-auto leading-relaxed px-2"
           >
             Crafting modern web experiences with clean code and creative solutions.
           </motion.p>
@@ -321,29 +321,29 @@ export const HeroSection = () => {
           {/* CTA buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10"
+            className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 mb-8 sm:mb-10 w-full max-w-xs sm:max-w-none mx-auto"
           >
-            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="relative group">
+            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="relative group w-full sm:w-auto">
               <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-primary to-accent opacity-60 blur-md group-hover:opacity-90 transition-opacity" />
-              <Button size="lg" className="relative btn-gradient px-7 py-6 text-sm font-semibold rounded-xl" asChild>
+              <Button size="lg" className="relative btn-gradient w-full sm:w-auto px-6 sm:px-7 py-5 sm:py-6 text-sm font-semibold rounded-xl" asChild>
                 <a href="#projects">View Projects →</a>
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }}>
+            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="outline"
-                className="px-7 py-6 text-sm font-semibold rounded-xl border-primary/30 hover:border-primary/60 hover:bg-primary/5 backdrop-blur-sm"
+                className="w-full sm:w-auto px-6 sm:px-7 py-5 sm:py-6 text-sm font-semibold rounded-xl border-primary/30 hover:border-primary/60 hover:bg-primary/5 backdrop-blur-sm"
                 asChild
               >
                 <a href="#contact">Contact Me</a>
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }}>
+            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="w-full sm:w-auto">
               <Button
                 size="lg"
                 variant="ghost"
-                className="px-6 py-6 text-sm font-semibold rounded-xl border border-border/40 hover:border-accent/40 hover:bg-accent/5 backdrop-blur-sm"
+                className="w-full sm:w-auto px-6 py-5 sm:py-6 text-sm font-semibold rounded-xl border border-border/40 hover:border-accent/40 hover:bg-accent/5 backdrop-blur-sm"
                 asChild
               >
                 <a href="/Resume_Sakthidharan.pdf" download="Sakthidharan_E_Resume.pdf">
@@ -357,17 +357,17 @@ export const HeroSection = () => {
           {/* Stats strip */}
           <motion.div
             variants={itemVariants}
-            className="mb-10 mx-auto inline-flex items-center gap-0 rounded-2xl border border-border/40 bg-card/40 backdrop-blur-md overflow-hidden divide-x divide-border/40"
+            className="mb-8 sm:mb-10 mx-auto grid grid-cols-4 sm:inline-flex sm:items-center sm:gap-0 max-w-md sm:max-w-none rounded-xl sm:rounded-2xl border border-border/40 bg-card/40 backdrop-blur-md overflow-hidden divide-x divide-border/40"
           >
             {[
               { k: "MERN", v: "Stack" },
-              { k: "TypeScript", v: "Pro" },
+              { k: "TS", v: "Pro" },
               { k: "10+", v: "Projects" },
               { k: "Open", v: "to Work" },
             ].map((s) => (
-              <div key={s.k} className="px-4 sm:px-5 py-2.5 text-center">
-                <div className="font-display text-sm sm:text-base font-bold text-foreground">{s.k}</div>
-                <div className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground/70">{s.v}</div>
+              <div key={s.k} className="px-2 sm:px-5 py-2 sm:py-2.5 text-center">
+                <div className="font-display text-xs sm:text-base font-bold text-foreground">{s.k}</div>
+                <div className="text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-muted-foreground/70">{s.v}</div>
               </div>
             ))}
           </motion.div>
@@ -375,7 +375,7 @@ export const HeroSection = () => {
           {/* Social icons */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center justify-center gap-3"
+            className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap"
           >
             {[
               { href: "https://github.com/sakthidharan2006", icon: Github, label: "GitHub" },
@@ -392,12 +392,9 @@ export const HeroSection = () => {
                 variants={socialIconVariants}
                 whileHover="hover"
                 whileTap="tap"
-                className="relative text-muted-foreground hover:text-primary transition-all duration-200 p-3 rounded-xl bg-card/40 backdrop-blur-md border border-border/40 hover:border-primary/40 hover:bg-primary/5 hover:shadow-[0_8px_24px_-8px_hsl(var(--primary)/0.5)] group"
+                className="relative text-muted-foreground hover:text-primary transition-all duration-200 p-2.5 sm:p-3 rounded-xl bg-card/40 backdrop-blur-md border border-border/40 hover:border-primary/40 hover:bg-primary/5 hover:shadow-[0_8px_24px_-8px_hsl(var(--primary)/0.5)] group"
               >
-                <social.icon className="w-5 h-5 relative z-10" />
-                <span className="pointer-events-none absolute -bottom-7 left-1/2 -translate-x-1/2 text-[9px] font-mono uppercase tracking-wider text-muted-foreground/0 group-hover:text-muted-foreground transition-opacity">
-                  {social.label}
-                </span>
+                <social.icon className="w-4 h-4 sm:w-5 sm:h-5 relative z-10" />
               </motion.a>
             ))}
           </motion.div>
@@ -407,7 +404,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="hidden sm:block absolute bottom-6 left-1/2 -translate-x-1/2"
         >
           <motion.a
             href="#about"
