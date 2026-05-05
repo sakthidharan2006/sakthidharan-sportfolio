@@ -233,73 +233,119 @@ export const HeroSection = () => {
         ))}
       </div>
 
-      <div className="section-container">
+      <div className="section-container relative">
+        {/* Decorative gradient frame */}
+        <motion.div
+          aria-hidden
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="absolute inset-x-4 top-10 bottom-10 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/[0.04] via-transparent to-accent/[0.04] border border-border/30 backdrop-blur-[2px]"
+        />
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center px-4 py-10 sm:py-14"
         >
-          <motion.div variants={itemVariants} className="mb-6 flex flex-col items-center gap-3">
+          {/* Top meta row: clock + status pill */}
+          <motion.div variants={itemVariants} className="mb-8 flex flex-col items-center gap-3">
             <LiveClock />
             <motion.span
-              whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-lg text-xs font-mono font-medium uppercase tracking-wider cursor-default border border-primary/20"
+              whileHover={{ scale: 1.04, y: -1 }}
+              className="group inline-flex items-center gap-2 pl-2 pr-4 py-1.5 rounded-full text-[11px] font-mono font-medium uppercase tracking-[0.18em] cursor-default border border-primary/25 bg-gradient-to-r from-primary/10 via-accent/5 to-primary/10 backdrop-blur-md shadow-[0_4px_20px_-8px_hsl(var(--primary)/0.4)]"
             >
-              <motion.div
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <Zap className="w-3.5 h-3.5" />
-              </motion.div>
-              Available for Opportunities
+              <span className="relative flex w-5 h-5 items-center justify-center rounded-full bg-primary/20">
+                <motion.span
+                  className="absolute inset-0 rounded-full bg-primary/40"
+                  animate={{ scale: [1, 1.6], opacity: [0.6, 0] }}
+                  transition={{ duration: 1.8, repeat: Infinity }}
+                />
+                <Zap className="w-3 h-3 text-primary relative z-10" />
+              </span>
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                Available for Opportunities
+              </span>
             </motion.span>
           </motion.div>
 
+          {/* Eyebrow */}
+          <motion.div
+            variants={itemVariants}
+            className="mb-5 flex items-center justify-center gap-3 text-[10px] font-mono uppercase tracking-[0.3em] text-muted-foreground/60"
+          >
+            <span className="h-px w-8 bg-gradient-to-r from-transparent to-primary/50" />
+            <span>Portfolio · v2026</span>
+            <span className="h-px w-8 bg-gradient-to-l from-transparent to-accent/50" />
+          </motion.div>
+
+          {/* Headline */}
           <motion.h1
             variants={itemVariants}
-            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight"
+            className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.05] tracking-tight"
           >
-            Hi, I'm{" "}
+            <span className="block text-foreground/90">Hi, I'm</span>
             <motion.span
-              className="text-gradient inline-block"
+              className="relative inline-block mt-1"
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              Sakthidharan E
+              <span className="relative z-10 bg-gradient-to-br from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_auto]">
+                Sakthidharan E
+              </span>
+              <motion.span
+                aria-hidden
+                className="absolute -inset-x-2 -inset-y-1 -z-10 rounded-2xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 blur-2xl"
+                animate={{ opacity: [0.5, 0.9, 0.5] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+              />
             </motion.span>
           </motion.h1>
 
+          {/* Typing role */}
           <motion.div
             variants={itemVariants}
-            className="text-base sm:text-lg md:text-xl text-muted-foreground mb-2 max-w-2xl mx-auto"
+            className="text-base sm:text-lg md:text-xl text-foreground/80 mb-3 max-w-2xl mx-auto font-medium"
           >
             <TypingAnimation />
           </motion.div>
 
           <motion.p
             variants={itemVariants}
-            className="text-sm sm:text-base text-muted-foreground/70 mb-10 max-w-2xl mx-auto leading-relaxed"
+            className="text-sm sm:text-base text-muted-foreground/75 mb-10 max-w-xl mx-auto leading-relaxed"
           >
-            Crafting modern web experiences with clean code and creative solutions
+            Crafting modern web experiences with clean code and creative solutions.
           </motion.p>
 
+          {/* CTA buttons */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-10"
           >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" className="btn-gradient px-8 py-6 text-sm font-medium rounded-xl" asChild>
-                <a href="#projects">View Projects</a>
+            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="relative group">
+              <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-primary to-accent opacity-60 blur-md group-hover:opacity-90 transition-opacity" />
+              <Button size="lg" className="relative btn-gradient px-7 py-6 text-sm font-semibold rounded-xl" asChild>
+                <a href="#projects">View Projects →</a>
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" variant="outline" className="px-8 py-6 text-sm font-medium rounded-xl" asChild>
+            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }}>
+              <Button
+                size="lg"
+                variant="outline"
+                className="px-7 py-6 text-sm font-semibold rounded-xl border-primary/30 hover:border-primary/60 hover:bg-primary/5 backdrop-blur-sm"
+                asChild
+              >
                 <a href="#contact">Contact Me</a>
               </Button>
             </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button size="lg" variant="secondary" className="px-8 py-6 text-sm font-medium rounded-xl" asChild>
+            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }}>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="px-6 py-6 text-sm font-semibold rounded-xl border border-border/40 hover:border-accent/40 hover:bg-accent/5 backdrop-blur-sm"
+                asChild
+              >
                 <a href="/Resume_Sakthidharan.pdf" download="Sakthidharan_E_Resume.pdf">
                   <Download className="w-4 h-4 mr-2" />
                   Resume
@@ -308,32 +354,50 @@ export const HeroSection = () => {
             </motion.div>
           </motion.div>
 
+          {/* Stats strip */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center justify-center gap-4"
+            className="mb-10 mx-auto inline-flex items-center gap-0 rounded-2xl border border-border/40 bg-card/40 backdrop-blur-md overflow-hidden divide-x divide-border/40"
           >
-          {[
-            { href: "https://github.com/sakthidharan2006", icon: Github, label: "GitHub" },
-            { href: "https://linkedin.com/in/sakthidharan-e-", icon: Linkedin, label: "LinkedIn" },
-            { href: "mailto:sakthidharane16@gmail.com", icon: Mail, label: "Email" },
-            { href: "https://leetcode.com/u/sakthidharan2006/", icon: LeetCodeIcon, label: "LeetCode" },
-          ].map((social, index) => (
+            {[
+              { k: "MERN", v: "Stack" },
+              { k: "TypeScript", v: "Pro" },
+              { k: "10+", v: "Projects" },
+              { k: "Open", v: "to Work" },
+            ].map((s) => (
+              <div key={s.k} className="px-4 sm:px-5 py-2.5 text-center">
+                <div className="font-display text-sm sm:text-base font-bold text-foreground">{s.k}</div>
+                <div className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground/70">{s.v}</div>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Social icons */}
+          <motion.div
+            variants={itemVariants}
+            className="flex items-center justify-center gap-3"
+          >
+            {[
+              { href: "https://github.com/sakthidharan2006", icon: Github, label: "GitHub" },
+              { href: "https://linkedin.com/in/sakthidharan-e-", icon: Linkedin, label: "LinkedIn" },
+              { href: "mailto:sakthidharane16@gmail.com", icon: Mail, label: "Email" },
+              { href: "https://leetcode.com/u/sakthidharan2006/", icon: LeetCodeIcon, label: "LeetCode" },
+            ].map((social, index) => (
               <motion.a
                 key={index}
                 href={social.href}
                 target={social.href.startsWith("http") ? "_blank" : undefined}
                 rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                aria-label={social.label}
                 variants={socialIconVariants}
                 whileHover="hover"
                 whileTap="tap"
-                className="relative text-muted-foreground hover:text-primary transition-colors duration-200 p-3 rounded-xl hover:bg-primary/5 border border-transparent hover:border-primary/20 group"
+                className="relative text-muted-foreground hover:text-primary transition-all duration-200 p-3 rounded-xl bg-card/40 backdrop-blur-md border border-border/40 hover:border-primary/40 hover:bg-primary/5 hover:shadow-[0_8px_24px_-8px_hsl(var(--primary)/0.5)] group"
               >
                 <social.icon className="w-5 h-5 relative z-10" />
-                {/* Hover glow ring */}
-                <motion.div
-                  className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"
-                  style={{ boxShadow: "0 0 15px hsl(190 90% 42% / 0.15)" }}
-                />
+                <span className="pointer-events-none absolute -bottom-7 left-1/2 -translate-x-1/2 text-[9px] font-mono uppercase tracking-wider text-muted-foreground/0 group-hover:text-muted-foreground transition-opacity">
+                  {social.label}
+                </span>
               </motion.a>
             ))}
           </motion.div>
