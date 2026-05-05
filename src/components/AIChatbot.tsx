@@ -225,7 +225,7 @@ export const AIChatbot = () => {
                 </Button>
               </div>
               <div className="text-[10px] font-mono text-muted-foreground/60 mt-1.5 text-center">
-                Powered by Lovable AI
+                Powered by Sakthidharan's AI
               </div>
             </div>
           </motion.div>
