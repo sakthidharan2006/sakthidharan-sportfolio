@@ -211,7 +211,7 @@ const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: 
 
 export const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+    <section className="min-h-[100svh] flex items-center justify-center relative overflow-hidden pt-24 pb-16 sm:pt-20 sm:pb-20">
       {/* Background */}
       <div className="absolute inset-0 -z-10">
         <motion.div
