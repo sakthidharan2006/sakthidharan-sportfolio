@@ -17,7 +17,7 @@ export const AIChatbot = () => {
     {
       role: "assistant",
       content:
-        "👋 Hi! I'm **Sakthidharan's AI-Bot**. Ask me anything about Sakthidharan's skills, projects, or how to get in touch!",
+        "👋 Hi! I'm **Sakthidharan E's AI-Bot**. Ask me anything about Sakthidharan's skills, projects, or how to get in touch!",
     },
   ]);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -160,7 +160,7 @@ export const AIChatbot = () => {
                 <Sparkles className="w-4 h-4 text-primary-foreground" />
               </div>
               <div className="flex-1">
-                <div className="font-mono text-sm font-bold text-foreground">Sakthidharan's AI-Bot</div>
+                <div className="font-mono text-sm font-bold text-foreground">Sakthidharan E's AI-Bot</div>
                 <div className="flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                   Online • AI-powered
@@ -225,7 +225,7 @@ export const AIChatbot = () => {
                 </Button>
               </div>
               <div className="text-[10px] font-mono text-muted-foreground/60 mt-1.5 text-center">
-                Powered by Sakthidharan's AI
+                Powered by Sakthidharan E's AI
               </div>
             </div>
           </motion.div>
