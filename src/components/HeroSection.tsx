@@ -357,17 +357,17 @@ export const HeroSection = () => {
           {/* Stats strip */}
           <motion.div
             variants={itemVariants}
-            className="mb-10 mx-auto inline-flex items-center gap-0 rounded-2xl border border-border/40 bg-card/40 backdrop-blur-md overflow-hidden divide-x divide-border/40"
+            className="mb-8 sm:mb-10 mx-auto grid grid-cols-4 sm:inline-flex sm:items-center sm:gap-0 max-w-md sm:max-w-none rounded-xl sm:rounded-2xl border border-border/40 bg-card/40 backdrop-blur-md overflow-hidden divide-x divide-border/40"
           >
             {[
               { k: "MERN", v: "Stack" },
-              { k: "TypeScript", v: "Pro" },
+              { k: "TS", v: "Pro" },
               { k: "10+", v: "Projects" },
               { k: "Open", v: "to Work" },
             ].map((s) => (
-              <div key={s.k} className="px-4 sm:px-5 py-2.5 text-center">
-                <div className="font-display text-sm sm:text-base font-bold text-foreground">{s.k}</div>
-                <div className="text-[9px] font-mono uppercase tracking-wider text-muted-foreground/70">{s.v}</div>
+              <div key={s.k} className="px-2 sm:px-5 py-2 sm:py-2.5 text-center">
+                <div className="font-display text-xs sm:text-base font-bold text-foreground">{s.k}</div>
+                <div className="text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-muted-foreground/70">{s.v}</div>
               </div>
             ))}
           </motion.div>
@@ -375,7 +375,7 @@ export const HeroSection = () => {
           {/* Social icons */}
           <motion.div
             variants={itemVariants}
-            className="flex items-center justify-center gap-3"
+            className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap"
           >
             {[
               { href: "https://github.com/sakthidharan2006", icon: Github, label: "GitHub" },
@@ -392,12 +392,9 @@ export const HeroSection = () => {
                 variants={socialIconVariants}
                 whileHover="hover"
                 whileTap="tap"
-                className="relative text-muted-foreground hover:text-primary transition-all duration-200 p-3 rounded-xl bg-card/40 backdrop-blur-md border border-border/40 hover:border-primary/40 hover:bg-primary/5 hover:shadow-[0_8px_24px_-8px_hsl(var(--primary)/0.5)] group"
+                className="relative text-muted-foreground hover:text-primary transition-all duration-200 p-2.5 sm:p-3 rounded-xl bg-card/40 backdrop-blur-md border border-border/40 hover:border-primary/40 hover:bg-primary/5 hover:shadow-[0_8px_24px_-8px_hsl(var(--primary)/0.5)] group"
               >
-                <social.icon className="w-5 h-5 relative z-10" />
-                <span className="pointer-events-none absolute -bottom-7 left-1/2 -translate-x-1/2 text-[9px] font-mono uppercase tracking-wider text-muted-foreground/0 group-hover:text-muted-foreground transition-opacity">
-                  {social.label}
-                </span>
+                <social.icon className="w-4 h-4 sm:w-5 sm:h-5 relative z-10" />
               </motion.a>
             ))}
           </motion.div>
@@ -407,7 +404,7 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.5 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="hidden sm:block absolute bottom-6 left-1/2 -translate-x-1/2"
         >
           <motion.a
             href="#about"
