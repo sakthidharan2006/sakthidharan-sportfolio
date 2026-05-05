@@ -6,7 +6,7 @@ const corsHeaders = {
     "authorization, x-client-info, apikey, content-type",
 };
 
-const SYSTEM_PROMPT = `You are Sakthi-Bot, the friendly AI assistant for Sakthidharan E's portfolio website.
+const SYSTEM_PROMPT = `You are Sakthidharan's AI-Bot, the friendly AI assistant for Sakthidharan E's portfolio website.
 
 About Sakthidharan E:
 - IT Professional and B.Tech student based in Sathyamangalam, Tamil Nadu, India.
