@@ -342,6 +342,26 @@ export const HeroSection = () => {
                 </a>
               </Button>
             </motion.div>
+            <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="relative group w-full sm:w-auto">
+              <motion.div
+                aria-hidden
+                className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent via-primary to-accent opacity-50 blur-md group-hover:opacity-90 transition-opacity"
+                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                style={{ backgroundSize: "200% 200%" }}
+              />
+              <Button
+                size="lg"
+                onClick={() => window.dispatchEvent(new Event("open-ai-chat"))}
+                className="relative w-full sm:w-auto px-6 py-5 sm:py-6 text-sm font-semibold rounded-xl bg-card/80 hover:bg-card text-foreground border border-accent/40 hover:border-accent/70 backdrop-blur-sm"
+              >
+                <Sparkles className="w-4 h-4 mr-2 text-accent" />
+                Ask AI
+                <span className="ml-2 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold bg-accent/15 text-accent border border-accent/30">
+                  BOT
+                </span>
+              </Button>
+            </motion.div>
           </motion.div>
 
           {/* Social icons */}
