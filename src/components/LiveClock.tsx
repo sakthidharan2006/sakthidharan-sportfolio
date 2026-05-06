@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { Activity } from "lucide-react";
 
 export const LiveClock = () => {
   const [now, setNow] = useState(new Date());
@@ -15,76 +16,126 @@ export const LiveClock = () => {
   const ampm = now.getHours() >= 12 ? "PM" : "AM";
   const pad = (n: number) => n.toString().padStart(2, "0");
 
-  const weekday = now.toLocaleDateString("en-US", { weekday: "long" });
-  const day = now.getDate();
-  const month = now.toLocaleDateString("en-US", { month: "short" });
+  const weekday = now.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase();
+  const day = pad(now.getDate());
+  const month = now.toLocaleDateString("en-US", { month: "short" }).toUpperCase();
   const year = now.getFullYear();
 
-  const TimeBlock = ({ value, label }: { value: string; label: string }) => (
-    <div className="flex flex-col items-center">
-      <motion.div
-        key={value}
-        initial={{ y: -6, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ type: "spring", stiffness: 220, damping: 18 }}
-        className="relative px-2.5 py-1.5 rounded-md bg-gradient-to-b from-primary/15 to-primary/5 border border-primary/25 font-mono text-base sm:text-lg font-bold tabular-nums text-primary min-w-[2.4rem] text-center shadow-[0_0_12px_-4px_hsl(var(--primary)/0.5)]"
-      >
-        {value}
-      </motion.div>
-      <span className="mt-1 text-[8px] font-mono uppercase tracking-[0.15em] text-muted-foreground/60">
-        {label}
-      </span>
-    </div>
+  // Seconds progress for HUD ring
+  const secProgress = (ss / 60) * 100;
+
+  const Digit = ({ value }: { value: string }) => (
+    <motion.span
+      key={value}
+      initial={{ y: -4, opacity: 0, filter: "blur(4px)" }}
+      animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+      transition={{ type: "spring", stiffness: 260, damping: 20 }}
+      className="inline-block tabular-nums"
+    >
+      {value}
+    </motion.span>
   );
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -8 }}
+      initial={{ opacity: 0, y: -6 }}
       animate={{ opacity: 1, y: 0 }}
-      className="relative inline-flex flex-col items-center gap-2 px-4 py-3 rounded-xl border border-primary/20 bg-card/40 backdrop-blur-md shadow-[0_8px_30px_-12px_hsl(var(--primary)/0.3)] overflow-hidden"
+      className="relative inline-flex items-stretch gap-0 rounded-lg border border-primary/25 bg-[hsl(var(--background))]/60 backdrop-blur-xl shadow-[0_8px_30px_-12px_hsl(var(--primary)/0.4)] overflow-hidden font-mono"
     >
-      {/* Animated top bar */}
+      {/* Scanline overlay */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.07] mix-blend-overlay"
+        style={{
+          backgroundImage:
+            "repeating-linear-gradient(0deg, hsl(var(--primary)) 0 1px, transparent 1px 3px)",
+        }}
+      />
+      {/* Sweeping highlight */}
       <motion.div
-        className="absolute top-0 left-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent"
-        animate={{ x: ["-100%", "200%"] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-        style={{ width: "50%" }}
+        aria-hidden
+        className="pointer-events-none absolute top-0 h-full w-16 bg-gradient-to-r from-transparent via-primary/15 to-transparent"
+        animate={{ x: ["-100%", "1200%"] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
       />
 
-      <div className="flex items-center gap-1.5">
-        <TimeBlock value={pad(hh)} label="HRS" />
+      {/* LEFT: Status */}
+      <div className="relative flex items-center gap-1.5 px-2.5 py-1.5 border-r border-primary/20 bg-primary/[0.04]">
+        <span className="relative flex w-1.5 h-1.5">
+          <motion.span
+            className="absolute inset-0 rounded-full bg-accent"
+            animate={{ opacity: [1, 0.3, 1], scale: [1, 1.4, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          />
+          <span className="relative w-1.5 h-1.5 rounded-full bg-accent" />
+        </span>
+        <span className="text-[8px] font-bold tracking-[0.2em] text-accent">LIVE</span>
+      </div>
+
+      {/* CENTER: Time */}
+      <div className="relative flex items-baseline gap-0.5 px-3 py-1.5">
+        <span className="text-base sm:text-lg font-bold text-primary [text-shadow:0_0_10px_hsl(var(--primary)/0.6)]">
+          <Digit value={pad(hh)} />
+        </span>
         <motion.span
-          className="text-primary font-mono text-lg font-bold pb-3"
-          animate={{ opacity: [1, 0.3, 1] }}
+          className="text-base sm:text-lg font-bold text-primary/70"
+          animate={{ opacity: [1, 0.2, 1] }}
           transition={{ duration: 1, repeat: Infinity }}
         >
           :
         </motion.span>
-        <TimeBlock value={pad(mm)} label="MIN" />
+        <span className="text-base sm:text-lg font-bold text-primary [text-shadow:0_0_10px_hsl(var(--primary)/0.6)]">
+          <Digit value={pad(mm)} />
+        </span>
         <motion.span
-          className="text-primary font-mono text-lg font-bold pb-3"
-          animate={{ opacity: [1, 0.3, 1] }}
+          className="text-base sm:text-lg font-bold text-primary/70"
+          animate={{ opacity: [1, 0.2, 1] }}
           transition={{ duration: 1, repeat: Infinity, delay: 0.5 }}
         >
           :
         </motion.span>
-        <TimeBlock value={pad(ss)} label="SEC" />
-        <div className="flex flex-col items-center ml-1">
-          <span className="px-1.5 py-0.5 rounded bg-accent/15 border border-accent/30 text-accent font-mono text-[10px] font-bold">
-            {ampm}
+        <span className="text-xs sm:text-sm font-bold text-accent tabular-nums w-[2ch] text-left [text-shadow:0_0_8px_hsl(var(--accent)/0.6)]">
+          <Digit value={pad(ss)} />
+        </span>
+        <span className="ml-1 text-[8px] font-bold tracking-widest text-muted-foreground/70 self-center">
+          {ampm}
+        </span>
+      </div>
+
+      {/* RIGHT: Date + HUD ring */}
+      <div className="relative flex items-center gap-2 px-2.5 py-1.5 border-l border-primary/20 bg-primary/[0.04]">
+        <div className="relative w-5 h-5 shrink-0">
+          <svg viewBox="0 0 20 20" className="w-5 h-5 -rotate-90">
+            <circle cx="10" cy="10" r="8" fill="none" stroke="hsl(var(--primary)/0.15)" strokeWidth="1.5" />
+            <circle
+              cx="10"
+              cy="10"
+              r="8"
+              fill="none"
+              stroke="hsl(var(--accent))"
+              strokeWidth="1.5"
+              strokeDasharray={`${(secProgress / 100) * 50.26} 50.26`}
+              strokeLinecap="round"
+              style={{ filter: "drop-shadow(0 0 3px hsl(var(--accent)/0.7))" }}
+            />
+          </svg>
+          <Activity className="absolute inset-0 m-auto w-2.5 h-2.5 text-accent" />
+        </div>
+        <div className="flex flex-col leading-tight">
+          <span className="text-[9px] font-bold tracking-[0.18em] text-foreground/90">
+            {day} {month} {year}
           </span>
-          <span className="mt-1 text-[8px] font-mono uppercase tracking-[0.15em] text-muted-foreground/60">
-            IST
+          <span className="text-[7px] tracking-[0.25em] text-muted-foreground/60">
+            {weekday} · IST
           </span>
         </div>
       </div>
 
-      <div className="flex items-center gap-2 text-[10px] font-mono uppercase tracking-[0.2em] text-muted-foreground/80">
-        <span className="w-1 h-1 rounded-full bg-accent animate-pulse" />
-        <span>{weekday}</span>
-        <span className="text-primary/60">•</span>
-        <span className="text-foreground/80">{day} {month} {year}</span>
-      </div>
+      {/* Corner brackets */}
+      <span aria-hidden className="absolute top-0 left-0 w-2 h-2 border-t border-l border-primary/60" />
+      <span aria-hidden className="absolute top-0 right-0 w-2 h-2 border-t border-r border-primary/60" />
+      <span aria-hidden className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-primary/60" />
+      <span aria-hidden className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-primary/60" />
     </motion.div>
   );
 };
