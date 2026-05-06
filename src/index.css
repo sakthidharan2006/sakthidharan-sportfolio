@@ -306,3 +306,57 @@
 .heading-glow {
   animation: breathing-glow 3s ease-in-out infinite;
 }
+
+/* ============================================
+   High Refresh Rate Optimization (90Hz / 120Hz / 144Hz)
+   Targets mobile + tablet displays for ultra-smooth UI
+   ============================================ */
+@media (max-width: 1024px) {
+  /* Hint browser to use GPU compositing for smoother frames */
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+
+  /* Promote animated/interactive elements to their own GPU layer */
+  a, button, [role="button"],
+  .motion-safe\:animate-pulse,
+  [class*="animate-"],
+  [class*="transition-"] {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Tighter, frame-aligned transitions for high-Hz panels */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* High refresh rate devices (120Hz+) — sync transitions to display */
+@media (min-resolution: 120dpi) and (max-width: 1024px),
+       (min-resolution: 144dpi) and (max-width: 1024px) {
+  *, *::before, *::after {
+    animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
