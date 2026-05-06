@@ -270,16 +270,6 @@ export const HeroSection = () => {
             </motion.span>
           </motion.div>
 
-          {/* Eyebrow */}
-          <motion.div
-            variants={itemVariants}
-            className="mb-4 sm:mb-5 flex items-center justify-center gap-2 sm:gap-3 text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.25em] sm:tracking-[0.3em] text-muted-foreground/60"
-          >
-            <span className="h-px w-6 sm:w-8 bg-gradient-to-r from-transparent to-primary/50" />
-            <span>Portfolio · v2026</span>
-            <span className="h-px w-6 sm:w-8 bg-gradient-to-l from-transparent to-accent/50" />
-          </motion.div>
-
           {/* Headline */}
           <motion.h1
             variants={itemVariants}
