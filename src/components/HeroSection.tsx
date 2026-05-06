@@ -354,24 +354,6 @@ export const HeroSection = () => {
             </motion.div>
           </motion.div>
 
-          {/* Stats strip */}
-          <motion.div
-            variants={itemVariants}
-            className="mb-8 sm:mb-10 mx-auto grid grid-cols-4 sm:inline-flex sm:items-center sm:gap-0 max-w-md sm:max-w-none rounded-xl sm:rounded-2xl border border-border/40 bg-card/40 backdrop-blur-md overflow-hidden divide-x divide-border/40"
-          >
-            {[
-              { k: "MERN", v: "Stack" },
-              { k: "TS", v: "Pro" },
-              { k: "10+", v: "Projects" },
-              { k: "Open", v: "to Work" },
-            ].map((s) => (
-              <div key={s.k} className="px-2 sm:px-5 py-2 sm:py-2.5 text-center">
-                <div className="font-display text-xs sm:text-base font-bold text-foreground">{s.k}</div>
-                <div className="text-[8px] sm:text-[9px] font-mono uppercase tracking-wider text-muted-foreground/70">{s.v}</div>
-              </div>
-            ))}
-          </motion.div>
-
           {/* Social icons */}
           <motion.div
             variants={itemVariants}
