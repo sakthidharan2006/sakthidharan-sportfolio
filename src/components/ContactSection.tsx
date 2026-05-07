@@ -114,10 +114,13 @@ export const ContactSection = () => {
                       href={item.href}
                       target={item.href.startsWith("http") ? "_blank" : undefined}
                       rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all group"
+                      className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-xl border border-border/40 hover:border-primary/40 transition-all group overflow-hidden"
+                      style={{ boxShadow: "0 6px 20px -10px hsl(var(--primary)/0.12), inset 0 1px 0 hsl(var(--primary)/0.06)" }}
                     >
+                      <span className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-primary/40" />
+                      <span className="absolute bottom-1.5 right-1.5 w-2 h-2 border-b border-r border-primary/40" />
                       <motion.div
-                        className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                        className="p-2 rounded-lg bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/30 group-hover:border-primary/50 transition-colors"
                         animate={
                           index % 5 === 0 ? { y: [0, -4, 0] } :
                           index % 5 === 1 ? { y: [0, -3, 0] } :
@@ -135,15 +138,19 @@ export const ContactSection = () => {
                       >
                         <item.icon className="w-4 h-4 text-primary" />
                       </motion.div>
-                      <div>
-                        <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{item.label}</p>
-                        <p className="text-sm font-medium group-hover:text-primary transition-colors">{item.value}</p>
+                      <div className="min-w-0">
+                        <p className="text-[10px] font-mono text-primary uppercase tracking-widest">// {item.label}</p>
+                        <p className="text-sm font-medium font-mono group-hover:text-primary transition-colors truncate">{item.value}</p>
                       </div>
                     </a>
                   ) : (
-                    <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50">
+                    <div className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-xl border border-border/40 overflow-hidden"
+                      style={{ boxShadow: "0 6px 20px -10px hsl(var(--primary)/0.12), inset 0 1px 0 hsl(var(--primary)/0.06)" }}
+                    >
+                      <span className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-primary/40" />
+                      <span className="absolute bottom-1.5 right-1.5 w-2 h-2 border-b border-r border-primary/40" />
                       <motion.div
-                        className="p-2 rounded-lg bg-primary/10"
+                        className="p-2 rounded-lg bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/30"
                         animate={{ scale: [1, 1.1, 1] }}
                         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                         whileHover={{ scale: 1.25 }}
@@ -151,8 +158,8 @@ export const ContactSection = () => {
                         <item.icon className="w-4 h-4 text-primary" />
                       </motion.div>
                       <div>
-                        <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{item.label}</p>
-                        <p className="text-sm font-medium">{item.value}</p>
+                        <p className="text-[10px] font-mono text-primary uppercase tracking-widest">// {item.label}</p>
+                        <p className="text-sm font-medium font-mono">{item.value}</p>
                       </div>
                     </div>
                   )}
