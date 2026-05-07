@@ -24,14 +24,20 @@ export const Footer = () => {
   return (
     <motion.footer
       ref={ref}
-      className="py-10 border-t border-border relative overflow-hidden"
+      className="py-10 border-t border-border/40 relative overflow-hidden bg-card/20 backdrop-blur-xl"
     >
+      {/* Scanline */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        style={{ backgroundImage: "repeating-linear-gradient(0deg, hsl(var(--primary)) 0 1px, transparent 1px 3px)" }}
+      />
       {/* Subtle gradient glow */}
       <motion.div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-20 bg-primary/5 rounded-full blur-3xl"
         animate={{ opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 4, repeat: Infinity }}
       />
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
       <div className="section-container relative z-10">
         <motion.div
@@ -41,14 +47,19 @@ export const Footer = () => {
           className="flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="flex items-center gap-2 text-muted-foreground text-xs font-mono">
+            <motion.span
+              className="w-1.5 h-1.5 rounded-full bg-accent"
+              animate={{ opacity: [1, 0.3, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            />
             <motion.div
               animate={{ scale: [1, 1.15, 1] }}
               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
             >
               <Code2 className="w-3.5 h-3.5 text-primary" />
             </motion.div>
-            <span>
-              Built with{" "}
+            <span className="tracking-wide">
+              <span className="text-primary">$</span> built_with{" "}
               <motion.span
                 className="inline-block"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -72,7 +83,7 @@ export const Footer = () => {
                 transition={{ delay: 0.1 + i * 0.1 }}
                 whileHover={{ y: -3, scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="text-muted-foreground hover:text-primary transition-colors p-2.5 rounded-xl hover:bg-primary/5 border border-transparent hover:border-primary/20"
+                className="text-muted-foreground hover:text-primary transition-colors p-2.5 rounded-lg bg-card/40 backdrop-blur-sm hover:bg-primary/10 border border-border/40 hover:border-primary/40"
                 aria-label={social.label}
               >
                 <social.icon className="w-4 h-4" />

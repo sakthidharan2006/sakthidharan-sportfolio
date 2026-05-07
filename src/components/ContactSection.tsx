@@ -78,7 +78,7 @@ export const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// contact</span>
+          <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// contact.transmit</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight heading-glow">
             Contact Me
           </h2>
@@ -114,10 +114,13 @@ export const ContactSection = () => {
                       href={item.href}
                       target={item.href.startsWith("http") ? "_blank" : undefined}
                       rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50 hover:border-primary/30 transition-all group"
+                      className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-xl border border-border/40 hover:border-primary/40 transition-all group overflow-hidden"
+                      style={{ boxShadow: "0 6px 20px -10px hsl(var(--primary)/0.12), inset 0 1px 0 hsl(var(--primary)/0.06)" }}
                     >
+                      <span className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-primary/40" />
+                      <span className="absolute bottom-1.5 right-1.5 w-2 h-2 border-b border-r border-primary/40" />
                       <motion.div
-                        className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors"
+                        className="p-2 rounded-lg bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/30 group-hover:border-primary/50 transition-colors"
                         animate={
                           index % 5 === 0 ? { y: [0, -4, 0] } :
                           index % 5 === 1 ? { y: [0, -3, 0] } :
@@ -135,15 +138,19 @@ export const ContactSection = () => {
                       >
                         <item.icon className="w-4 h-4 text-primary" />
                       </motion.div>
-                      <div>
-                        <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{item.label}</p>
-                        <p className="text-sm font-medium group-hover:text-primary transition-colors">{item.value}</p>
+                      <div className="min-w-0">
+                        <p className="text-[10px] font-mono text-primary uppercase tracking-widest">// {item.label}</p>
+                        <p className="text-sm font-medium font-mono group-hover:text-primary transition-colors truncate">{item.value}</p>
                       </div>
                     </a>
                   ) : (
-                    <div className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border/50">
+                    <div className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-xl border border-border/40 overflow-hidden"
+                      style={{ boxShadow: "0 6px 20px -10px hsl(var(--primary)/0.12), inset 0 1px 0 hsl(var(--primary)/0.06)" }}
+                    >
+                      <span className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-primary/40" />
+                      <span className="absolute bottom-1.5 right-1.5 w-2 h-2 border-b border-r border-primary/40" />
                       <motion.div
-                        className="p-2 rounded-lg bg-primary/10"
+                        className="p-2 rounded-lg bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/30"
                         animate={{ scale: [1, 1.1, 1] }}
                         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
                         whileHover={{ scale: 1.25 }}
@@ -151,8 +158,8 @@ export const ContactSection = () => {
                         <item.icon className="w-4 h-4 text-primary" />
                       </motion.div>
                       <div>
-                        <p className="text-[10px] font-mono text-muted-foreground uppercase tracking-wider">{item.label}</p>
-                        <p className="text-sm font-medium">{item.value}</p>
+                        <p className="text-[10px] font-mono text-primary uppercase tracking-widest">// {item.label}</p>
+                        <p className="text-sm font-medium font-mono">{item.value}</p>
                       </div>
                     </div>
                   )}
@@ -167,44 +174,65 @@ export const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <TiltCard>
-            <form onSubmit={handleSubmit} className="bg-card rounded-xl p-6 md:p-8 border border-border/50">
-              <h3 className="font-display text-lg font-bold mb-6 tracking-tight">Send a Message</h3>
+            <form onSubmit={handleSubmit} className="relative bg-card/50 backdrop-blur-xl rounded-xl p-6 md:p-8 border border-border/40 overflow-hidden"
+              style={{ boxShadow: "0 12px 40px -12px hsl(var(--primary)/0.18), inset 0 1px 0 hsl(var(--primary)/0.08)" }}
+            >
+              {/* HUD top bar */}
+              <div className="flex items-center justify-between -mx-6 md:-mx-8 -mt-6 md:-mt-8 mb-6 px-6 md:px-8 py-2.5 border-b border-border/40 bg-background/30">
+                <div className="flex items-center gap-2">
+                  <Send className="w-3 h-3 text-primary" />
+                  <span className="font-mono text-[10px] text-muted-foreground/80 tracking-wider uppercase">transmit.message</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <motion.span className="w-1.5 h-1.5 rounded-full bg-accent"
+                    animate={{ opacity: [1, 0.3, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  />
+                  <span className="font-mono text-[9px] text-accent uppercase tracking-widest">READY</span>
+                </div>
+              </div>
 
-              <div className="space-y-4">
+              {/* Corner brackets */}
+              <span className="absolute top-12 left-2 w-2.5 h-2.5 border-t border-l border-primary/40" />
+              <span className="absolute top-12 right-2 w-2.5 h-2.5 border-t border-r border-primary/40" />
+              <span className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b border-l border-primary/40" />
+              <span className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b border-r border-primary/40" />
+
+              <div className="space-y-4 relative">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-[10px] font-mono text-muted-foreground uppercase tracking-wider mb-2">
-                      Name
+                    <label htmlFor="name" className="block text-[10px] font-mono text-primary uppercase tracking-widest mb-2">
+                      // name
                     </label>
-                    <Input id="name" name="name" placeholder="Your name" required className="bg-secondary/50 rounded-lg" />
+                    <Input id="name" name="name" placeholder="Your name" required className="bg-background/40 border-border/50 focus:border-primary/60 rounded-lg font-mono text-sm" />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-[10px] font-mono text-muted-foreground uppercase tracking-wider mb-2">
-                      Email
+                    <label htmlFor="email" className="block text-[10px] font-mono text-primary uppercase tracking-widest mb-2">
+                      // email
                     </label>
-                    <Input id="email" name="email" type="email" placeholder="your@email.com" required className="bg-secondary/50 rounded-lg" />
+                    <Input id="email" name="email" type="email" placeholder="your@email.com" required className="bg-background/40 border-border/50 focus:border-primary/60 rounded-lg font-mono text-sm" />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-[10px] font-mono text-muted-foreground uppercase tracking-wider mb-2">
-                    Subject
+                  <label htmlFor="subject" className="block text-[10px] font-mono text-primary uppercase tracking-widest mb-2">
+                    // subject
                   </label>
-                  <Input id="subject" name="subject" placeholder="What's this about?" required className="bg-secondary/50 rounded-lg" />
+                  <Input id="subject" name="subject" placeholder="What's this about?" required className="bg-background/40 border-border/50 focus:border-primary/60 rounded-lg font-mono text-sm" />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-[10px] font-mono text-muted-foreground uppercase tracking-wider mb-2">
-                    Message
+                  <label htmlFor="message" className="block text-[10px] font-mono text-primary uppercase tracking-widest mb-2">
+                    // message
                   </label>
-                  <Textarea id="message" name="message" placeholder="Your message..." rows={5} required className="bg-secondary/50 resize-none rounded-lg" />
+                  <Textarea id="message" name="message" placeholder="Your message..." rows={5} required className="bg-background/40 border-border/50 focus:border-primary/60 resize-none rounded-lg font-mono text-sm" />
                 </div>
 
-                <Button type="submit" className="w-full btn-gradient rounded-xl py-6 text-sm" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : (
+                <Button type="submit" className="w-full btn-gradient rounded-lg py-6 text-sm font-mono" disabled={isSubmitting}>
+                  {isSubmitting ? "Transmitting..." : (
                     <>
                       <Send className="w-4 h-4 mr-2" />
-                      Send Message
+                      ./send_message
                     </>
                   )}
                 </Button>

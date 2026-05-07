@@ -191,29 +191,38 @@ const TimelineNode = ({
       >
         <motion.div
           onClick={onClick}
-          className={`relative bg-card rounded-xl p-5 border cursor-pointer transition-all duration-300 group ${
+          className={`relative bg-card/50 backdrop-blur-xl rounded-xl p-5 border cursor-pointer transition-all duration-300 group overflow-hidden ${
             isActive
-              ? "border-primary/40 shadow-[0_0_30px_-8px_hsl(var(--primary)/0.2)]"
-              : "border-border/50 hover:border-primary/20"
+              ? "border-primary/50 shadow-[0_0_30px_-8px_hsl(var(--primary)/0.3)]"
+              : "border-border/40 hover:border-primary/30"
           }`}
           whileHover={{ y: -2 }}
+          style={{ boxShadow: isActive ? undefined : "0 6px 24px -10px hsl(var(--primary)/0.12), inset 0 1px 0 hsl(var(--primary)/0.06)" }}
         >
+          {/* Scanline */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+            style={{ backgroundImage: "repeating-linear-gradient(0deg, hsl(var(--primary)) 0 1px, transparent 1px 3px)" }}
+          />
+          {/* Corner brackets */}
+          <span className="absolute top-1.5 left-1.5 w-2.5 h-2.5 border-t border-l border-primary/40" />
+          <span className="absolute bottom-1.5 right-1.5 w-2.5 h-2.5 border-b border-r border-primary/40" />
+
           {/* Connector line to node */}
           <div
             className={`hidden md:block absolute top-1/2 -translate-y-1/2 w-6 h-px bg-gradient-to-r ${
               isLeft
-                ? "right-0 translate-x-full from-border to-transparent"
-                : "left-0 -translate-x-full from-transparent to-border"
+                ? "right-0 translate-x-full from-primary/40 to-transparent"
+                : "left-0 -translate-x-full from-transparent to-primary/40"
             }`}
           />
 
-          <div className="flex items-start justify-between gap-3 mb-2">
-            <div>
+          <div className="relative flex items-start justify-between gap-3 mb-2">
+            <div className="min-w-0">
               <h3 className="font-display text-sm font-bold tracking-tight group-hover:text-primary transition-colors">
                 {milestone.title}
               </h3>
-              <div className="flex items-center gap-2 mt-1">
-                <span className="text-primary/80 text-xs font-medium">{milestone.subtitle}</span>
+              <div className="flex items-center gap-2 mt-1 flex-wrap">
+                <span className="text-primary/80 text-xs font-medium font-mono">{milestone.subtitle}</span>
                 <span className="text-muted-foreground/40">·</span>
                 <span className="font-mono text-[10px] text-muted-foreground flex items-center gap-1">
                   <Calendar className="w-2.5 h-2.5" />
@@ -222,15 +231,15 @@ const TimelineNode = ({
               </div>
             </div>
             <motion.div
-              animate={{ rotate: isActive ? 180 : 0 }}
+              animate={{ y: isActive ? 2 : 0 }}
               transition={{ duration: 0.3 }}
               className="shrink-0 mt-1"
             >
-              <ChevronDown className="w-4 h-4 text-muted-foreground" />
+              <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${isActive ? "rotate-180 text-primary" : "text-muted-foreground"}`} />
             </motion.div>
           </div>
 
-          <p className="text-muted-foreground text-xs leading-relaxed mb-3">
+          <p className="relative text-muted-foreground text-xs leading-relaxed mb-3">
             {milestone.description}
           </p>
 
@@ -241,9 +250,9 @@ const TimelineNode = ({
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-                className="overflow-hidden"
+                className="overflow-hidden relative"
               >
-                <div className="pt-3 border-t border-border/50 space-y-2">
+                <div className="pt-3 border-t border-primary/20 space-y-2">
                   {milestone.details.map((detail, i) => (
                     <motion.div
                       key={detail}
@@ -252,7 +261,7 @@ const TimelineNode = ({
                       transition={{ delay: i * 0.08 }}
                       className="flex items-center gap-2"
                     >
-                      <div className="w-1 h-1 rounded-full bg-primary shrink-0" />
+                      <span className="text-primary text-xs">›</span>
                       <span className="text-xs text-muted-foreground font-mono">{detail}</span>
                     </motion.div>
                   ))}

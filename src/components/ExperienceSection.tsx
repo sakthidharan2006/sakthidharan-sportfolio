@@ -129,7 +129,7 @@ export const ExperienceSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="experience" className="py-20 md:py-32 bg-secondary/30" ref={ref}>
+    <section id="experience" className="py-20 md:py-32 relative" ref={ref}>
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -137,7 +137,7 @@ export const ExperienceSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// experience</span>
+          <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// experience.log</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight heading-glow">
             Experience & Learning
           </h2>
@@ -161,25 +161,43 @@ export const ExperienceSection = () => {
                 key={exp.title}
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                transition={{ duration: 0.6, delay: index * 0.1, type: "spring", stiffness: 80 }}
+                transition={{ duration: 0.6, delay: index * 0.05, type: "spring", stiffness: 80 }}
                 className={`relative md:flex items-center ${
                   index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
-                {/* Timeline Dot */}
+                {/* Timeline Node */}
                 <motion.div
                   initial={{ scale: 0 }}
                   animate={isInView ? { scale: 1 } : { scale: 0 }}
-                  transition={{ delay: 0.3 + index * 0.1, type: "spring", stiffness: 200 }}
-                  className="absolute left-8 md:left-1/2 w-3 h-3 bg-primary rounded-sm transform -translate-x-1/2 rotate-45 hidden md:block"
-                />
+                  transition={{ delay: 0.2 + index * 0.05, type: "spring", stiffness: 200 }}
+                  className="absolute left-8 md:left-1/2 w-3 h-3 -translate-x-1/2 hidden md:flex items-center justify-center"
+                >
+                  <span className="absolute w-3 h-3 rounded-sm bg-primary rotate-45" />
+                  <motion.span
+                    className="absolute w-5 h-5 rounded-sm border border-primary/40 rotate-45"
+                    animate={{ scale: [1, 1.6, 1], opacity: [0.6, 0, 0.6] }}
+                    transition={{ duration: 2, repeat: Infinity, delay: index * 0.2 }}
+                  />
+                </motion.div>
 
                 <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
                   <TiltCard>
-                    <div className="bg-card rounded-xl p-6 border border-border/50 card-hover">
-                      <div className="flex items-start gap-4 mb-3">
+                    <div
+                      className="relative bg-card/50 backdrop-blur-xl rounded-xl p-5 border border-border/40 hover:border-primary/40 transition-colors group overflow-hidden"
+                      style={{ boxShadow: "0 8px 30px -12px hsl(var(--primary)/0.15), inset 0 1px 0 hsl(var(--primary)/0.06)" }}
+                    >
+                      {/* Scanline */}
+                      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+                        style={{ backgroundImage: "repeating-linear-gradient(0deg, hsl(var(--primary)) 0 1px, transparent 1px 3px)" }}
+                      />
+                      {/* Corner brackets */}
+                      <span className="absolute top-1.5 left-1.5 w-2.5 h-2.5 border-t border-l border-primary/40" />
+                      <span className="absolute bottom-1.5 right-1.5 w-2.5 h-2.5 border-b border-r border-primary/40" />
+
+                      <div className="relative flex items-start gap-4 mb-3">
                         <motion.div
-                          className="p-2.5 rounded-xl bg-primary/10 shrink-0"
+                          className="p-2.5 rounded-lg bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/30 shrink-0"
                           animate={{
                             y: index % 3 === 0 ? [0, -4, 0] : index % 3 === 1 ? [0, -3, 0] : [0, 0],
                             scale: index % 3 === 2 ? [1, 1.15, 1] : [1, 1, 1],
@@ -194,18 +212,20 @@ export const ExperienceSection = () => {
                         >
                           <exp.icon className="w-5 h-5 text-primary" />
                         </motion.div>
-                        <div>
-                          <h3 className="font-display text-base font-bold tracking-tight">{exp.title}</h3>
-                          <p className="text-primary text-xs font-medium">{exp.organization}</p>
-                          <p className="text-muted-foreground text-xs font-mono">{exp.period}</p>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-2 mb-1">
+                            <h3 className="font-display text-base font-bold tracking-tight group-hover:text-primary transition-colors">{exp.title}</h3>
+                            <span className="font-mono text-[9px] text-primary px-1.5 py-0.5 rounded bg-primary/10 border border-primary/30 whitespace-nowrap">{exp.period}</span>
+                          </div>
+                          <p className="text-primary/80 text-xs font-medium font-mono">{exp.organization}</p>
                         </div>
                       </div>
-                      <p className="text-muted-foreground text-sm mb-4">{exp.description}</p>
-                      <div className="flex flex-wrap gap-1.5">
+                      <p className="text-muted-foreground text-sm mb-4 relative">{exp.description}</p>
+                      <div className="flex flex-wrap gap-1.5 relative">
                         {exp.highlights.map((highlight) => (
                           <span
                             key={highlight}
-                            className="px-2.5 py-1 bg-secondary text-secondary-foreground rounded-lg text-[10px] font-mono"
+                            className="px-2 py-0.5 bg-secondary/60 text-secondary-foreground border border-border/50 rounded text-[10px] font-mono hover:border-primary/40 transition-colors"
                           >
                             {highlight}
                           </span>
