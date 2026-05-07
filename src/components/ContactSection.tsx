@@ -78,7 +78,7 @@ export const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// contact</span>
+          <span className="text-primary font-mono text-xs uppercase tracking-widest mb-4 block">// contact.transmit</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6 tracking-tight heading-glow">
             Contact Me
           </h2>
