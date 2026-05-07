@@ -174,44 +174,65 @@ export const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <TiltCard>
-            <form onSubmit={handleSubmit} className="bg-card rounded-xl p-6 md:p-8 border border-border/50">
-              <h3 className="font-display text-lg font-bold mb-6 tracking-tight">Send a Message</h3>
+            <form onSubmit={handleSubmit} className="relative bg-card/50 backdrop-blur-xl rounded-xl p-6 md:p-8 border border-border/40 overflow-hidden"
+              style={{ boxShadow: "0 12px 40px -12px hsl(var(--primary)/0.18), inset 0 1px 0 hsl(var(--primary)/0.08)" }}
+            >
+              {/* HUD top bar */}
+              <div className="flex items-center justify-between -mx-6 md:-mx-8 -mt-6 md:-mt-8 mb-6 px-6 md:px-8 py-2.5 border-b border-border/40 bg-background/30">
+                <div className="flex items-center gap-2">
+                  <Send className="w-3 h-3 text-primary" />
+                  <span className="font-mono text-[10px] text-muted-foreground/80 tracking-wider uppercase">transmit.message</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <motion.span className="w-1.5 h-1.5 rounded-full bg-accent"
+                    animate={{ opacity: [1, 0.3, 1] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  />
+                  <span className="font-mono text-[9px] text-accent uppercase tracking-widest">READY</span>
+                </div>
+              </div>
 
-              <div className="space-y-4">
+              {/* Corner brackets */}
+              <span className="absolute top-12 left-2 w-2.5 h-2.5 border-t border-l border-primary/40" />
+              <span className="absolute top-12 right-2 w-2.5 h-2.5 border-t border-r border-primary/40" />
+              <span className="absolute bottom-2 left-2 w-2.5 h-2.5 border-b border-l border-primary/40" />
+              <span className="absolute bottom-2 right-2 w-2.5 h-2.5 border-b border-r border-primary/40" />
+
+              <div className="space-y-4 relative">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="name" className="block text-[10px] font-mono text-muted-foreground uppercase tracking-wider mb-2">
-                      Name
+                    <label htmlFor="name" className="block text-[10px] font-mono text-primary uppercase tracking-widest mb-2">
+                      // name
                     </label>
-                    <Input id="name" name="name" placeholder="Your name" required className="bg-secondary/50 rounded-lg" />
+                    <Input id="name" name="name" placeholder="Your name" required className="bg-background/40 border-border/50 focus:border-primary/60 rounded-lg font-mono text-sm" />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-[10px] font-mono text-muted-foreground uppercase tracking-wider mb-2">
-                      Email
+                    <label htmlFor="email" className="block text-[10px] font-mono text-primary uppercase tracking-widest mb-2">
+                      // email
                     </label>
-                    <Input id="email" name="email" type="email" placeholder="your@email.com" required className="bg-secondary/50 rounded-lg" />
+                    <Input id="email" name="email" type="email" placeholder="your@email.com" required className="bg-background/40 border-border/50 focus:border-primary/60 rounded-lg font-mono text-sm" />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="subject" className="block text-[10px] font-mono text-muted-foreground uppercase tracking-wider mb-2">
-                    Subject
+                  <label htmlFor="subject" className="block text-[10px] font-mono text-primary uppercase tracking-widest mb-2">
+                    // subject
                   </label>
-                  <Input id="subject" name="subject" placeholder="What's this about?" required className="bg-secondary/50 rounded-lg" />
+                  <Input id="subject" name="subject" placeholder="What's this about?" required className="bg-background/40 border-border/50 focus:border-primary/60 rounded-lg font-mono text-sm" />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-[10px] font-mono text-muted-foreground uppercase tracking-wider mb-2">
-                    Message
+                  <label htmlFor="message" className="block text-[10px] font-mono text-primary uppercase tracking-widest mb-2">
+                    // message
                   </label>
-                  <Textarea id="message" name="message" placeholder="Your message..." rows={5} required className="bg-secondary/50 resize-none rounded-lg" />
+                  <Textarea id="message" name="message" placeholder="Your message..." rows={5} required className="bg-background/40 border-border/50 focus:border-primary/60 resize-none rounded-lg font-mono text-sm" />
                 </div>
 
-                <Button type="submit" className="w-full btn-gradient rounded-xl py-6 text-sm" disabled={isSubmitting}>
-                  {isSubmitting ? "Sending..." : (
+                <Button type="submit" className="w-full btn-gradient rounded-lg py-6 text-sm font-mono" disabled={isSubmitting}>
+                  {isSubmitting ? "Transmitting..." : (
                     <>
                       <Send className="w-4 h-4 mr-2" />
-                      Send Message
+                      ./send_message
                     </>
                   )}
                 </Button>
