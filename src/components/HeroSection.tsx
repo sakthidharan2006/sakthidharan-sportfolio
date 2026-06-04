@@ -271,7 +271,7 @@ export const HeroSection = () => {
               transition={{ type: "spring", stiffness: 300 }}
             >
               <span className="relative z-10 bg-gradient-to-br from-primary via-accent to-primary bg-clip-text text-transparent bg-[length:200%_auto]">
-                Sakthidharan E
+                {identity.name}
               </span>
               <motion.span
                 aria-hidden
