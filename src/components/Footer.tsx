@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { Github, Linkedin, Mail, Code2, Heart } from "lucide-react";
+import { identity, socialLinks } from "@/data";
 
 // Custom LeetCode Icon Component
 const LeetCodeIcon = ({ className }: { className?: string }) => (
@@ -10,11 +11,12 @@ const LeetCodeIcon = ({ className }: { className?: string }) => (
 );
 
 const socials = [
-  { href: "https://github.com/sakthidharan2006", icon: Github, label: "GitHub" },
-  { href: "https://linkedin.com/in/sakthidharan-e-", icon: Linkedin, label: "LinkedIn" },
-  { href: "mailto:sakthidharane16@gmail.com", icon: Mail, label: "Email" },
-  { href: "https://leetcode.com/u/sakthidharan2006/", icon: LeetCodeIcon, label: "LeetCode" },
+  { href: socialLinks.github, icon: Github, label: "GitHub" },
+  { href: socialLinks.linkedin, icon: Linkedin, label: "LinkedIn" },
+  { href: socialLinks.email, icon: Mail, label: "Email" },
+  { href: socialLinks.leetcode, icon: LeetCodeIcon, label: "LeetCode" },
 ];
+
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
