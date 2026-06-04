@@ -1,29 +1,10 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { ExternalLink, Github, Globe, Terminal } from "lucide-react";
+import { ExternalLink, Github, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TiltCard } from "@/components/TiltCard";
-import truckImage from "@/assets/truck-project.png";
+import { projects } from "@/data";
 
-const projects = [
-  {
-    title: "SmartFleet AI - Intelligent Infrastructure for Modern Logistics",
-    description:
-      "A comprehensive web-based fleet tracking system with role-based demo logins for Admin, Fleet Owner, and Drivers. Features dark-themed UI with real-time vehicle management and instant dashboard access.",
-    features: [
-      "Multi-role demo login",
-      "Real-time tracking",
-      "Dark themed UI",
-      "Driver & vehicle management",
-    ],
-    tech: ["React", "Tailwind CSS", "Supabase", "TypeScript"],
-    icon: Globe,
-    github: "https://github.com",
-    live: "https://smarfleetai.vercel.app/",
-    image: truckImage,
-    featured: true,
-  },
-];
 
 export const ProjectsSection = () => {
   const ref = useRef(null);
