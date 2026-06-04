@@ -1,9 +1,9 @@
 import { motion, Variants, useScroll, useTransform } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, Download, Zap, FileCode, Braces, Atom, Server, Database, GitBranch, Code2, Route, Sparkles } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, Download, Zap, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TypingAnimation } from "@/components/TypingAnimation";
 import { LiveClock } from "@/components/LiveClock";
-
+import { floatingTechIcons, identity, socialLinks, type FloatingTechIcon } from "@/data";
 
 // Custom LeetCode Icon Component
 const LeetCodeIcon = ({ className }: { className?: string }) => (
@@ -11,17 +11,6 @@ const LeetCodeIcon = ({ className }: { className?: string }) => (
     <path d="M16.102 17.93l-2.62 2.62c-.546.546-1.25.82-1.953.82-.703 0-1.407-.274-1.953-.82l-4.172-4.172c-1.094-1.094-1.094-2.867 0-3.96l2.62-2.62 1.406 1.407-2.62 2.62c-.273.273-.273.703 0 .976l4.172 4.172c.273.273.703.273.976 0l2.62-2.62 1.407 1.406zM22.547 9.516l-2.62 2.62-1.406-1.406 2.62-2.62c.273-.273.273-.703 0-.976l-4.172-4.172c-.273-.273-.703-.273-.976 0l-2.62 2.62-1.407-1.406 2.62-2.62c1.094-1.094 2.867-1.094 3.96 0l4.172 4.172c1.094 1.094 1.094 2.867 0 3.96zM8.5 14.672l5.172-5.172 1.406 1.406-5.172 5.172-1.406-1.406z"/>
   </svg>
 );
-
-const floatingTechIcons = [
-  { icon: Atom, label: "React", x: "8%", y: "18%", size: 28, delay: 0, color: "hsl(193 95% 55%)", speed: 0.3, anim: "orbit" },
-  { icon: Braces, label: "JS", x: "88%", y: "22%", size: 24, delay: 0.5, color: "hsl(50 90% 50%)", speed: 0.5, anim: "typewriter" },
-  { icon: FileCode, label: "HTML", x: "5%", y: "55%", size: 22, delay: 1, color: "hsl(12 77% 52%)", speed: 0.2, anim: "heartbeat" },
-  { icon: Code2, label: "CSS", x: "92%", y: "50%", size: 22, delay: 1.5, color: "hsl(205 87% 50%)", speed: 0.45, anim: "morph" },
-  { icon: Server, label: "Node", x: "12%", y: "80%", size: 20, delay: 2, color: "hsl(120 40% 44%)", speed: 0.35, anim: "radar" },
-  { icon: Database, label: "DB", x: "85%", y: "78%", size: 20, delay: 2.5, color: "hsl(120 40% 40%)", speed: 0.55, anim: "stack" },
-  { icon: GitBranch, label: "Git", x: "18%", y: "38%", size: 18, delay: 3, color: "hsl(15 75% 55%)", speed: 0.25, anim: "pendulum" },
-  { icon: Route, label: "API", x: "82%", y: "38%", size: 18, delay: 3.5, color: "hsl(190 90% 45%)", speed: 0.4, anim: "sonar" },
-];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
