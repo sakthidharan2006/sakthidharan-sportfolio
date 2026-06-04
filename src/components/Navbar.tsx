@@ -100,10 +100,10 @@ export const Navbar = () => {
             {/* Wordmark */}
             <div className="hidden sm:flex flex-col leading-none">
               <span className="font-display font-bold text-sm md:text-base tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                Sakthidharan E
+                {identity.brand.wordmark}
               </span>
               <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70 mt-0.5">
-                Developer.Portfolio
+                {identity.brand.subline}
               </span>
             </div>
           </motion.a>
