@@ -359,10 +359,10 @@ export const HeroSection = () => {
             className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap"
           >
             {[
-              { href: "https://github.com/sakthidharan2006", icon: Github, label: "GitHub" },
-              { href: "https://linkedin.com/in/sakthidharan-e-", icon: Linkedin, label: "LinkedIn" },
-              { href: "mailto:sakthidharane16@gmail.com", icon: Mail, label: "Email" },
-              { href: "https://leetcode.com/u/sakthidharan2006/", icon: LeetCodeIcon, label: "LeetCode" },
+              { href: socialLinks.github, icon: Github, label: "GitHub" },
+              { href: socialLinks.linkedin, icon: Linkedin, label: "LinkedIn" },
+              { href: socialLinks.email, icon: Mail, label: "Email" },
+              { href: socialLinks.leetcode, icon: LeetCodeIcon, label: "LeetCode" },
             ].map((social, index) => (
               <motion.a
                 key={index}
