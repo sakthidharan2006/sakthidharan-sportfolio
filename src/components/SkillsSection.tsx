@@ -2,12 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { TiltCard } from "@/components/TiltCard";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import {
-  Code2, FileCode, Braces, Atom,
-  Server, Route, Database, GitBranch,
-  KeyRound, MonitorSmartphone, Send, Wrench,
-  Cpu,
-} from "lucide-react";
+import { Cpu } from "lucide-react";
+import { skillCategories } from "@/data";
 
 const iconAnimConfigs = [
   { animate: { scale: [1, 1.2, 1] }, transition: { duration: 3, repeat: Infinity, ease: "easeInOut" as const } },
@@ -26,45 +22,6 @@ const iconAnimConfigs = [
 
 const getAnimation = (index: number) => iconAnimConfigs[index % iconAnimConfigs.length];
 
-const skillCategories = [
-  {
-    title: "Frontend",
-    code: "FE_01",
-    skills: [
-      { name: "HTML5", level: 90, icon: FileCode, color: "hsl(12 77% 52%)" },
-      { name: "CSS3", level: 85, icon: Code2, color: "hsl(205 87% 50%)" },
-      { name: "JavaScript", level: 85, icon: Braces, color: "hsl(50 90% 50%)" },
-      { name: "React", level: 80, icon: Atom, color: "hsl(193 95% 55%)" },
-    ],
-  },
-  {
-    title: "Backend",
-    code: "BE_02",
-    skills: [
-      { name: "Node.js", level: 75, icon: Server, color: "hsl(120 40% 44%)" },
-      { name: "Express", level: 75, icon: Route, color: "hsl(0 0% 50%)" },
-      { name: "REST APIs", level: 80, icon: Send, color: "hsl(190 90% 45%)" },
-    ],
-  },
-  {
-    title: "Database",
-    code: "DB_03",
-    skills: [
-      { name: "MongoDB", level: 75, icon: Database, color: "hsl(120 40% 40%)" },
-      { name: "SQL Basics", level: 65, icon: Database, color: "hsl(210 50% 50%)" },
-    ],
-  },
-  {
-    title: "Tools & Others",
-    code: "TL_04",
-    skills: [
-      { name: "Git & GitHub", level: 85, icon: GitBranch, color: "hsl(15 75% 55%)" },
-      { name: "JWT Auth", level: 70, icon: KeyRound, color: "hsl(280 60% 55%)" },
-      { name: "VS Code", level: 90, icon: MonitorSmartphone, color: "hsl(210 80% 55%)" },
-      { name: "Postman", level: 80, icon: Wrench, color: "hsl(25 90% 55%)" },
-    ],
-  },
-];
 
 export const SkillsSection = () => {
   const ref = useRef(null);

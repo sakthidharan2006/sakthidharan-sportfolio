@@ -1,37 +1,15 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Award, BookOpen } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 import { TiltCard } from "@/components/TiltCard";
+import { aboutBio, education, identity } from "@/data";
 
 export const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const education = [
-    {
-      icon: GraduationCap,
-      degree: "B.Tech - Information Technology",
-      institution: "Bannari Amman Institute of Technology",
-      status: "Pursuing",
-      year: "2023 - 2027",
-    },
-    {
-      icon: Award,
-      degree: "Diploma in Computer Technology",
-      institution: "Kongu Polytechnic College",
-      status: "84%",
-      year: "2020 - 2023",
-    },
-    {
-      icon: BookOpen,
-      degree: "SSLC",
-      institution: "Nest School",
-      status: "Completed",
-      year: "2020",
-    },
-  ];
 
   return (
     <section id="about" className="py-20 md:py-32" ref={ref}>
@@ -88,7 +66,7 @@ export const AboutSection = () => {
               >
                 <motion.img
                   src={profilePhoto}
-                  alt="Sakthidharan E"
+                  alt={identity.name}
                   className="w-full h-full object-cover object-top rounded-full scale-110"
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
@@ -114,18 +92,14 @@ export const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              I'm an IT student at Bannari Amman Institute of Technology, passionate about becoming a software developer and building real-world solutions. Through my coursework and personal learning, I've developed a good understanding of programming, web development, and core concepts like data structures, networking, and system design.
-            </p>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              I enjoy working on full-stack applications and experimenting with technologies like Java, Python, and JavaScript. I've also explored working with databases and building simple APIs, which helped me understand how systems work end-to-end.
-            </p>
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              What I like most about tech is problem solving — figuring out how to approach a challenge, break it down, and improve it step by step. I'm always trying to learn something new, whether it's improving my coding skills, understanding how scalable systems work, or exploring areas like cloud and modern development tools.
-            </p>
-            <p className="text-muted-foreground mb-8 leading-relaxed">
-              I'm looking forward to growing as a developer, working on meaningful projects, and continuously improving my skills along the way.
-            </p>
+            {aboutBio.map((para, i) => (
+              <p
+                key={i}
+                className={`text-muted-foreground leading-relaxed ${i === aboutBio.length - 1 ? "mb-8" : "mb-6"}`}
+              >
+                {para}
+              </p>
+            ))}
 
             {/* Education — Modern Timeline */}
             <div className="mb-8">

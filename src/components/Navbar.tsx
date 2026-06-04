@@ -1,15 +1,9 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Moon, Sun, Code2 } from "lucide-react";
+import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { navItems, identity } from "@/data";
 
-const navItems = [
-  { name: "About", href: "#about" },
-  { name: "Skills", href: "#skills" },
-  { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#experience" },
-  { name: "Contact", href: "#contact" },
-];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -86,7 +80,7 @@ export const Navbar = () => {
               <div className="absolute inset-[2px] rounded-[10px] bg-background flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
                 <span className="relative font-display font-extrabold text-sm md:text-base bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent tracking-tighter">
-                  SD
+                  {identity.brand.initials}
                 </span>
                 {/* shine sweep */}
                 <motion.div
@@ -106,10 +100,10 @@ export const Navbar = () => {
             {/* Wordmark */}
             <div className="hidden sm:flex flex-col leading-none">
               <span className="font-display font-bold text-sm md:text-base tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                Sakthidharan E
+                {identity.brand.wordmark}
               </span>
               <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70 mt-0.5">
-                Developer.Portfolio
+                {identity.brand.subline}
               </span>
             </div>
           </motion.a>
