@@ -325,7 +325,7 @@ export const HeroSection = () => {
                 className="w-full sm:w-auto px-6 py-5 sm:py-6 text-sm font-semibold rounded-xl border border-border/40 hover:border-accent/40 hover:bg-accent/5 backdrop-blur-sm"
                 asChild
               >
-                <a href="/Resume_Sakthidharan.pdf" download="Sakthidharan_E_Resume.pdf">
+                <a href={identity.resumeUrl} download={identity.resumeDownloadAs}>
                   <Download className="w-4 h-4 mr-2" />
                   Resume
                 </a>
