@@ -1,37 +1,15 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { GraduationCap, Award, BookOpen } from "lucide-react";
+import { GraduationCap } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 import { TiltCard } from "@/components/TiltCard";
+import { aboutBio, education, identity } from "@/data";
 
 export const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const education = [
-    {
-      icon: GraduationCap,
-      degree: "B.Tech - Information Technology",
-      institution: "Bannari Amman Institute of Technology",
-      status: "Pursuing",
-      year: "2023 - 2027",
-    },
-    {
-      icon: Award,
-      degree: "Diploma in Computer Technology",
-      institution: "Kongu Polytechnic College",
-      status: "84%",
-      year: "2020 - 2023",
-    },
-    {
-      icon: BookOpen,
-      degree: "SSLC",
-      institution: "Nest School",
-      status: "Completed",
-      year: "2020",
-    },
-  ];
 
   return (
     <section id="about" className="py-20 md:py-32" ref={ref}>
