@@ -69,7 +69,7 @@ export const Footer = () => {
               >
                 <Heart className="w-3 h-3 text-destructive inline-block -mt-0.5" />
               </motion.span>{" "}
-              by Sakthidharan E © {currentYear}
+              by {identity.name} © {currentYear}
             </span>
           </div>
 
