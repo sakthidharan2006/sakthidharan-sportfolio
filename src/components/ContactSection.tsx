@@ -63,13 +63,6 @@ export const ContactSection = () => {
     }
   };
 
-  const contactInfo = [
-    { icon: Mail, label: "Email", value: "sakthidharane16@gmail.com", href: "mailto:sakthidharane16@gmail.com" },
-    { icon: Phone, label: "Phone", value: "+91 6374103029", href: "tel:+916374103029" },
-    { icon: Linkedin, label: "LinkedIn", value: "linkedin.com/in/sakthidharan-e-", href: "https://linkedin.com/in/sakthidharan-e-" },
-    { icon: Github, label: "GitHub", value: "github.com/sakthidharan2006", href: "https://github.com/sakthidharan2006" },
-    { icon: MapPin, label: "Location", value: "Sathyamangalam, Tamil Nadu", href: null },
-  ];
 
   return (
     <section id="contact" className="py-20 md:py-32" ref={ref}>
