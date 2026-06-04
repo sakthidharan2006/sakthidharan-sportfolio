@@ -41,7 +41,7 @@ const socialIconVariants: Variants = {
   tap: { scale: 0.9 },
 };
 
-const ParallaxIcon = ({ tech, i }: { tech: typeof floatingTechIcons[number]; i: number }) => {
+const ParallaxIcon = ({ tech, i }: { tech: FloatingTechIcon; i: number }) => {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 800], [0, -200 * tech.speed]);
   const opacity = useTransform(scrollY, [0, 600], [1, 0]);
