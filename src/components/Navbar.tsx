@@ -80,7 +80,7 @@ export const Navbar = () => {
               <div className="absolute inset-[2px] rounded-[10px] bg-background flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
                 <span className="relative font-display font-extrabold text-sm md:text-base bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent tracking-tighter">
-                  SD
+                  {identity.brand.initials}
                 </span>
                 {/* shine sweep */}
                 <motion.div
