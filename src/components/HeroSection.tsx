@@ -294,7 +294,7 @@ export const HeroSection = () => {
             variants={itemVariants}
             className="text-xs sm:text-base text-muted-foreground/75 mb-7 sm:mb-10 max-w-xl mx-auto leading-relaxed px-2"
           >
-            Crafting modern web experiences with clean code and creative solutions.
+            {identity.tagline}
           </motion.p>
 
           {/* CTA buttons */}
