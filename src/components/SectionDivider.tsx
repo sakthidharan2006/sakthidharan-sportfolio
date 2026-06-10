@@ -6,39 +6,50 @@ export const SectionDivider = () => {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <div ref={ref} className="flex items-center justify-center py-4">
+    <div ref={ref} className="section-container py-8">
       <motion.div
-        className="flex items-center gap-3 w-full max-w-xs"
+        className="relative flex items-center gap-6"
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.6 }}
       >
+        {/* Left tick */}
+        <span className="font-mono text-[10px] tracking-[0.3em] text-accent/60 uppercase">
+          ◆
+        </span>
+
+        {/* Hairline rule */}
         <motion.div
-          className="flex-1 h-px bg-gradient-to-r from-transparent via-primary/30 to-primary/50"
+          className="flex-1 h-px bg-gradient-to-r from-border via-border/60 to-transparent"
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           style={{ transformOrigin: "left" }}
         />
-        <motion.div
-          className="w-2 h-2 rounded-full bg-primary/40 border border-primary/20"
-          initial={{ scale: 0 }}
-          animate={isInView ? { scale: 1 } : { scale: 0 }}
-          transition={{ duration: 0.4, delay: 0.4 }}
+
+        {/* Center mark */}
+        <motion.span
+          className="font-mono text-[10px] tracking-[0.4em] text-muted-foreground/50 uppercase whitespace-nowrap"
+          initial={{ opacity: 0, y: 4 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 4 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <motion.div
-            className="w-full h-full rounded-full bg-primary/60"
-            animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-        </motion.div>
+          —— § ——
+        </motion.span>
+
+        {/* Hairline rule */}
         <motion.div
-          className="flex-1 h-px bg-gradient-to-l from-transparent via-primary/30 to-primary/50"
+          className="flex-1 h-px bg-gradient-to-l from-border via-border/60 to-transparent"
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
           style={{ transformOrigin: "right" }}
         />
+
+        {/* Right tick */}
+        <span className="font-mono text-[10px] tracking-[0.3em] text-accent/60 uppercase">
+          ◆
+        </span>
       </motion.div>
     </div>
   );
