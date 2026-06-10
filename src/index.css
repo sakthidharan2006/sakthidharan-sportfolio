@@ -2,90 +2,85 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
 
 @layer base {
-  /* Light mode = clean azure (kept as fallback) */
+  /* Light mode = Paper & Ink (fallback) */
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: 40 22% 94%;
+    --foreground: 0 0% 9%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: 40 25% 97%;
+    --card-foreground: 0 0% 9%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: 40 25% 97%;
+    --popover-foreground: 0 0% 9%;
 
-    /* primary = electric blue */
-    --primary: 217 91% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 40 22% 96%;
 
-    --secondary: 214 32% 93%;
-    --secondary-foreground: 222 47% 14%;
+    --secondary: 36 15% 88%;
+    --secondary-foreground: 0 0% 12%;
 
-    --muted: 214 30% 95%;
-    --muted-foreground: 215 16% 42%;
+    --muted: 36 15% 90%;
+    --muted-foreground: 0 0% 35%;
 
-    /* accent = cyan */
-    --accent: 195 95% 55%;
-    --accent-foreground: 222 47% 8%;
+    --accent: 0 0% 18%;
+    --accent-foreground: 40 22% 96%;
 
-    --destructive: 0 75% 50%;
+    --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 25% 88%;
-    --input: 214 25% 90%;
-    --ring: 217 91% 55%;
+    --border: 36 12% 82%;
+    --input: 36 12% 85%;
+    --ring: 0 0% 9%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 55%) 0%, hsl(195 95% 55%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(214 35% 95%) 100%);
-    --gradient-section-alt: linear-gradient(135deg, hsl(210 40% 97%) 0%, hsl(220 30% 95%) 100%);
-    --shadow-soft: 0 2px 20px -3px hsl(217 91% 55% / 0.18);
-    --shadow-card: 0 8px 32px -5px hsl(222 47% 11% / 0.10), 0 2px 8px -2px hsl(0 0% 0% / 0.06);
-    --shadow-glow: 0 0 40px -10px hsl(217 91% 55% / 0.45);
+    --gradient-primary: linear-gradient(135deg, hsl(0 0% 9%) 0%, hsl(0 0% 28%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(40 22% 94%) 0%, hsl(36 18% 91%) 100%);
+    --gradient-section-alt: linear-gradient(135deg, hsl(40 22% 95%) 0%, hsl(36 15% 91%) 100%);
+    --shadow-soft: 0 2px 20px -3px hsl(0 0% 0% / 0.08);
+    --shadow-card: 0 8px 32px -5px hsl(0 0% 0% / 0.12), 0 2px 8px -2px hsl(0 0% 0% / 0.06);
+    --shadow-glow: 0 0 40px -10px hsl(0 0% 0% / 0.18);
   }
 
-  /* Dark mode = Midnight Azure (PRIMARY THEME) — modern blue */
+  /* Dark mode = Ink & Paper (PRIMARY THEME) — rich black with paper-white accents */
   .dark {
-    /* deep navy backdrop */
-    --background: 222 47% 5%;
-    --foreground: 210 40% 96%;
+    --background: 0 0% 5%;
+    --foreground: 40 22% 94%;
 
-    --card: 222 40% 8%;
-    --card-foreground: 210 40% 96%;
+    --card: 0 0% 8%;
+    --card-foreground: 40 22% 94%;
 
-    --popover: 222 45% 6%;
-    --popover-foreground: 210 40% 96%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 40 22% 94%;
 
-    /* electric azure primary */
-    --primary: 217 91% 62%;
-    --primary-foreground: 222 47% 6%;
+    --primary: 40 22% 94%;
+    --primary-foreground: 0 0% 5%;
 
-    --secondary: 222 30% 12%;
-    --secondary-foreground: 210 30% 92%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 40 18% 90%;
 
-    --muted: 222 25% 13%;
-    --muted-foreground: 215 18% 65%;
+    --muted: 0 0% 13%;
+    --muted-foreground: 36 8% 65%;
 
-    /* cyan accent */
-    --accent: 190 95% 62%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 36 30% 78%;
+    --accent-foreground: 0 0% 6%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 0 0% 95%;
 
-    --border: 222 28% 16%;
-    --input: 222 25% 16%;
-    --ring: 217 91% 62%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 40 22% 90%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 62%) 0%, hsl(190 95% 62%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(222 47% 5%) 0%, hsl(222 42% 7%) 100%);
-    --gradient-section-alt: linear-gradient(135deg, hsl(222 42% 7%) 0%, hsl(215 38% 9%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(40 22% 94%) 0%, hsl(36 30% 78%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 5%) 0%, hsl(0 0% 7%) 100%);
+    --gradient-section-alt: linear-gradient(135deg, hsl(0 0% 7%) 0%, hsl(0 0% 9%) 100%);
     --shadow-soft: 0 2px 20px -3px hsl(0 0% 0% / 0.5);
     --shadow-card: 0 4px 30px -5px hsl(0 0% 0% / 0.6);
-    --shadow-glow: 0 0 60px -15px hsl(217 91% 62% / 0.6);
+    --shadow-glow: 0 0 60px -15px hsl(40 22% 94% / 0.25);
   }
 }
 
@@ -107,12 +102,13 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'JetBrains Mono', monospace;
-    letter-spacing: -0.02em;
+    font-family: 'Syne', system-ui, sans-serif;
+    letter-spacing: -0.025em;
+    font-weight: 700;
   }
 
   code, pre, .font-mono {
