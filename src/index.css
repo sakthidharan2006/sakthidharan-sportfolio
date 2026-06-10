@@ -103,12 +103,14 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-feature-settings: "ss01", "cv11";
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Syne', system-ui, sans-serif;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.035em;
     font-weight: 700;
+    line-height: 1.05;
   }
 
   code, pre, .font-mono {
@@ -116,43 +118,71 @@
   }
 
   ::selection {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
   }
 }
 
 @layer components {
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-primary);
+    background-image: linear-gradient(135deg, hsl(var(--foreground)) 0%, hsl(var(--accent)) 100%);
   }
 
   .btn-gradient {
     background-image: var(--gradient-primary);
-    @apply text-primary-foreground transition-all duration-300;
+    @apply text-primary-foreground transition-all duration-500 relative overflow-hidden;
   }
 
+  .btn-gradient::after {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-500;
+    background: linear-gradient(120deg, transparent 30%, hsl(var(--accent) / 0.35) 50%, transparent 70%);
+  }
+
+  .btn-gradient:hover::after { @apply opacity-100; }
   .btn-gradient:hover {
-    @apply shadow-lg scale-[1.02];
+    @apply scale-[1.02];
     box-shadow: var(--shadow-glow);
   }
 
   .card-hover {
-    @apply transition-all duration-300;
-    box-shadow: 0 1px 3px hsl(0 0% 0% / 0.4);
+    @apply transition-all duration-500 relative;
+    box-shadow: 0 1px 0 hsl(var(--border)) inset, 0 1px 3px hsl(0 0% 0% / 0.3);
   }
 
   .card-hover:hover {
-    @apply -translate-y-1;
-    box-shadow: var(--shadow-card);
+    @apply -translate-y-1.5 border-accent/40;
+    box-shadow: var(--shadow-card), 0 0 0 1px hsl(var(--accent) / 0.15);
   }
 
   .section-container {
     @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
+  /* Editorial eyebrow — refined label for section "// about" style chips */
+  .editorial-eyebrow {
+    @apply inline-flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground;
+  }
+  .editorial-eyebrow::before {
+    content: '';
+    @apply inline-block w-8 h-px bg-accent/70;
+  }
+
+  /* Editorial rule — hairline divider with center fade */
+  .editorial-rule {
+    @apply relative h-px w-full;
+    background: linear-gradient(90deg, transparent, hsl(var(--border)) 20%, hsl(var(--border)) 80%, transparent);
+  }
+
+  /* Numbered section index (01 / 02 / 03 …) */
+  .section-index {
+    @apply font-mono text-[10px] tracking-[0.3em] text-accent/70 uppercase;
+  }
+
   .glass {
-    @apply bg-card/70 backdrop-blur-xl border border-border/60;
+    @apply bg-card/60 backdrop-blur-xl border border-border/60;
+    box-shadow: inset 0 1px 0 hsl(var(--primary) / 0.04);
   }
 
   /* Obsidian twilight grid background — soft violet hairlines + glass dots */
