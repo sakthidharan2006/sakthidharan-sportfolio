@@ -12,7 +12,7 @@ import { PageLoader } from "@/components/PageLoader";
 import { SectionDivider } from "@/components/SectionDivider";
 import { CursorGlow } from "@/components/CursorGlow";
 import { AnimatedSection } from "@/components/AnimatedSection";
-import { AIChatbot } from "@/components/AIChatbot";
+
 import { SmoothScroll } from "@/components/SmoothScroll";
 
 const Index = () => {
@@ -99,7 +99,7 @@ const Index = () => {
         </main>
         <Footer />
         <ScrollToTop />
-        <AIChatbot />
+        
       </div>
     </>
   );
