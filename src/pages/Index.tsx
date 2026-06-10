@@ -99,7 +99,7 @@ const Index = () => {
         </main>
         <Footer />
         <ScrollToTop />
-        <AIChatbot />
+        
       </div>
     </>
   );
