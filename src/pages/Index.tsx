@@ -14,6 +14,7 @@ import { CursorGlow } from "@/components/CursorGlow";
 import { AnimatedSection } from "@/components/AnimatedSection";
 
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { AIChatbot } from "@/components/AIChatbot";
 
 const Index = () => {
   return (
@@ -99,6 +100,8 @@ const Index = () => {
         </main>
         <Footer />
         <ScrollToTop />
+        <AIChatbot />
+        
         
       </div>
     </>
