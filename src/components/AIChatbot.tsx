@@ -127,17 +127,17 @@ export const AIChatbot = () => {
         onClick={() => setOpen((o) => !o)}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.92 }}
-        className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-[0_8px_30px_-4px_hsl(var(--primary)/0.6)] flex items-center justify-center border border-primary/30"
+        className="fixed top-20 right-6 z-[60] w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent text-primary-foreground shadow-[0_8px_30px_-4px_hsl(var(--primary)/0.6)] flex items-center justify-center border border-primary/30 will-change-transform"
         aria-label="Open AI chatbot"
       >
         <AnimatePresence mode="wait">
           {open ? (
             <motion.div key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}>
-              <X className="w-6 h-6" />
+              <X className="w-5 h-5" />
             </motion.div>
           ) : (
             <motion.div key="msg" initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}>
-              <MessageCircle className="w-6 h-6" />
+              <MessageCircle className="w-5 h-5" />
             </motion.div>
           )}
         </AnimatePresence>
@@ -154,11 +154,11 @@ export const AIChatbot = () => {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 260, damping: 22 }}
-            className="fixed bottom-24 right-6 z-50 w-[calc(100vw-3rem)] max-w-sm h-[70vh] max-h-[560px] flex flex-col rounded-2xl border border-primary/20 bg-card/95 backdrop-blur-xl shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.5)] overflow-hidden"
+            className="fixed top-36 right-6 z-50 w-[calc(100vw-3rem)] max-w-sm h-[70vh] max-h-[560px] flex flex-col rounded-2xl border border-primary/20 bg-card/95 backdrop-blur-xl shadow-[0_20px_60px_-15px_hsl(var(--primary)/0.5)] overflow-hidden"
           >
             {/* Header */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-border/50 bg-gradient-to-r from-primary/10 to-accent/10">
