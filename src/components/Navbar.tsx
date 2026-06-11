@@ -60,52 +60,33 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <motion.a
             href="#"
-            className="group relative flex items-center gap-2.5"
+            className="group relative flex items-end gap-1"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
           >
-            {/* Logo mark */}
-            <div className="relative w-10 h-10 md:w-11 md:h-11">
-              {/* Rotating gradient ring */}
-              <motion.div
-                className="absolute inset-0 rounded-xl opacity-80 group-hover:opacity-100 transition-opacity"
-                style={{
-                  background:
-                    "conic-gradient(from 0deg, hsl(var(--primary)), hsl(var(--accent)), hsl(var(--primary)))",
-                }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-              />
-              {/* Inner mark */}
-              <div className="absolute inset-[2px] rounded-[10px] bg-background flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10" />
-                <span className="relative font-display font-extrabold text-sm md:text-base bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent tracking-tighter">
-                  {identity.brand.initials}
-                </span>
-                {/* shine sweep */}
-                <motion.div
-                  className="absolute inset-y-0 -left-full w-1/2 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"
-                  animate={{ left: ["-50%", "150%"] }}
-                  transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
-                />
-              </div>
-              {/* Status dot */}
-              <motion.div
-                className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-accent border-2 border-background"
-                animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
-                transition={{ duration: 1.8, repeat: Infinity }}
-              />
-            </div>
-
-            {/* Wordmark */}
-            <div className="hidden sm:flex flex-col leading-none">
-              <span className="font-display font-bold text-sm md:text-base tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-transparent">
-                {identity.brand.wordmark}
-              </span>
-              <span className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-muted-foreground/70 mt-0.5">
-                {identity.brand.subline}
-              </span>
-            </div>
+            <span
+              className="leading-none bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent"
+              style={{
+                fontFamily: "'Caveat', cursive",
+                fontWeight: 700,
+                fontSize: "2rem",
+                letterSpacing: "-0.01em",
+                lineHeight: 0.9,
+              }}
+            >
+              Sakthi
+            </span>
+            <motion.span
+              className="mb-1 w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_hsl(var(--accent))]"
+              animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
+              transition={{ duration: 1.8, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute -bottom-1 left-0 h-px bg-gradient-to-r from-primary to-accent"
+              initial={{ width: 0 }}
+              animate={{ width: "85%" }}
+              transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
+            />
           </motion.a>
 
           {/* Desktop Navigation */}
