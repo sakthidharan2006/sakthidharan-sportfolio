@@ -2,6 +2,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { TiltCard } from "@/components/TiltCard";
 import { experiences } from "@/data";
+import volunteerCard from "@/assets/wtl-volunteer-card.png.asset.json";
+
 
 
 export const ExperienceSection = () => {
@@ -24,6 +26,34 @@ export const ExperienceSection = () => {
           <p className="text-muted-foreground max-w-2xl mx-auto text-sm">
             A timeline of my growth through hands-on experience and continuous learning
           </p>
+        </motion.div>
+
+        {/* Volunteer Membership Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="mb-16 max-w-3xl mx-auto"
+        >
+          <div className="text-center mb-5">
+            <span className="text-accent font-mono text-xs uppercase tracking-widest mb-2 block">// volunteer.credential</span>
+            <h3 className="font-display text-xl md:text-2xl font-bold tracking-tight">We The Leaders — Volunteer Membership</h3>
+          </div>
+          <TiltCard>
+            <div
+              className="relative rounded-2xl overflow-hidden border border-primary/30 bg-card/40 backdrop-blur-xl group"
+              style={{ boxShadow: "0 20px 60px -20px hsl(var(--primary)/0.35), inset 0 1px 0 hsl(var(--primary)/0.1)" }}
+            >
+              <img
+                src={volunteerCard.url}
+                alt="Sakthidharan E — We The Leaders Volunteer Membership Card (WTL-26-164930)"
+                loading="lazy"
+                className="w-full h-auto block transition-transform duration-500 group-hover:scale-[1.02]"
+              />
+              <span className="absolute top-2 left-2 w-3 h-3 border-t border-l border-accent/60" />
+              <span className="absolute bottom-2 right-2 w-3 h-3 border-b border-r border-accent/60" />
+            </div>
+          </TiltCard>
         </motion.div>
 
         <div className="relative">
