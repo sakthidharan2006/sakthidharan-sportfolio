@@ -100,6 +100,21 @@
   .lenis.lenis-stopped { overflow: hidden; }
   .lenis.lenis-smooth iframe { pointer-events: none; }
 
+  /* 120/144Hz+ smoothness: promote scroll-heavy layers to GPU + hint the browser */
+  html, body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overscroll-behavior-y: none;
+  }
+  main, section, header, footer, nav {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    will-change: transform;
+  }
+  img, video, canvas, svg {
+    content-visibility: auto;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
