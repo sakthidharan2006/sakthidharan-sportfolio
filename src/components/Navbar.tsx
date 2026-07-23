@@ -74,7 +74,7 @@ export const Navbar = () => {
                 lineHeight: 0.9,
               }}
             >
-              Sakthi
+              Sakthidharan
             </span>
             <motion.span
               className="mb-1 w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_hsl(var(--accent))]"
