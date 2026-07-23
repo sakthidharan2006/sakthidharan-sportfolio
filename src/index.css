@@ -100,19 +100,12 @@
   .lenis.lenis-stopped { overflow: hidden; }
   .lenis.lenis-smooth iframe { pointer-events: none; }
 
-  /* 120/144Hz+ smoothness: promote scroll-heavy layers to GPU + hint the browser */
+  /* Responsive smoothness: keep native touch momentum and avoid excessive layers */
   html, body {
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    overscroll-behavior-y: none;
-  }
-  main, section, header, footer, nav {
-    transform: translate3d(0, 0, 0);
-    backface-visibility: hidden;
-    will-change: transform;
-  }
-  img, video, canvas, svg {
-    content-visibility: auto;
+    overscroll-behavior-y: contain;
+    scroll-padding-top: 5rem;
   }
 
   body {
@@ -361,19 +354,16 @@ html {
 
 body {
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: none;
-  transform: translateZ(0);
+  overscroll-behavior-y: contain;
   backface-visibility: hidden;
 }
 
-/* Promote animated/interactive elements to their own GPU layer */
-a, button, [role="button"],
-[class*="animate-"],
-[class*="transition-"] {
-  will-change: transform, opacity;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+/* Only promote elements that are actually animating/interactive. */
+.will-change-transform,
+.motion-safe\:will-change-transform,
+[data-scroll-layer="true"] {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
 }
 
 * { -webkit-tap-highlight-color: transparent; }
@@ -381,6 +371,36 @@ a, button, [role="button"],
 /* Frame-aligned easing — buttery on 90/120/144Hz panels */
 *, *::before, *::after {
   animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (max-width: 767px), (pointer: coarse) {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    overflow-x: hidden;
+    touch-action: pan-y;
+  }
+
+  .site-ambient-bg {
+    display: none;
+  }
+
+  .tech-grid {
+    background-size: 44px 44px, 44px 44px, 44px 44px, 22px 22px;
+  }
+
+  .heading-glow,
+  .animate-float,
+  .animate-gradient,
+  .animate-shimmer,
+  .animate-bounce-soft,
+  .animate-glow,
+  .animate-pulse-slow {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }
 
 /* Respect users who prefer reduced motion */

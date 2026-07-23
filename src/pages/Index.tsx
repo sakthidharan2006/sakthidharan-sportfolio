@@ -22,9 +22,9 @@ const Index = () => {
       <SmoothScroll />
       <CursorGlow />
       <PageLoader />
-      <div className="min-h-screen bg-background tech-grid relative">
+        <div className="min-h-screen bg-background tech-grid relative">
         {/* Tech-themed decorative background */}
-        <div className="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+          <div className="site-ambient-bg fixed inset-0 pointer-events-none overflow-hidden -z-10">
           {/* Gradient blobs */}
           <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-primary/[0.03] blur-3xl dark:bg-primary/[0.02]" />
           <div className="absolute top-1/3 -right-32 w-[400px] h-[400px] rounded-full bg-accent/[0.04] blur-3xl dark:bg-accent/[0.02]" />
