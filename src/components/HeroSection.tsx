@@ -303,8 +303,8 @@ export const HeroSection = () => {
             className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3 mb-8 sm:mb-10 w-full max-w-xs sm:max-w-none mx-auto"
           >
             <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="relative group w-full sm:w-auto">
-              <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-primary to-accent opacity-60 blur-md group-hover:opacity-90 transition-opacity" />
-              <Button size="lg" className="relative btn-gradient w-full sm:w-auto px-6 sm:px-7 py-5 sm:py-6 text-sm font-semibold rounded-xl" asChild>
+              <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-primary to-accent opacity-60 blur-md group-hover:opacity-90 transition-opacity" />
+              <Button size="lg" className="relative btn-gradient w-full sm:w-auto px-8 sm:px-9 py-5 sm:py-6 text-sm font-semibold rounded-full" asChild>
                 <a href="#projects">View Projects →</a>
               </Button>
             </motion.div>
@@ -312,7 +312,7 @@ export const HeroSection = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="w-full sm:w-auto px-6 sm:px-7 py-5 sm:py-6 text-sm font-semibold rounded-xl border-primary/30 hover:border-primary/60 hover:bg-primary/5 backdrop-blur-sm"
+                className="w-full sm:w-auto px-8 sm:px-9 py-5 sm:py-6 text-sm font-semibold rounded-full border-primary/30 hover:border-primary/60 hover:bg-primary/5 backdrop-blur-sm"
                 asChild
               >
                 <a href="#contact">Contact Me</a>
@@ -322,7 +322,7 @@ export const HeroSection = () => {
               <Button
                 size="lg"
                 variant="ghost"
-                className="w-full sm:w-auto px-6 py-5 sm:py-6 text-sm font-semibold rounded-xl border border-border/40 hover:border-accent/40 hover:bg-accent/5 backdrop-blur-sm"
+                className="w-full sm:w-auto px-8 py-5 sm:py-6 text-sm font-semibold rounded-full border border-border/40 hover:border-accent/40 hover:bg-accent/5 backdrop-blur-sm"
                 asChild
               >
                 <a href={identity.resumeUrl} download={identity.resumeDownloadAs}>
@@ -334,7 +334,7 @@ export const HeroSection = () => {
             <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.96 }} className="relative group w-full sm:w-auto">
               <motion.div
                 aria-hidden
-                className="absolute -inset-0.5 rounded-xl bg-gradient-to-r from-accent via-primary to-accent opacity-50 blur-md group-hover:opacity-90 transition-opacity"
+                className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-accent via-primary to-accent opacity-50 blur-md group-hover:opacity-90 transition-opacity"
                 animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                 style={{ backgroundSize: "200% 200%" }}
@@ -342,7 +342,7 @@ export const HeroSection = () => {
               <Button
                 size="lg"
                 onClick={() => window.dispatchEvent(new Event("open-ai-chat"))}
-                className="relative w-full sm:w-auto px-6 py-5 sm:py-6 text-sm font-semibold rounded-xl bg-card/80 hover:bg-card text-foreground border border-accent/40 hover:border-accent/70 backdrop-blur-sm"
+                className="relative w-full sm:w-auto px-8 py-5 sm:py-6 text-sm font-semibold rounded-full bg-card/80 hover:bg-card text-foreground border border-accent/40 hover:border-accent/70 backdrop-blur-sm"
               >
                 <Sparkles className="w-4 h-4 mr-2 text-accent" />
                 Ask AI
@@ -373,7 +373,7 @@ export const HeroSection = () => {
                 variants={socialIconVariants}
                 whileHover="hover"
                 whileTap="tap"
-                className="relative text-muted-foreground hover:text-primary transition-all duration-200 p-2.5 sm:p-3 rounded-xl bg-card/40 backdrop-blur-md border border-border/40 hover:border-primary/40 hover:bg-primary/5 hover:shadow-[0_8px_24px_-8px_hsl(var(--primary)/0.5)] group"
+                className="relative text-muted-foreground hover:text-primary transition-all duration-200 p-2.5 sm:p-3 rounded-full bg-card/40 backdrop-blur-md border border-border/40 hover:border-primary/40 hover:bg-primary/5 hover:shadow-[0_8px_24px_-8px_hsl(var(--primary)/0.5)] group"
               >
                 <social.icon className="w-4 h-4 sm:w-5 sm:h-5 relative z-10" />
               </motion.a>
