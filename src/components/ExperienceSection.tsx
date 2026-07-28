@@ -41,7 +41,7 @@ export const ExperienceSection = () => {
           </div>
           <TiltCard>
             <div
-              className="relative rounded-2xl overflow-hidden border border-primary/30 bg-card/40 backdrop-blur-xl group"
+              className="relative rounded-[2.5rem] overflow-hidden border border-primary/30 bg-card/40 backdrop-blur-xl group"
               style={{ boxShadow: "0 20px 60px -20px hsl(var(--primary)/0.35), inset 0 1px 0 hsl(var(--primary)/0.1)" }}
             >
               <img
@@ -94,7 +94,7 @@ export const ExperienceSection = () => {
                 <div className={`md:w-1/2 ${index % 2 === 0 ? "md:pr-16" : "md:pl-16"}`}>
                   <TiltCard>
                     <div
-                      className="relative bg-card/50 backdrop-blur-xl rounded-xl p-5 border border-border/40 hover:border-primary/40 transition-colors group overflow-hidden"
+                      className="relative bg-card/50 backdrop-blur-xl rounded-[2rem] p-5 border border-border/40 hover:border-primary/40 transition-colors group overflow-hidden"
                       style={{ boxShadow: "0 8px 30px -12px hsl(var(--primary)/0.15), inset 0 1px 0 hsl(var(--primary)/0.06)" }}
                     >
                       {/* Scanline */}
