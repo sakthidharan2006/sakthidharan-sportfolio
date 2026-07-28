@@ -109,7 +109,7 @@ export const ContactSection = () => {
                       href={item.href}
                       target={item.href.startsWith("http") ? "_blank" : undefined}
                       rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                      className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-xl border border-border/40 hover:border-primary/40 transition-all group overflow-hidden"
+                      className="relative flex items-center gap-4 p-4 rounded-[1.75rem] bg-card/50 backdrop-blur-xl border border-border/40 hover:border-primary/40 transition-all group overflow-hidden"
                       style={{ boxShadow: "0 6px 20px -10px hsl(var(--primary)/0.12), inset 0 1px 0 hsl(var(--primary)/0.06)" }}
                     >
                       <span className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-primary/40" />
@@ -139,7 +139,7 @@ export const ContactSection = () => {
                       </div>
                     </a>
                   ) : (
-                    <div className="relative flex items-center gap-4 p-4 rounded-xl bg-card/50 backdrop-blur-xl border border-border/40 overflow-hidden"
+                    <div className="relative flex items-center gap-4 p-4 rounded-[1.75rem] bg-card/50 backdrop-blur-xl border border-border/40 overflow-hidden"
                       style={{ boxShadow: "0 6px 20px -10px hsl(var(--primary)/0.12), inset 0 1px 0 hsl(var(--primary)/0.06)" }}
                     >
                       <span className="absolute top-1.5 left-1.5 w-2 h-2 border-t border-l border-primary/40" />
@@ -169,7 +169,7 @@ export const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <TiltCard>
-            <form onSubmit={handleSubmit} className="relative bg-card/50 backdrop-blur-xl rounded-xl p-6 md:p-8 border border-border/40 overflow-hidden"
+            <form onSubmit={handleSubmit} className="relative bg-card/50 backdrop-blur-xl rounded-[2rem] p-6 md:p-8 border border-border/40 overflow-hidden"
               style={{ boxShadow: "0 12px 40px -12px hsl(var(--primary)/0.18), inset 0 1px 0 hsl(var(--primary)/0.08)" }}
             >
               {/* HUD top bar */}

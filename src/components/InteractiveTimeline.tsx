@@ -78,7 +78,7 @@ const TimelineNode = ({
       >
         <motion.div
           onClick={onClick}
-          className={`relative bg-card/50 backdrop-blur-xl rounded-xl p-5 border cursor-pointer transition-all duration-300 group overflow-hidden ${
+          className={`relative bg-card/50 backdrop-blur-xl rounded-[2rem] p-5 border cursor-pointer transition-all duration-300 group overflow-hidden ${
             isActive
               ? "border-primary/50 shadow-[0_0_30px_-8px_hsl(var(--primary)/0.3)]"
               : "border-border/40 hover:border-primary/30"

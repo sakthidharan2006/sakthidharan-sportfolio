@@ -157,7 +157,7 @@ export const AboutSection = () => {
 
                         <TiltCard>
                           <div
-                            className="relative p-4 rounded-xl bg-card/60 backdrop-blur-md border border-border/40 overflow-hidden transition-all duration-300 group-hover:border-primary/40 group-hover:bg-card/80"
+                            className="relative p-4 rounded-[1.75rem] bg-card/60 backdrop-blur-md border border-border/40 overflow-hidden transition-all duration-300 group-hover:border-primary/40 group-hover:bg-card/80"
                             style={{
                               boxShadow:
                                 "0 4px 20px -8px hsl(var(--primary) / 0.1)",
