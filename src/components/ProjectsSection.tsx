@@ -42,7 +42,7 @@ export const ProjectsSection = () => {
                 <motion.div
                   whileHover={{ y: -4 }}
                   transition={{ type: "spring", stiffness: 200 }}
-                  className="relative bg-card/50 backdrop-blur-xl rounded-[2rem] overflow-hidden border border-border/40 hover:border-primary/40 transition-colors"
+                  className="card-notched card-notched-lg relative bg-card/50 backdrop-blur-xl overflow-hidden transition-colors"
                   style={{ boxShadow: "0 20px 60px -20px hsl(var(--primary)/0.2), inset 0 1px 0 hsl(var(--primary)/0.08)" }}
                 >
                   {/* HUD top bar */}

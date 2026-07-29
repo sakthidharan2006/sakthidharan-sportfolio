@@ -53,7 +53,7 @@ export const SkillsSection = () => {
               delay={categoryIndex * 0.1}
             >
               <TiltCard className="h-full">
-                <div className="relative h-full rounded-[2rem] bg-card/40 backdrop-blur-xl border border-border/40 overflow-hidden group hover:border-primary/40 transition-colors duration-500"
+                <div className="card-notched relative h-full bg-card/40 backdrop-blur-xl overflow-hidden group transition-colors duration-500"
                   style={{ boxShadow: "0 8px 40px -12px hsl(var(--primary)/0.15), inset 0 1px 0 hsl(var(--primary)/0.08)" }}
                 >
                   {/* Scanline */}
