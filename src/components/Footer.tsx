@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Github, Linkedin, Mail, Code2, Heart } from "lucide-react";
+import { Github, Linkedin, Mail, Heart } from "lucide-react";
 import { identity, socialLinks } from "@/data";
 
 // Custom LeetCode Icon Component
