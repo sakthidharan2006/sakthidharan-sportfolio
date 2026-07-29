@@ -169,7 +169,7 @@ export const ContactSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <TiltCard>
-            <form onSubmit={handleSubmit} className="relative bg-card/50 backdrop-blur-xl rounded-[2rem] p-6 md:p-8 border border-border/40 overflow-hidden"
+            <form onSubmit={handleSubmit} className="card-notched card-notched-lg relative bg-card/50 backdrop-blur-xl p-6 md:p-8 overflow-hidden"
               style={{ boxShadow: "0 12px 40px -12px hsl(var(--primary)/0.18), inset 0 1px 0 hsl(var(--primary)/0.08)" }}
             >
               {/* HUD top bar */}

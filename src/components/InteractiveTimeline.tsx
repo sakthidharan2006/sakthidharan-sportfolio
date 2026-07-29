@@ -78,10 +78,10 @@ const TimelineNode = ({
       >
         <motion.div
           onClick={onClick}
-          className={`relative bg-card/50 backdrop-blur-xl rounded-[2rem] p-5 border cursor-pointer transition-all duration-300 group overflow-hidden ${
+          className={`card-notched relative bg-card/50 backdrop-blur-xl p-5 cursor-pointer transition-all duration-300 group overflow-hidden ${
             isActive
-              ? "border-primary/50 shadow-[0_0_30px_-8px_hsl(var(--primary)/0.3)]"
-              : "border-border/40 hover:border-primary/30"
+              ? "shadow-[0_0_30px_-8px_hsl(var(--primary)/0.35)]"
+              : ""
           }`}
           whileHover={{ y: -2 }}
           style={{ boxShadow: isActive ? undefined : "0 6px 24px -10px hsl(var(--primary)/0.12), inset 0 1px 0 hsl(var(--primary)/0.06)" }}
