@@ -193,6 +193,56 @@
     box-shadow: inset 0 1px 0 hsl(var(--primary) / 0.04);
   }
 
+  /* Notched Tech Panel — sci-fi command surface with clipped corners + diagonal accent */
+  .card-notched {
+    --notch: 18px;
+    position: relative;
+    clip-path: polygon(
+      var(--notch) 0,
+      100% 0,
+      100% calc(100% - var(--notch)),
+      calc(100% - var(--notch)) 100%,
+      0 100%,
+      0 var(--notch)
+    );
+    background:
+      linear-gradient(135deg, hsl(var(--primary) / 0.10), transparent 30%) ,
+      hsl(var(--card) / 0.55);
+  }
+  .card-notched::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(140deg, hsl(var(--primary) / 0.55), hsl(var(--border) / 0.35) 35%, hsl(var(--accent) / 0.45));
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    clip-path: polygon(
+      var(--notch) 0,
+      100% 0,
+      100% calc(100% - var(--notch)),
+      calc(100% - var(--notch)) 100%,
+      0 100%,
+      0 var(--notch)
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+  .card-notched::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 90px;
+    height: 90px;
+    background: linear-gradient(135deg, transparent 45%, hsl(var(--accent) / 0.35) 46%, hsl(var(--accent) / 0.35) 48%, transparent 49%, transparent 55%, hsl(var(--primary) / 0.25) 56%, hsl(var(--primary) / 0.25) 57%, transparent 58%);
+    pointer-events: none;
+    opacity: 0.7;
+    z-index: 1;
+  }
+  .card-notched-sm { --notch: 12px; }
+  .card-notched-lg { --notch: 26px; }
+
   /* Obsidian twilight grid background — soft violet hairlines + glass dots */
   .tech-grid {
     background-image:
