@@ -60,34 +60,18 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <motion.a
             href="#"
-            className="group relative flex items-end gap-1"
+            className="group relative flex items-baseline gap-1"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 0.96 }}
           >
             <span
-              className="leading-none bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent"
-              style={{
-                fontFamily: "'Caveat', cursive",
-                fontWeight: 700,
-                fontSize: "2rem",
-                letterSpacing: "-0.01em",
-                lineHeight: 0.9,
-              }}
+              className="font-display font-semibold text-2xl tracking-tight text-foreground leading-none"
             >
               Sakthidharan
             </span>
-            <motion.span
-              className="mb-1 w-1.5 h-1.5 rounded-full bg-accent shadow-[0_0_10px_hsl(var(--accent))]"
-              animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
-              transition={{ duration: 1.8, repeat: Infinity }}
-            />
-            <motion.div
-              className="absolute -bottom-1 left-0 h-px bg-gradient-to-r from-primary to-accent"
-              initial={{ width: 0 }}
-              animate={{ width: "85%" }}
-              transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
-            />
+            <span className="text-2xl font-display font-semibold text-accent leading-none">.</span>
           </motion.a>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1 relative">
