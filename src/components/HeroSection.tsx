@@ -57,7 +57,7 @@ export const HeroSection = () => {
             variants={item}
             className="mt-5 text-lg sm:text-xl leading-relaxed max-w-lg text-muted-foreground"
           >
-            Cloud Explorer crafting <span className="ink-underline text-foreground">modern web</span> experiences with clean code and thoughtful details.
+            Full Stack Developer with hands-on experience designing and developing <span className="ink-underline text-foreground">web applications</span> using Java, React.js, Node.js, Express.js and MongoDB — passionate about building scalable, efficient solutions.
           </motion.p>
 
           {/* Availability line */}

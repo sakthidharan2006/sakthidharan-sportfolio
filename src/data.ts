@@ -18,7 +18,7 @@ export const identity = {
   location: "Sathyamangalam, Tamil Nadu",
   email: "sakthidharane16@gmail.com",
   phone: "+91 6374103029",
-  tagline: "Crafting modern web experiences with clean code and creative solutions.",
+  tagline: "Full Stack Developer with hands-on experience designing and developing web applications using Java, React.js, Node.js, Express.js and MongoDB.",
   resumeUrl: "/Resume_Sakthidharan.pdf",
   resumeDownloadAs: "Sakthidharan_E_Resume.pdf",
   brand: { initials: "SD", wordmark: "Sakthidharan E", subline: "Developer.Portfolio" },
