@@ -73,7 +73,7 @@ export const HeroSection = () => {
           <motion.div variants={item} className="mt-10 flex flex-col gap-3 max-w-md">
             <a
               href="#projects"
-              className="group relative flex items-center justify-between px-6 py-5 bg-foreground text-background rounded-2xl overflow-hidden shadow-xl shadow-black/5 hover:-translate-y-0.5 transition-transform duration-300"
+              className="group relative flex items-center justify-between px-6 py-5 bg-primary text-primary-foreground rounded-2xl overflow-hidden shadow-xl shadow-primary/20 hover:-translate-y-0.5 transition-transform duration-300"
             >
               <span className="text-lg font-medium tracking-tight">View Projects</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -82,14 +82,14 @@ export const HeroSection = () => {
             <div className="grid grid-cols-2 gap-3">
               <a
                 href="#contact"
-                className="flex items-center justify-center px-4 py-4 border-2 border-foreground font-semibold rounded-2xl hover:bg-foreground hover:text-background transition-colors"
+                className="flex items-center justify-center px-4 py-4 border-2 border-primary/60 text-foreground font-semibold rounded-2xl hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
               >
                 Contact
               </a>
               <a
                 href={identity.resumeUrl}
                 download={identity.resumeDownloadAs}
-                className="flex items-center justify-center gap-2 px-4 py-4 border-2 border-foreground font-semibold rounded-2xl hover:bg-foreground hover:text-background transition-colors"
+                className="flex items-center justify-center gap-2 px-4 py-4 border-2 border-primary/60 text-foreground font-semibold rounded-2xl hover:bg-primary hover:text-primary-foreground hover:border-primary transition-colors"
               >
                 <Download className="w-4 h-4" />
                 Resume
