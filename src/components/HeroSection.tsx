@@ -131,15 +131,6 @@ export const HeroSection = () => {
             ))}
           </motion.div>
 
-          {/* Handwritten signature decoration */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2, duration: 1 }}
-            className="hidden sm:block absolute -bottom-6 right-0 pointer-events-none opacity-20"
-          >
-            <span className="font-hand text-6xl text-foreground">Sakthidharan</span>
-          </motion.div>
         </motion.div>
       </div>
     </section>
