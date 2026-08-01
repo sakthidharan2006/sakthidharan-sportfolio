@@ -65,11 +65,11 @@ export const Navbar = () => {
             whileTap={{ scale: 0.96 }}
           >
             <span
-              className="font-display font-semibold text-2xl tracking-tight text-foreground leading-none"
+              className="font-mono font-medium text-xl uppercase tracking-[0.35em] text-foreground leading-none"
             >
-              Sakthidharan
+              Portfolio
             </span>
-            <span className="text-2xl font-display font-semibold text-accent leading-none">.</span>
+            <span className="text-xl font-mono font-medium text-accent leading-none">.</span>
           </motion.a>
 
 
