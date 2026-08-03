@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Music, VolumeX } from "lucide-react";
+import { Music } from "lucide-react";
 import track from "@/assets/ambient-loop.mp3.asset.json";
 
 export const BackgroundMusic = () => {
@@ -62,14 +62,13 @@ export const BackgroundMusic = () => {
             <span
               key={i}
               className="w-[2px] bg-primary rounded-full animate-[eq_1s_ease-in-out_infinite]"
-              style={{ height: "100%", animationDelay: `${i * 0.15}s` }}
+              style={{ height: "100%", transformOrigin: "bottom", animationDelay: `${i * 0.15}s` }}
             />
           ))}
         </span>
       ) : (
         <Music className="h-4 w-4" />
       )}
-      <VolumeX className="hidden" />
     </button>
   );
 };
