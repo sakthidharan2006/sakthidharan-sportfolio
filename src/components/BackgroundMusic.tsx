@@ -10,7 +10,8 @@ export const BackgroundMusic = () => {
     const audio = new Audio(track.url);
     audio.loop = true;
     audio.volume = 0;
-    audio.preload = "none";
+    audio.preload = "auto";
+    audio.crossOrigin = "anonymous";
     audioRef.current = audio;
     return () => {
       audio.pause();
@@ -18,18 +19,23 @@ export const BackgroundMusic = () => {
     };
   }, []);
 
+  const rafRef = useRef<number | null>(null);
+  const clamp = (v: number) => Math.min(1, Math.max(0, v));
+
   const fade = (to: number, done?: () => void) => {
     const audio = audioRef.current;
     if (!audio) return;
-    const from = audio.volume;
+    if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    const from = clamp(audio.volume);
     const start = performance.now();
     const step = (now: number) => {
+      if (!audioRef.current) return;
       const p = Math.min((now - start) / 900, 1);
-      audio.volume = from + (to - from) * p;
-      if (p < 1) requestAnimationFrame(step);
+      audio.volume = clamp(from + (to - from) * p);
+      if (p < 1) rafRef.current = requestAnimationFrame(step);
       else done?.();
     };
-    requestAnimationFrame(step);
+    rafRef.current = requestAnimationFrame(step);
   };
 
   const toggle = async () => {
@@ -40,14 +46,18 @@ export const BackgroundMusic = () => {
       setPlaying(false);
     } else {
       try {
+        audio.muted = false;
+        audio.volume = 0.05;
         await audio.play();
         setPlaying(true);
-        fade(0.28);
-      } catch {
+        fade(0.35);
+      } catch (e) {
+        console.error("Audio play failed", e);
         setPlaying(false);
       }
     }
   };
+
 
   return (
     <button
