@@ -3,6 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems } from "@/data";
+import { BackgroundMusic } from "@/components/BackgroundMusic";
+
 
 
 export const Navbar = () => {
@@ -102,7 +104,10 @@ export const Navbar = () => {
               </motion.a>
             ))}
 
+            <BackgroundMusic />
+
             <motion.div
+
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.3 }}
             >
@@ -129,7 +134,9 @@ export const Navbar = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 md:hidden">
+            <BackgroundMusic />
             <Button variant="ghost" size="icon" onClick={toggleTheme}>
+
               {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
             </Button>
             <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
