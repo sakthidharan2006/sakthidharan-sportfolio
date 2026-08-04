@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Music } from "lucide-react";
-import track from "@/assets/cinematic-ambient.mp3.asset.json";
+import track from "@/assets/warm-ambient.mp3.asset.json";
 
 export const BackgroundMusic = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null);
