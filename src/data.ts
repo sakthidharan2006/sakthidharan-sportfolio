@@ -140,16 +140,18 @@ export const skillCategories = [
 /* ─────────────────────────  PROJECTS  ───────────────────────── */
 export const projects = [
   {
-    title: "SmartFleet AI - Intelligent Infrastructure for Modern Logistics",
+    title: "SmartFleet AI - Intelligent Infrastructure for Modern Logistics Systems",
     description:
-      "A comprehensive web-based fleet tracking system with role-based demo logins for Admin, Fleet Owner, and Drivers. Features dark-themed UI with real-time vehicle management and instant dashboard access.",
+      "An AI-powered fleet monitoring platform featuring role-based access (Admin, Fleet Owner, Driver), real-time vehicle tracking, live dashboards, live data updates, driver & vehicle monitoring, trip history, fuel monitoring, maintenance alerts, CCTV integration, toll monitoring, cargo door digital lock with owner approval, and AI-powered analytics. Built with React, TypeScript, Tailwind CSS, and Supabase to streamline modern logistics operations.",
     features: [
-      "Multi-role demo login",
-      "Real-time tracking",
-      "Dark themed UI",
-      "Driver & vehicle management",
+      "Role-based access (Admin, Fleet Owner, Driver)",
+      "Real-time tracking & live dashboards",
+      "Fuel, toll & maintenance alerts",
+      "CCTV integration & cargo digital lock",
+      "Trip history & AI-powered analytics",
     ],
-    tech: ["React", "Tailwind CSS", "Supabase", "TypeScript"],
+    tech: ["React", "TypeScript", "Tailwind CSS", "Supabase"],
+
     icon: Globe,
     github: "https://github.com",
     live: "https://smarfleetai.vercel.app/",
