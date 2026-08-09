@@ -326,21 +326,8 @@ export const milestones = [
     ],
     color: "primary",
   },
-  {
-    year: "Ongoing",
-    icon: BookOpen,
-    title: "Self-Learning Journey",
-    subtitle: "Personal Development",
-    description:
-      "Dedicated to continuous learning through documentation, tutorials, and building real-world projects.",
-    details: [
-      "Full-Stack Development",
-      "Modern Best Practices",
-      "Open Source Contributions",
-    ],
-    color: "accent",
-  },
 ];
+
 
 /* ─────────────────────────  CONTACT INFO  ───────────────────────── */
 export const contactInfo = [
