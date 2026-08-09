@@ -284,19 +284,20 @@ export const experiences = [
 /* ─────────────────────────  INTERACTIVE TIMELINE  ───────────────────────── */
 export const milestones = [
   {
-    year: "2023",
-    icon: Briefcase,
-    title: "Internship at SBA HIGH-TECH Solutions",
-    subtitle: "Industry Experience",
+    year: "2026",
+    icon: Award,
+    title: "We The Leaders — Volunteer Membership",
+    subtitle: "We The Leaders",
     description:
-      "Gained hands-on experience working on real-world projects and collaborating with industry professionals.",
+      "Joined We The Leaders as a volunteer member, contributing to community-driven leadership and social impact initiatives.",
     details: [
-      "Developed practical skills in software development",
-      "Collaborated with cross-functional teams",
-      "Worked on production-grade codebases",
+      "Volunteer Membership",
+      "Community Leadership",
+      "Social Impact Initiatives",
     ],
     color: "primary",
   },
+
   {
     year: "2026",
     icon: Award,
