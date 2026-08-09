@@ -282,7 +282,17 @@ export const experiences = [
 ];
 
 /* ─────────────────────────  INTERACTIVE TIMELINE  ───────────────────────── */
-export const milestones = [
+export const milestones: {
+  year: string;
+  icon: LucideIcon;
+  title: string;
+  subtitle: string;
+  description: string;
+  details: string[];
+  color: string;
+  image?: string;
+  imageAlt?: string;
+}[] = [
   {
     year: "2026",
     icon: Award,
@@ -290,7 +300,10 @@ export const milestones = [
     subtitle: "We The Leaders",
     description:
       "Joined We The Leaders as a volunteer member, contributing to community-driven leadership and social impact initiatives.",
+    image: "/wtl-volunteer-card.png",
+    imageAlt: "Sakthidharan E — We The Leaders Volunteer Membership Card (WTL-26-164930)",
     details: [
+
       "Volunteer Membership",
       "Community Leadership",
       "Social Impact Initiatives",
