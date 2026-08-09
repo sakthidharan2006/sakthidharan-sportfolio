@@ -50,6 +50,20 @@ export const Navbar = () => {
     localStorage.setItem("theme", next ? "dark" : "light");
   };
 
+  const handleMobileNav = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsOpen(false);
+    const el = document.querySelector(href);
+    if (!el) return;
+    window.setTimeout(() => {
+      const top = el.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 320);
+  };
+
+
+
 
   return (
     <motion.nav
@@ -161,14 +175,15 @@ export const Navbar = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden glass border-t border-border overflow-hidden"
+            className="md:hidden bg-background border-t border-border overflow-hidden shadow-xl"
           >
             <div className="section-container py-4 flex flex-col gap-1">
               {navItems.map((item, i) => (
                 <motion.a
                   key={item.name}
                   href={item.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => handleMobileNav(e, item.href)}
+
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
