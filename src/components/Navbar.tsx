@@ -50,6 +50,20 @@ export const Navbar = () => {
     localStorage.setItem("theme", next ? "dark" : "light");
   };
 
+  const handleMobileNav = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsOpen(false);
+    const el = document.querySelector(href);
+    if (!el) return;
+    window.setTimeout(() => {
+      const top = el.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: "smooth" });
+    }, 320);
+  };
+
+
+
 
   return (
     <motion.nav
