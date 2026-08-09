@@ -298,48 +298,6 @@ export const milestones = [
     color: "primary",
   },
   {
-    year: "2024",
-    icon: Cloud,
-    title: "Microsoft Azure Fundamentals",
-    subtitle: "Microsoft Certification",
-    description:
-      "Strengthened knowledge of cloud computing, Azure architecture, and management & governance practices.",
-    details: [
-      "Cloud Computing Foundations",
-      "Azure Architecture & Services",
-      "Management & Governance",
-    ],
-    color: "accent",
-  },
-  {
-    year: "2024",
-    icon: Award,
-    title: "AWS & Cybersecurity Certifications",
-    subtitle: "AWS & Cisco",
-    description:
-      "Completed AWS Cloud Practitioner Essentials, Intro to Generative AI, and Cisco Cybersecurity certification.",
-    details: [
-      "AWS Cloud Practitioner Essentials",
-      "Introduction to Generative AI",
-      "Cisco Cybersecurity Fundamentals",
-    ],
-    color: "primary",
-  },
-  {
-    year: "2026",
-    icon: Award,
-    title: "Data Science & Analytics Certs",
-    subtitle: "Cisco Networking Academy",
-    description:
-      "Completed Data Analytics Essentials and Introduction to Data Science certifications.",
-    details: [
-      "Data Analytics Essentials",
-      "Introduction to Data Science",
-      "Statistical Analysis & Visualization",
-    ],
-    color: "accent",
-  },
-  {
     year: "2026",
     icon: Award,
     title: "TN-IMPACT 2026 · TANCAM Hackathon",
