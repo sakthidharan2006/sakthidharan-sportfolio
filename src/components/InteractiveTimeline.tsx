@@ -126,9 +126,21 @@ const TimelineNode = ({
             </motion.div>
           </div>
 
-          <p className="relative text-muted-foreground text-xs leading-relaxed mb-3">
-            {milestone.description}
-          </p>
+          {milestone.image ? (
+            <div className="relative mb-3 overflow-hidden rounded-xl border border-primary/20 bg-background/40">
+              <img
+                src={milestone.image}
+                alt={milestone.imageAlt ?? milestone.title}
+                loading="lazy"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          ) : (
+            <p className="relative text-muted-foreground text-xs leading-relaxed mb-3">
+              {milestone.description}
+            </p>
+          )}
+
 
           <AnimatePresence>
             {isActive && (
