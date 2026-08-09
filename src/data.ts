@@ -356,20 +356,6 @@ export const milestones = [
   {
     year: "2026",
     icon: Award,
-    title: "AI & Python Certifications",
-    subtitle: "Cisco & Google",
-    description:
-      "Earned Introduction to Modern AI, Python Essentials 1, and Google Gemini Certified Student qualifications.",
-    details: [
-      "Introduction to Modern AI",
-      "Python Essentials 1",
-      "Google Gemini Certified Student",
-    ],
-    color: "primary",
-  },
-  {
-    year: "2026",
-    icon: Award,
     title: "EmbeddedX · GDG On Campus",
     subtitle: "Google Developer Groups · CVR College of Engineering",
     description:
