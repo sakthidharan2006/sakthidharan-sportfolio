@@ -2,7 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { TiltCard } from "@/components/TiltCard";
 import { experiences } from "@/data";
-const volunteerCard = { url: "/wtl-volunteer-card.png" };
+
 
 
 
