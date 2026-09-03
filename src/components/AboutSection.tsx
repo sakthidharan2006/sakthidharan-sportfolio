@@ -67,8 +67,8 @@ export const AboutSection = () => {
                 <motion.img
                   src={profilePhoto}
                   alt={identity.name}
-                  className="w-full h-full object-cover object-top rounded-full scale-110"
-                  whileHover={{ scale: 1.1 }}
+                  className="w-full h-full object-cover object-center rounded-full"
+                  whileHover={{ scale: 1.08 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
                 />
               </motion.div>
