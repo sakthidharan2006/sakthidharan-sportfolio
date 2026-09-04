@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpeg";
+import profilePhoto from "@/assets/profile-photo-crop.jpeg";
 import { TiltCard } from "@/components/TiltCard";
 import { aboutBio, education, identity } from "@/data";
 
@@ -68,8 +68,8 @@ export const AboutSection = () => {
                   src={profilePhoto}
                   alt={identity.name}
                   className="w-full h-full object-cover rounded-full"
-                  style={{ transform: "scale(1.8)", objectPosition: "78% 38%", transformOrigin: "78% 38%" }}
-                  whileHover={{ scale: 1.9 }}
+                  style={{ objectPosition: "center center" }}
+                  whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
                 />
               </motion.div>
