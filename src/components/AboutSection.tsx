@@ -68,8 +68,8 @@ export const AboutSection = () => {
                   src={profilePhoto}
                   alt={identity.name}
                   className="w-full h-full object-cover rounded-full"
-                  style={{ transform: "scale(1.6)", objectPosition: "68% 30%" }}
-                  whileHover={{ scale: 1.7 }}
+                  style={{ transform: "scale(1.8)", objectPosition: "78% 38%", transformOrigin: "78% 38%" }}
+                  whileHover={{ scale: 1.9 }}
                   transition={{ type: "spring", stiffness: 200, damping: 15 }}
                 />
               </motion.div>
