@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { GraduationCap } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpeg";
+import profilePhoto from "@/assets/profile-photo-crop.jpeg";
 import { TiltCard } from "@/components/TiltCard";
 import { aboutBio, education, identity } from "@/data";
 
