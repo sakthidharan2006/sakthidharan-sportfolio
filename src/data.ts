@@ -163,6 +163,15 @@ export const projects = [
 /* ─────────────────────────  EXPERIENCE  ───────────────────────── */
 export const experiences = [
   {
+    icon: Award,
+    title: "STOXRAHACK 2026 — Finalist",
+    organization: "STOXRA Technology Limited",
+    period: "2026",
+    description:
+      "Advanced as a finalist in STOXRAHACK 2026 hackathon with Team Tekvibe, recognized for innovation and problem-solving in a competitive build environment.",
+    highlights: ["Hackathon Finalist", "Team Tekvibe", "Build · Innovate · Solve · Impact"],
+  },
+  {
     icon: Briefcase,
     title: "Internship",
     organization: "SBA HIGH-TECH Solutions",
