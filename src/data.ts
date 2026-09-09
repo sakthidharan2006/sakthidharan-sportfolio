@@ -164,6 +164,15 @@ export const projects = [
 export const experiences = [
   {
     icon: Award,
+    title: "Smart Horizon 2026 — 48-Hour International Hackathon",
+    organization: "New Horizon College of Engineering, Bengaluru",
+    period: "Sep 2026",
+    description:
+      "Participated in the Smart Horizon 2026: 48-Hour International Hackathon organised by the Department of Computer Science and Engineering and Artificial Intelligence and Machine Learning, held 3rd–5th September 2026.",
+    highlights: ["48-Hour Hackathon", "International Participation", "AI & ML Track"],
+  },
+  {
+    icon: Award,
     title: "STOXRAHACK 2026 — Finalist",
     organization: "STOXRA Technology Limited",
     period: "2026",
