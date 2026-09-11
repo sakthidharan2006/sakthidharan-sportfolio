@@ -10,6 +10,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import truckImage from "@/assets/truck-project.png";
+import stoxrahackCertificate from "@/assets/stoxrahack-certificate.jpg.asset.json";
 
 /* ─────────────────────────  IDENTITY  ───────────────────────── */
 export const identity = {
