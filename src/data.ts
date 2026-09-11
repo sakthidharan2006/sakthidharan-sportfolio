@@ -296,6 +296,34 @@ export const milestones: {
   {
     year: "2026",
     icon: Award,
+    title: "Smart Horizon 2026 — 48-Hour International Hackathon",
+    subtitle: "New Horizon College of Engineering, Bengaluru",
+    description:
+      "Participated in the Smart Horizon 2026: 48-Hour International Hackathon organised by the Department of Computer Science and Engineering and Artificial Intelligence and Machine Learning, held 3rd–5th September 2026.",
+    details: [
+      "48-Hour Hackathon",
+      "International Participation",
+      "AI & ML Track",
+    ],
+    color: "primary",
+  },
+  {
+    year: "2026",
+    icon: Award,
+    title: "STOXRAHACK 2026 — Finalist",
+    subtitle: "STOXRA Technology Limited",
+    description:
+      "Advanced as a finalist in STOXRAHACK 2026 hackathon with Team Tekvibe, recognized for innovation and problem-solving in a competitive build environment.",
+    details: [
+      "Hackathon Finalist",
+      "Team Tekvibe",
+      "Build · Innovate · Solve · Impact",
+    ],
+    color: "accent",
+  },
+  {
+    year: "2026",
+    icon: Award,
     title: "We The Leaders — Volunteer Membership",
     subtitle: "We The Leaders",
     description:
