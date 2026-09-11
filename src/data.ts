@@ -10,7 +10,6 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import truckImage from "@/assets/truck-project.png";
-import stoxrahackCertificate from "@/assets/stoxrahack-certificate.jpg.asset.json";
 
 /* ─────────────────────────  IDENTITY  ───────────────────────── */
 export const identity = {
@@ -315,7 +314,7 @@ export const milestones: {
     subtitle: "STOXRA Technology Limited",
     description:
       "Advanced as a finalist in STOXRAHACK 2026 hackathon with Team Tekvibe, recognized for innovation and problem-solving in a competitive build environment.",
-    image: stoxrahackCertificate.url,
+    image: "/stoxrahack-certificate.jpg",
     imageAlt: "STOXRAHACK 2026 Certificate of Recognition — Finalist, Sakthidharan E, Team Tekvibe",
     details: [
       "Hackathon Finalist",
