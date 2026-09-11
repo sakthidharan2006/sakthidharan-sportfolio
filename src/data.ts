@@ -163,24 +163,6 @@ export const projects = [
 /* ─────────────────────────  EXPERIENCE  ───────────────────────── */
 export const experiences = [
   {
-    icon: Award,
-    title: "Smart Horizon 2026 — 48-Hour International Hackathon",
-    organization: "New Horizon College of Engineering, Bengaluru",
-    period: "Sep 2026",
-    description:
-      "Participated in the Smart Horizon 2026: 48-Hour International Hackathon organised by the Department of Computer Science and Engineering and Artificial Intelligence and Machine Learning, held 3rd–5th September 2026.",
-    highlights: ["48-Hour Hackathon", "International Participation", "AI & ML Track"],
-  },
-  {
-    icon: Award,
-    title: "STOXRAHACK 2026 — Finalist",
-    organization: "STOXRA Technology Limited",
-    period: "2026",
-    description:
-      "Advanced as a finalist in STOXRAHACK 2026 hackathon with Team Tekvibe, recognized for innovation and problem-solving in a competitive build environment.",
-    highlights: ["Hackathon Finalist", "Team Tekvibe", "Build · Innovate · Solve · Impact"],
-  },
-  {
     icon: Briefcase,
     title: "Internship",
     organization: "SBA HIGH-TECH Solutions",
