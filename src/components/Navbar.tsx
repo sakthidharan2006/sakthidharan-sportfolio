@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { navItems } from "@/data";
+import { AnalogClock } from "@/components/AnalogClock";
 
 
 
