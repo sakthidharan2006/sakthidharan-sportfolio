@@ -175,7 +175,7 @@ export const projects = [
     icon: Send,
     github: "https://github.com/sakthidharan2006/osra",
     live: undefined as string | undefined,
-    image: undefined as string | undefined,
+    image: osrImage.url as string,
     featured: true,
   },
 ];
