@@ -151,11 +151,25 @@ export const ProjectsSection = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="relative z-10"
                       >
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full max-w-md rounded-xl shadow-2xl border border-primary/20"
-                        />
+                        {project.image ? (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full max-w-md rounded-xl shadow-2xl border border-primary/20"
+                          />
+                        ) : (
+                          <div className="w-full max-w-md rounded-xl border border-primary/20 bg-card/40 backdrop-blur-md p-8 flex flex-col items-center justify-center gap-4 text-center">
+                            <motion.div
+                              className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/30"
+                              animate={{ y: [0, -4, 0] }}
+                              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            >
+                              <project.icon className="w-10 h-10 text-primary" />
+                            </motion.div>
+                            <span className="font-mono text-xs uppercase tracking-widest text-primary">// osr-analyzer.ui</span>
+                            <p className="text-muted-foreground text-sm">Live preview coming soon</p>
+                          </div>
+                        )}
                       </motion.div>
                     </div>
                   </div>
