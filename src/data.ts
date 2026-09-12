@@ -10,6 +10,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import truckImage from "@/assets/truck-project.png";
+import osrImage from "@/assets/osr-analyzer.png.asset.json";
 
 /* ─────────────────────────  IDENTITY  ───────────────────────── */
 export const identity = {
@@ -174,7 +175,7 @@ export const projects = [
     icon: Send,
     github: "https://github.com/sakthidharan2006/osra",
     live: undefined as string | undefined,
-    image: undefined as string | undefined,
+    image: osrImage.url as string,
     featured: true,
   },
 ];
