@@ -158,6 +158,25 @@ export const projects = [
     image: truckImage,
     featured: true,
   },
+  {
+    title: "AI Powered OSR Analyzer",
+    description:
+      "An AI-assisted Online Service Request Platform that automates request classification, department identification, and workload-based agent assignment. Built with React, Node.js, Express.js, MongoDB, and Socket.IO, featuring role-based access, real-time notifications, request tracking, analytics, and NLP-based classification.",
+    features: [
+      "NLP-based request classification",
+      "Automated department identification",
+      "Workload-based agent assignment",
+      "Role-based access control",
+      "Real-time notifications (Socket.IO)",
+      "Request tracking & analytics",
+    ],
+    tech: ["React", "Node.js", "Express.js", "MongoDB", "Socket.IO"],
+    icon: Send,
+    github: "https://github.com/sakthidharan2006/osra",
+    live: undefined as string | undefined,
+    image: undefined as string | undefined,
+    featured: true,
+  },
 ];
 
 /* ─────────────────────────  EXPERIENCE  ───────────────────────── */

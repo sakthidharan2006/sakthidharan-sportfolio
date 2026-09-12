@@ -53,7 +53,7 @@ export const ProjectsSection = () => {
                         <span className="w-2 h-2 rounded-full bg-accent/60" />
                         <span className="w-2 h-2 rounded-full bg-primary/60" />
                       </div>
-                      <span className="font-mono text-[10px] text-muted-foreground/70 ml-2 tracking-wider">~/projects/smartfleet-ai</span>
+                      <span className="font-mono text-[10px] text-muted-foreground/70 ml-2 tracking-wider">~/projects/{project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <motion.span
