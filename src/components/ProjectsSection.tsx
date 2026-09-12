@@ -53,7 +53,7 @@ export const ProjectsSection = () => {
                         <span className="w-2 h-2 rounded-full bg-accent/60" />
                         <span className="w-2 h-2 rounded-full bg-primary/60" />
                       </div>
-                      <span className="font-mono text-[10px] text-muted-foreground/70 ml-2 tracking-wider">~/projects/smartfleet-ai</span>
+                      <span className="font-mono text-[10px] text-muted-foreground/70 ml-2 tracking-wider">~/projects/{project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")}</span>
                     </div>
                     <div className="flex items-center gap-1.5">
                       <motion.span
@@ -151,11 +151,25 @@ export const ProjectsSection = () => {
                         transition={{ duration: 0.5, delay: 0.4 }}
                         className="relative z-10"
                       >
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className="w-full max-w-md rounded-xl shadow-2xl border border-primary/20"
-                        />
+                        {project.image ? (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full max-w-md rounded-xl shadow-2xl border border-primary/20"
+                          />
+                        ) : (
+                          <div className="w-full max-w-md rounded-xl border border-primary/20 bg-card/40 backdrop-blur-md p-8 flex flex-col items-center justify-center gap-4 text-center">
+                            <motion.div
+                              className="p-4 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/10 border border-primary/30"
+                              animate={{ y: [0, -4, 0] }}
+                              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                            >
+                              <project.icon className="w-10 h-10 text-primary" />
+                            </motion.div>
+                            <span className="font-mono text-xs uppercase tracking-widest text-primary">// osr-analyzer.ui</span>
+                            <p className="text-muted-foreground text-sm">Live preview coming soon</p>
+                          </div>
+                        )}
                       </motion.div>
                     </div>
                   </div>
