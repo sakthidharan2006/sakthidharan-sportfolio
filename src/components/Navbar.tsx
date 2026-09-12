@@ -94,6 +94,7 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-1 relative">
+            <span className="mr-2"><AnalogClock /></span>
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
