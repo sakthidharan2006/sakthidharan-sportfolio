@@ -400,6 +400,8 @@ export const milestones: {
     subtitle: "Google Developer Groups · CVR College of Engineering",
     description:
       "Participated in EmbeddedX event organized by Google Developer Groups On Campus, exploring embedded systems and developer collaboration.",
+    image: "/embeddedx-certificate.jpg",
+    imageAlt: "EmbeddedX Certificate of Participation — GDG On Campus, CVR College of Engineering, 31 March 2026",
     details: [
       "Embedded Systems",
       "GDG On Campus Event",
