@@ -178,6 +178,24 @@ export const projects = [
     image: "/osr-analyzer.png",
     featured: true,
   },
+  {
+    title: "Tourist Guide License Application, Renewal, Compliance Tracking & Management Portal",
+    description:
+      "A full-stack web platform that digitizes tourist guide license applications, renewals, compliance tracking, and application status monitoring. Built with Next.js, React, Tailwind CSS, Node.js, Express.js, and MongoDB, with REST API integration and authentication.",
+    features: [
+      "License application & renewal workflow",
+      "Compliance tracking & monitoring",
+      "Application status tracking",
+      "REST API integration",
+      "Authentication & role-based access",
+    ],
+    tech: ["Next.js", "React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB"],
+    icon: MapPin,
+    github: "https://github.com/sakthidharan2006/tourism-guide-management.git",
+    live: undefined as string | undefined,
+    image: undefined as string | undefined,
+    featured: true,
+  },
 ];
 
 /* ─────────────────────────  EXPERIENCE  ───────────────────────── */
