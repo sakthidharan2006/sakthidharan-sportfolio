@@ -193,7 +193,7 @@ export const projects = [
     icon: MapPin,
     github: "https://github.com/sakthidharan2006/tourism-guide-management.git",
     live: undefined as string | undefined,
-    image: undefined as string | undefined,
+    image: "/tourism-guide-portal.png",
     featured: true,
   },
 ];
